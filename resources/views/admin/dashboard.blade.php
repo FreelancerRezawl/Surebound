@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Surebound Insurance – Enterprise Agent & Admin Management Portal">
+    <title>Surebound – Admin Portal & Agency Management</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('images/icon.png') }}">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Lora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Admin Portal Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+</head>
+<body>
+
+    <div class="admin-wrapper">
+        <!-- ================================================================
+             SIDEBAR NAVIGATION
+             ================================================================ -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <div class="brand-icon-wrap">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+                        </svg>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-title">Surebound</span>
+                        <span class="brand-subtitle">Agency Portal</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Core Management</div>
+                
+                <a class="sidebar-link active" data-tab="overview">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"/>
+                    </svg>
+                    <span>Overview</span>
+                </a>
+
+                <a class="sidebar-link" data-tab="quotes">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"/>
+                    </svg>
+                    <span>Quote Requests</span>
+                    <span class="nav-badge" id="quotesCountBadge">7</span>
+                </a>
+
+                <a class="sidebar-link" data-tab="policies">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+                    </svg>
+                    <span>Active Policies</span>
+                </a>
+
+                <a class="sidebar-link" data-tab="claims">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/>
+                    </svg>
+                    <span>Claims Center</span>
+                    <span class="nav-badge urgent">3</span>
+                </a>
+
+                <div class="nav-section-title">Administration</div>
+
+                <a class="sidebar-link" data-tab="agents">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/>
+                    </svg>
+                    <span>Agents & Brokers</span>
+                </a>
+
+                <a class="sidebar-link" data-tab="settings">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                    </svg>
+                    <span>Agency Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="agent-profile-card">
+                    <div class="agent-avatar">SJ</div>
+                    <div class="agent-info">
+                        <div class="agent-name">Sarah Jenkins</div>
+                        <div class="agent-role">Principal Underwriter</div>
+                    </div>
+                </div>
+
+                <a href="/" class="website-back-btn">
+                    <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/>
+                    </svg>
+                    <span>Return to Website</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ================================================================
+             MAIN CONTENT WRAPPER
+             ================================================================ -->
+        <main class="admin-main">
+            <!-- Header Bar -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle Sidebar">
+                        <svg style="width: 22px; height: 22px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+                        </svg>
+                    </button>
+                    <div class="breadcrumb">
+                        <span class="breadcrumb-root">Surebound Portal</span>
+                        <span class="breadcrumb-sep">/</span>
+                        <span class="breadcrumb-current" id="breadcrumbCurrent">Overview</span>
+                    </div>
+                </div>
+
+                <div class="header-center">
+                    <div class="search-box">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+                        </svg>
+                        <input type="text" class="search-input" id="globalSearchInput" placeholder="Quick search quotes, policies, clients...">
+                        <span class="search-kbd">⌘K</span>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="header-action-btn" title="Notifications" onclick="alert('Notification Center: 3 new quote leads received today.')">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"/>
+                        </svg>
+                        <span class="badge-pulse"></span>
+                    </button>
+
+                    <button class="btn-primary-action" onclick="openNewQuoteModal()">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/>
+                        </svg>
+                        <span>New Quote</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Admin Body / Tab Content -->
+            <div class="admin-body">
+                
+                <!-- ========================================================
+                     TAB 1: OVERVIEW DASHBOARD
+                     ======================================================== -->
+                <div class="tab-pane active" id="tab-overview">
+                    <div class="view-header">
+                        <div class="view-title-group">
+                            <h1>Executive Dashboard</h1>
+                            <p>Real-time performance metrics, portfolio revenue, and underwriting pipeline.</p>
+                        </div>
+                        <div class="view-actions">
+                            <button class="btn-secondary" onclick="exportQuotesCSV()">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                                </svg>
+                                <span>Export Report</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- KPI Cards -->
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-label">Monthly Premium Volume</span>
+                                <div class="metric-icon-wrap emerald">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">$284,520</div>
+                            <div class="metric-bottom">
+                                <span class="metric-trend up">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"/></svg>
+                                    +14.8%
+                                </span>
+                                <span class="metric-context">vs. last month</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-label">Active Policies</span>
+                                <div class="metric-icon-wrap blue">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">1,280</div>
+                            <div class="metric-bottom">
+                                <span class="metric-trend up">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"/></svg>
+                                    +8.2%
+                                </span>
+                                <span class="metric-context">net policy growth</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-label">Pending Quotes</span>
+                                <div class="metric-icon-wrap amber">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value" id="kpiPendingQuotes">7</div>
+                            <div class="metric-bottom">
+                                <span class="metric-trend up" style="background: #fffbeb; color: #b45309;">
+                                    3 Urgent
+                                </span>
+                                <span class="metric-context">awaiting underwriter</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-label">Claims Resolution</span>
+                                <div class="metric-icon-wrap purple">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">94.6%</div>
+                            <div class="metric-bottom">
+                                <span class="metric-trend up">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"/></svg>
+                                    Avg 2.8 Days
+                                </span>
+                                <span class="metric-context">fast-track settlement</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Visualizers -->
+                    <div class="dashboard-grid-two">
+                        <!-- Revenue Bar Chart -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">2026 Production Trajectory</div>
+                                    <div class="card-subtitle">Monthly bound premiums ($ in thousands)</div>
+                                </div>
+                                <span style="font-size: 0.75rem; font-weight: 700; color: var(--sb-emerald-600); background: #ecfdf5; padding: 4px 8px; border-radius: var(--radius-sm);">+28.4% YTD</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="revenue-chart-container">
+                                    <div class="chart-bar-group">
+                                        <div class="chart-bar-track"><div class="chart-bar-fill" style="height: 48%;" data-tooltip="$162k"></div></div>
+                                        <span class="chart-label">May</span>
+                                    </div>
+                                    <div class="chart-bar-group">
+                                        <div class="chart-bar-track"><div class="chart-bar-fill" style="height: 56%;" data-tooltip="$188k"></div></div>
+                                        <span class="chart-label">Jun</span>
+                                    </div>
+                                    <div class="chart-bar-group">
+                                        <div class="chart-bar-track"><div class="chart-bar-fill" style="height: 64%;" data-tooltip="$215k"></div></div>
+                                        <span class="chart-label">Jul</span>
+                                    </div>
+                                    <div class="chart-bar-group">
+                                        <div class="chart-bar-track"><div class="chart-bar-fill" style="height: 72%;" data-tooltip="$238k"></div></div>
+                                        <span class="chart-label">Aug</span>
+                                    </div>
+                                    <div class="chart-bar-group">
+                                        <div class="chart-bar-track"><div class="chart-bar-fill" style="height: 82%;" data-tooltip="$260k"></div></div>
+                                        <span class="chart-label">Sep</span>
+                                    </div>
+                                    <div class="chart-bar-group">
+                                        <div class="chart-bar-track"><div class="chart-bar-fill accent" style="height: 92%;" data-tooltip="$284k"></div></div>
+                                        <span class="chart-label">Oct</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Policy Line Distribution -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">Portfolio Distribution</div>
+                                    <div class="card-subtitle">Active lines of insurance</div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="dist-list">
+                                    <div class="dist-item">
+                                        <div class="dist-info">
+                                            <span class="dist-category"><span class="dist-dot" style="background: var(--sb-emerald-500);"></span> Homeowners</span>
+                                            <span class="dist-val">42% ($119k)</span>
+                                        </div>
+                                        <div class="dist-bar-track"><div class="dist-bar-fill" style="width: 42%; background: var(--sb-emerald-500);"></div></div>
+                                    </div>
+                                    <div class="dist-item">
+                                        <div class="dist-info">
+                                            <span class="dist-category"><span class="dist-dot" style="background: var(--sb-blue-500);"></span> Auto Coverage</span>
+                                            <span class="dist-val">31% ($88k)</span>
+                                        </div>
+                                        <div class="dist-bar-track"><div class="dist-bar-fill" style="width: 31%; background: var(--sb-blue-500);"></div></div>
+                                    </div>
+                                    <div class="dist-item">
+                                        <div class="dist-info">
+                                            <span class="dist-category"><span class="dist-dot" style="background: var(--sb-amber-500);"></span> Life & Health</span>
+                                            <span class="dist-val">16% ($45k)</span>
+                                        </div>
+                                        <div class="dist-bar-track"><div class="dist-bar-fill" style="width: 16%; background: var(--sb-amber-500);"></div></div>
+                                    </div>
+                                    <div class="dist-item">
+                                        <div class="dist-info">
+                                            <span class="dist-category"><span class="dist-dot" style="background: var(--sb-purple-500);"></span> Commercial BOP</span>
+                                            <span class="dist-val">11% ($31k)</span>
+                                        </div>
+                                        <div class="dist-bar-track"><div class="dist-bar-fill" style="width: 11%; background: var(--sb-purple-500);"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     TAB 2: QUOTES & LEADS MANAGEMENT
+                     ======================================================== -->
+                <div class="tab-pane" id="tab-quotes">
+                    <div class="view-header">
+                        <div class="view-title-group">
+                            <h1>Quote Inquiries & Leads</h1>
+                            <p>Manage incoming consumer submissions, adjust underwriting status, and bind coverage.</p>
+                        </div>
+                        <div class="view-actions">
+                            <button class="btn-secondary" onclick="exportQuotesCSV()">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                                </svg>
+                                <span>Export CSV</span>
+                            </button>
+                            <button class="btn-primary-action" onclick="openNewQuoteModal()">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/>
+                                </svg>
+                                <span>Add Quote Lead</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Filter & Search Toolbar -->
+                    <div class="card">
+                        <div class="table-filter-bar">
+                            <div class="filter-tabs">
+                                <button class="filter-tab-btn active" data-filter="all">All Leads</button>
+                                <button class="filter-tab-btn" data-filter="new">New</button>
+                                <button class="filter-tab-btn" data-filter="reviewing">Reviewing</button>
+                                <button class="filter-tab-btn" data-filter="quoted">Quoted</button>
+                                <button class="filter-tab-btn" data-filter="converted">Converted</button>
+                                <button class="filter-tab-btn" data-filter="declined">Declined</button>
+                            </div>
+                            
+                            <div class="table-search-box">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+                                </svg>
+                                <input type="text" class="table-search-input" id="quotesTableSearch" placeholder="Filter by name, email, or zip...">
+                            </div>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Applicant</th>
+                                        <th>Insurance Line</th>
+                                        <th>Coverage / Est. Premium</th>
+                                        <th>Location</th>
+                                        <th>Submitted</th>
+                                        <th>Underwriting Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="quotesTableBody">
+                                    <!-- Rendered dynamically via admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     TAB 3: ACTIVE POLICIES
+                     ======================================================== -->
+                <div class="tab-pane" id="tab-policies">
+                    <div class="view-header">
+                        <div class="view-title-group">
+                            <h1>Active Bound Policies</h1>
+                            <p>Repository of active coverage certificates, premium payment schedules, and renewal tracking.</p>
+                        </div>
+                        <div class="view-actions">
+                            <button class="btn-secondary" onclick="alert('Policy document synchronization initiated.')">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/>
+                                </svg>
+                                <span>Sync Carrier Data</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Policy Number</th>
+                                        <th>Insured Holder</th>
+                                        <th>Policy Type</th>
+                                        <th>Coverage Limit</th>
+                                        <th>Annual Premium</th>
+                                        <th>Next Renewal</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="policiesTableBody">
+                                    <!-- Rendered via admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     TAB 4: CLAIMS CENTER
+                     ======================================================== -->
+                <div class="tab-pane" id="tab-claims">
+                    <div class="view-header">
+                        <div class="view-title-group">
+                            <h1>Claims Center</h1>
+                            <p>First notice of loss (FNOL), adjuster assignments, and settlement progress.</p>
+                        </div>
+                        <div class="view-actions">
+                            <button class="btn-primary-action" onclick="alert('First Notice of Loss (FNOL) form launched.')">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/>
+                                </svg>
+                                <span>File New Claim</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Claim ID</th>
+                                        <th>Claimant & Policy</th>
+                                        <th>Incident Details</th>
+                                        <th>Estimated Loss</th>
+                                        <th>Assigned Adjuster</th>
+                                        <th>Claim Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="claimsTableBody">
+                                    <!-- Rendered via admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     TAB 5: AGENTS & BROKERS
+                     ======================================================== -->
+                <div class="tab-pane" id="tab-agents">
+                    <div class="view-header">
+                        <div class="view-title-group">
+                            <h1>Broker & Agent Network</h1>
+                            <p>Licensed underwriters and independent broker performance benchmarks.</p>
+                        </div>
+                    </div>
+
+                    <div class="agents-grid">
+                        <div class="agent-card">
+                            <div class="agent-photo">SJ</div>
+                            <div class="agent-card-name">Sarah Jenkins</div>
+                            <div class="agent-card-role">Principal Underwriter (WA, OR)</div>
+                            <div class="agent-stats">
+                                <div class="agent-stat-item">
+                                    <span class="agent-stat-value">64</span>
+                                    <span class="agent-stat-label">Active Policies</span>
+                                </div>
+                                <div class="agent-stat-item">
+                                    <span class="agent-stat-value">$2.4M</span>
+                                    <span class="agent-stat-label">Written Volume</span>
+                                </div>
+                            </div>
+                            <button class="agent-contact-btn" onclick="alert('Email draft opened for sarah.j@surebound.com')">
+                                Contact Underwriter
+                            </button>
+                        </div>
+
+                        <div class="agent-card">
+                            <div class="agent-photo" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">DM</div>
+                            <div class="agent-card-name">David Miller</div>
+                            <div class="agent-card-role">Commercial Lines Broker</div>
+                            <div class="agent-stats">
+                                <div class="agent-stat-item">
+                                    <span class="agent-stat-value">42</span>
+                                    <span class="agent-stat-label">Active Policies</span>
+                                </div>
+                                <div class="agent-stat-item">
+                                    <span class="agent-stat-value">$3.8M</span>
+                                    <span class="agent-stat-label">Written Volume</span>
+                                </div>
+                            </div>
+                            <button class="agent-contact-btn" onclick="alert('Email draft opened for dmiller@surebound.com')">
+                                Contact Underwriter
+                            </button>
+                        </div>
+
+                        <div class="agent-card">
+                            <div class="agent-photo" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);">AV</div>
+                            <div class="agent-card-name">Alex Vance</div>
+                            <div class="agent-card-role">Personal Lines & Auto Advisor</div>
+                            <div class="agent-stats">
+                                <div class="agent-stat-item">
+                                    <span class="agent-stat-value">88</span>
+                                    <span class="agent-stat-label">Active Policies</span>
+                                </div>
+                                <div class="agent-stat-item">
+                                    <span class="agent-stat-value">$1.9M</span>
+                                    <span class="agent-stat-label">Written Volume</span>
+                                </div>
+                            </div>
+                            <button class="agent-contact-btn" onclick="alert('Email draft opened for avance@surebound.com')">
+                                Contact Underwriter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     TAB 6: SETTINGS
+                     ======================================================== -->
+                <div class="tab-pane" id="tab-settings">
+                    <div class="view-header">
+                        <div class="view-title-group">
+                            <h1>Agency Profile & Preferences</h1>
+                            <p>Configure automated notification rules, carrier API hooks, and portal security.</p>
+                        </div>
+                    </div>
+
+                    <div class="card" style="max-width: 720px;">
+                        <div class="card-header">
+                            <div class="card-title">Agency Registration</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Agency Legal Name</label>
+                                    <input type="text" class="form-input" value="Surebound Insurance Services LLC" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">NPN / State License #</label>
+                                    <input type="text" class="form-input" value="WA-INS-984210" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Underwriting Inbox</label>
+                                    <input type="email" class="form-input" value="underwriting@surebound.com">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Agency Phone</label>
+                                    <input type="text" class="form-input" value="(800) 555-0199">
+                                </div>
+                                <div class="form-group full">
+                                    <label class="form-label">Lead Routing Rules</label>
+                                    <select class="form-select">
+                                        <option selected>Round-robin assignment by line of business</option>
+                                        <option>Direct assignment to Senior Underwriter</option>
+                                        <option>Geographic ZIP code matching</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="margin-top: 24px;">
+                                <button class="btn-primary-action" onclick="alert('Agency settings saved successfully!')">
+                                    Save Agency Settings
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- ====================================================================
+         MODAL 1: NEW QUOTE REQUEST
+         ==================================================================== -->
+    <div class="modal-overlay" id="quoteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Create New Quote Lead</div>
+                <button class="modal-close" onclick="closeModal('quoteModal')">
+                    <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <form id="newQuoteForm">
+                <div class="modal-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Applicant Full Name *</label>
+                            <input type="text" name="name" class="form-input" required placeholder="e.g. Thomas Edison">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" name="email" class="form-input" required placeholder="e.g. thomas@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" name="phone" class="form-input" placeholder="(555) 000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Postal ZIP Code</label>
+                            <input type="text" name="zip" class="form-input" placeholder="e.g. 98101">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Insurance Line *</label>
+                            <select name="type" class="form-select" required>
+                                <option value="home">Homeowners / Property</option>
+                                <option value="auto">Auto / Vehicle</option>
+                                <option value="life">Life & Health</option>
+                                <option value="business">Commercial / Business BOP</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Desired Coverage Tier</label>
+                            <input type="text" name="coverage" class="form-input" placeholder="e.g. $500,000 Comprehensive">
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label">Underwriter Notes & Risk Profile</label>
+                            <textarea name="notes" class="form-textarea" placeholder="Provide property details, vehicle VIN or history, prior carrier, etc."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="closeModal('quoteModal')">Cancel</button>
+                    <button type="submit" class="btn-primary-action">Submit & Record Lead</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         MODAL 2: QUOTE DETAILS MODAL
+         ==================================================================== -->
+    <div class="modal-overlay" id="quoteDetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Quote Request Dossier</div>
+                <button class="modal-close" onclick="closeModal('quoteDetailModal')">
+                    <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="quoteDetailBody">
+                <!-- Rendered dynamically via openQuoteDetailModal in admin.js -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeModal('quoteDetailModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Portal Script -->
+    <script src="{{ asset('js/admin.js') }}"></script>
+</body>
+</html>
