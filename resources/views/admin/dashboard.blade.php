@@ -89,14 +89,32 @@
                 </a>
             </nav>
 
-            <div class="sidebar-footer">
                 <div class="agent-profile-card">
-                    <div class="agent-avatar">SJ</div>
+                    <div class="agent-avatar">{{ Auth::check() ? strtoupper(substr(Auth::user()->name, 0, 2)) : 'SJ' }}</div>
                     <div class="agent-info">
-                        <div class="agent-name">Sarah Jenkins</div>
-                        <div class="agent-role">Principal Underwriter</div>
+                        <div class="agent-name">{{ Auth::check() ? Auth::user()->name : 'Sarah Jenkins' }}</div>
+                        <div class="agent-role">{{ Auth::check() ? (Auth::user()->title ?: 'Licensed Agent') : 'Principal Underwriter' }}</div>
                     </div>
                 </div>
+
+                @auth
+                <form action="{{ route('logout') }}" method="POST" style="margin-top: 8px;">
+                    @csrf
+                    <button type="submit" class="website-back-btn" style="width: 100%; border: none; cursor: pointer; background: rgba(244, 63, 94, 0.15); color: #fda4af;">
+                        <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"/>
+                        </svg>
+                        <span>Sign Out</span>
+                    </button>
+                </form>
+                @else
+                <a href="{{ route('login') }}" class="website-back-btn" style="margin-top: 8px; background: rgba(16, 185, 129, 0.15); color: #6ee7b7;">
+                    <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                    <span>Agent Login</span>
+                </a>
+                @endauth
 
                 <a href="/" class="website-back-btn">
                     <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -205,7 +223,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <div class="metric-value">1,280</div>
+                            <div class="metric-value">{{ $activePoliciesCount ?? 5 }}</div>
                             <div class="metric-bottom">
                                 <span class="metric-trend up">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"/></svg>
@@ -224,10 +242,10 @@
                                     </svg>
                                 </div>
                             </div>
-                            <div class="metric-value" id="kpiPendingQuotes">7</div>
+                            <div class="metric-value" id="kpiPendingQuotes">{{ $pendingQuotesCount ?? 7 }}</div>
                             <div class="metric-bottom">
                                 <span class="metric-trend up" style="background: #fffbeb; color: #b45309;">
-                                    3 Urgent
+                                    {{ $urgentQuotesCount ?? 3 }} Urgent
                                 </span>
                                 <span class="metric-context">awaiting underwriter</span>
                             </div>
@@ -242,7 +260,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <div class="metric-value">94.6%</div>
+                            <div class="metric-value">{{ $claimsResolutionRate ?? 94.6 }}%</div>
                             <div class="metric-bottom">
                                 <span class="metric-trend up">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"/></svg>
@@ -692,6 +710,15 @@
             </div>
         </div>
     </div>
+
+    <!-- Injected Data from MySQL Controller -->
+    <script>
+        window.__SUREBOUND_DB_QUOTES__ = @json($quotes ?? []);
+        window.__SUREBOUND_DB_POLICIES__ = @json($policies ?? []);
+        window.__SUREBOUND_DB_CLAIMS__ = @json($claims ?? []);
+        window.__SUREBOUND_DB_AGENTS__ = @json($agents ?? []);
+        window.__CSRF_TOKEN__ = "{{ csrf_token() }}";
+    </script>
 
     <!-- Admin Portal Script -->
     <script src="{{ asset('js/admin.js') }}"></script>

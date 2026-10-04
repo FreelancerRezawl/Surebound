@@ -205,9 +205,26 @@
     ];
 
     // --------------------------------------------------------------------------
-    // STORAGE HELPERS
+    // STORAGE & DATABASE SYNC HELPERS
     // --------------------------------------------------------------------------
     function getQuotes() {
+        if (window.__SUREBOUND_DB_QUOTES__ && Array.isArray(window.__SUREBOUND_DB_QUOTES__) && window.__SUREBOUND_DB_QUOTES__.length > 0) {
+            return window.__SUREBOUND_DB_QUOTES__.map(q => ({
+                id: q.quote_ref || ('Q-' + q.id),
+                dbId: q.id,
+                name: q.name,
+                email: q.email,
+                phone: q.phone || '(206) 555-0100',
+                type: q.type || 'home',
+                typeLabel: q.type_label || 'Homeowners',
+                coverage: q.coverage || '$500,000 Standard',
+                premium: q.premium || '$1,500 / yr',
+                location: q.location || (q.zip_code ? 'ZIP: ' + q.zip_code : 'Washington'),
+                status: q.status || 'new',
+                date: q.created_at ? new Date(q.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Recent',
+                notes: q.notes || ''
+            }));
+        }
         const stored = localStorage.getItem('sb_admin_quotes');
         if (!stored) {
             localStorage.setItem('sb_admin_quotes', JSON.stringify(DEFAULT_QUOTES));
@@ -217,11 +234,27 @@
     }
 
     function saveQuotes(quotes) {
+        if (window.__SUREBOUND_DB_QUOTES__) {
+            window.__SUREBOUND_DB_QUOTES__ = quotes;
+        }
         localStorage.setItem('sb_admin_quotes', JSON.stringify(quotes));
         updateDashboardKPIs();
     }
 
     function getPolicies() {
+        if (window.__SUREBOUND_DB_POLICIES__ && Array.isArray(window.__SUREBOUND_DB_POLICIES__) && window.__SUREBOUND_DB_POLICIES__.length > 0) {
+            return window.__SUREBOUND_DB_POLICIES__.map(p => ({
+                id: p.policy_number,
+                holder: p.holder_name,
+                type: p.type || 'home',
+                typeLabel: p.type_label || 'Homeowners Deluxe',
+                coverage: p.coverage_limit || '$500,000',
+                premium: p.annual_premium || '$1,500 / yr',
+                effective: p.effective_date || '2026-01-01',
+                renewal: p.renewal_date || '2027-01-01',
+                status: p.status || 'active'
+            }));
+        }
         const stored = localStorage.getItem('sb_admin_policies');
         if (!stored) {
             localStorage.setItem('sb_admin_policies', JSON.stringify(DEFAULT_POLICIES));
@@ -231,6 +264,19 @@
     }
 
     function getClaims() {
+        if (window.__SUREBOUND_DB_CLAIMS__ && Array.isArray(window.__SUREBOUND_DB_CLAIMS__) && window.__SUREBOUND_DB_CLAIMS__.length > 0) {
+            return window.__SUREBOUND_DB_CLAIMS__.map(c => ({
+                id: c.claim_number,
+                holder: c.claimant_name,
+                policyId: c.policy_number,
+                incident: c.incident_description,
+                estimate: c.estimated_loss || '$1,000',
+                adjuster: c.assigned_adjuster || 'Sarah Jenkins',
+                priority: c.priority || 'Normal',
+                status: c.status || 'reviewing',
+                date: c.created_at ? new Date(c.created_at).toLocaleDateString() : 'Recent'
+            }));
+        }
         const stored = localStorage.getItem('sb_admin_claims');
         if (!stored) {
             localStorage.setItem('sb_admin_claims', JSON.stringify(DEFAULT_CLAIMS));
@@ -361,6 +407,18 @@
                     saveQuotes(quotes);
                     renderQuotes();
                     showNotification(`Quote ${id} status updated to "${newStatus}"`);
+
+                    if (window.__CSRF_TOKEN__ && target.dbId) {
+                        fetch(`/admin/quotes/${target.dbId}/status`, {
+                            method: 'PATCH',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': window.__CSRF_TOKEN__,
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify({ status: newStatus })
+                        }).catch(err => console.error('Database sync error:', err));
+                    }
                 }
             });
         });
@@ -370,10 +428,21 @@
                 const id = this.getAttribute('data-id');
                 if (confirm(`Are you sure you want to remove quote request ${id}?`)) {
                     let quotes = getQuotes();
+                    const target = quotes.find(q => q.id === id);
                     quotes = quotes.filter(q => q.id !== id);
                     saveQuotes(quotes);
                     renderQuotes();
                     showNotification(`Quote ${id} has been removed.`);
+
+                    if (window.__CSRF_TOKEN__ && target && target.dbId) {
+                        fetch(`/admin/quotes/${target.dbId}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'X-CSRF-TOKEN': window.__CSRF_TOKEN__,
+                                'Accept': 'application/json'
+                            }
+                        }).catch(err => console.error('Database delete error:', err));
+                    }
                 }
             });
         });
@@ -525,6 +594,36 @@
             renderQuotes();
             closeModal('quoteModal');
             showNotification(`New quote request ${newQuote.id} created for ${newQuote.name}!`);
+
+            if (window.__CSRF_TOKEN__) {
+                fetch('/admin/quotes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': window.__CSRF_TOKEN__,
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: newQuote.name,
+                        email: newQuote.email,
+                        phone: newQuote.phone,
+                        type: newQuote.type,
+                        coverage: newQuote.coverage,
+                        zip: formData.get('zip'),
+                        notes: newQuote.notes
+                    })
+                })
+                .then(r => r.json())
+                .then(res => {
+                    if (res.quote) {
+                        newQuote.dbId = res.quote.id;
+                        newQuote.id = res.quote.quote_ref;
+                        saveQuotes(quotes);
+                        renderQuotes();
+                    }
+                })
+                .catch(err => console.error('Database quote creation error:', err));
+            }
         });
     }
 

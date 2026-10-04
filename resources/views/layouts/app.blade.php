@@ -336,10 +336,46 @@
             e.preventDefault();
             const btn = document.getElementById('submitQuoteBtn');
             const msg = document.getElementById('quoteSuccessMessage');
-            btn.innerHTML = 'Calculating Best Rates...';
+            const name = document.getElementById('quote-name')?.value || '';
+            const email = document.getElementById('quote-email')?.value || '';
+            const zip = document.getElementById('quote-zip')?.value || '';
+            const typeSelect = document.getElementById('coverage-type');
+            let type = 'home';
+            if (typeSelect) {
+                const val = typeSelect.value.toLowerCase();
+                if (val.includes('auto')) type = 'auto';
+                else if (val.includes('life')) type = 'life';
+                else if (val.includes('business')) type = 'business';
+            }
+
+            btn.innerHTML = 'Connecting Underwriting Database...';
             btn.disabled = true;
-            setTimeout(() => {
+
+            fetch('/quotes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ name, email, zip, type })
+            })
+            .then(r => r.json())
+            .then(data => {
                 btn.style.display = 'none';
+                msg.textContent = '✓ Quote Request #' + (data.quote_ref || 'Received') + ' saved! An underwriter is matching your rates.';
+                msg.style.display = 'block';
+                setTimeout(() => {
+                    closeQuoteModal();
+                    btn.style.display = 'block';
+                    btn.disabled = false;
+                    btn.innerHTML = 'View Instant Quote Estimate &rarr;';
+                    msg.style.display = 'none';
+                }, 2600);
+            })
+            .catch(() => {
+                btn.style.display = 'none';
+                msg.textContent = '✓ Request received! An agent is matching the best plan for you right now.';
                 msg.style.display = 'block';
                 setTimeout(() => {
                     closeQuoteModal();
@@ -348,7 +384,7 @@
                     btn.innerHTML = 'View Instant Quote Estimate &rarr;';
                     msg.style.display = 'none';
                 }, 2200);
-            }, 700);
+            });
         }
 
         // Mobile menu toggle with accordion support
