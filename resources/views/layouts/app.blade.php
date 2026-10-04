@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Surebound Insurance – Reliable protection for your home, auto, business and future with dependable support whenever you need us.">
+    <title>@yield('title', 'Surebound – Protection Built Around You')</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('images/icon.png') }}">
+    
+    <!-- Google Fonts: Lora (Serif) & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('css/surebound.css') }}">
+    @yield('head')
+</head>
+<body>
+
+    <!-- ==========================================
+         TOP UTILITY BAR
+         ========================================== -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-links">
+                <a href="#claims" class="top-bar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    <span>Claims</span>
+                </a>
+                <span class="top-bar-divider"></span>
+                <a href="#payment" class="top-bar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-6-8.25h19.5a1.5 1.5 0 0 1 1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5V10.5a1.5 1.5 0 0 1 1.5-1.5Z" />
+                    </svg>
+                    <span>Make a Payment</span>
+                </a>
+                <span class="top-bar-divider"></span>
+                <a href="#agent-login" class="top-bar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                    <span>Agent Login</span>
+                </a>
+                <span class="top-bar-divider"></span>
+                <a href="#contact" class="top-bar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                    </svg>
+                    <span>Contact</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MAIN HEADER
+         ========================================== -->
+    <header class="site-header" id="site-header">
+        <div class="container">
+            <a href="{{ url('/') }}" class="brand-logo-link">
+                <img src="{{ asset('images/logo.png') }}" alt="Surebound" class="brand-logo-img">
+            </a>
+
+            <nav class="main-nav" id="main-nav">
+                <!-- Personal -->
+                <div class="nav-dropdown">
+                    <a href="#personal" class="nav-link">
+                        Personal
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-flyout">
+                        <a href="#home-insurance">Home Insurance</a>
+                        <a href="#auto-insurance">Auto Insurance</a>
+                        <a href="#personal-coverage">Personal Coverage</a>
+                        <a href="#specialty-coverage">Specialty Coverage</a>
+                    </div>
+                </div>
+
+                <!-- Business -->
+                <div class="nav-dropdown">
+                    <a href="#business" class="nav-link">
+                        Business
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-flyout">
+                        <a href="#business-insurance">Business Insurance</a>
+                        <a href="#property-insurance">Property Insurance</a>
+                        <a href="#liability-insurance">Commercial Liability</a>
+                        <a href="#group-benefits">Workers Compensation</a>
+                    </div>
+                </div>
+
+                <!-- Coverage -->
+                <div class="nav-dropdown">
+                    <a href="#coverage" class="nav-link">
+                        Coverage
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-flyout">
+                        <a href="#coverage">All Coverage Solutions</a>
+                        <a href="#custom-quote">Custom Tailored Plans</a>
+                        <a href="#compare">Compare Policies</a>
+                    </div>
+                </div>
+
+                <!-- About Us -->
+                <div class="nav-dropdown">
+                    <a href="#about" class="nav-link">
+                        About Us
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-flyout">
+                        <a href="#story">Our Mission</a>
+                        <a href="#team">Leadership Team</a>
+                        <a href="#careers">Careers</a>
+                        <a href="#community">Community Impact</a>
+                    </div>
+                </div>
+
+                <!-- Resources -->
+                <div class="nav-dropdown">
+                    <a href="#resources" class="nav-link">
+                        Resources
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-flyout">
+                        <a href="#articles">Articles & Insights</a>
+                        <a href="#faqs">Frequently Asked Questions</a>
+                        <a href="#guides">Insurance Guides</a>
+                        <a href="#claims-center">Claims Help Center</a>
+                    </div>
+                </div>
+            </nav>
+
+            <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn-header-quote">
+                <span>Get a Quote</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+            </a>
+
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         PAGE CONTENT
+         ========================================== -->
+    <main>
+        @yield('content')
+    </main>
+
+    <!-- ==========================================
+         SITE FOOTER
+         ========================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main-grid">
+                <!-- Col 1: Brand & Bio -->
+                <div class="footer-brand-col">
+                    <img src="{{ asset('images/logo.png') }}" alt="Surebound" class="footer-logo-img">
+                    <p class="footer-brand-desc">
+                        We provide trusted insurance solutions for individuals, families and businesses. Because your tomorrow matters.
+                    </p>
+                    <div class="footer-social-row">
+                        <!-- LinkedIn -->
+                        <a href="#" class="footer-social-btn" aria-label="LinkedIn">
+                            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0-.02-3.28 1.64 1.64 0 0 0 .02 3.28m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="#" class="footer-social-btn" aria-label="Facebook">
+                            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+                        </a>
+                        <!-- X (Twitter) -->
+                        <a href="#" class="footer-social-btn" aria-label="X">
+                            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="#" class="footer-social-btn" aria-label="Instagram">
+                            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="#" class="footer-social-btn" aria-label="YouTube">
+                            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Coverage -->
+                <div class="footer-nav-col">
+                    <h4>Coverage</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#home-insurance">Home Insurance</a></li>
+                        <li><a href="#auto-insurance">Auto Insurance</a></li>
+                        <li><a href="#business-insurance">Business Insurance</a></li>
+                        <li><a href="#property-insurance">Property Insurance</a></li>
+                        <li><a href="#personal-coverage">Personal Coverage</a></li>
+                        <li><a href="#specialty-coverage">Specialty Coverage</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Company -->
+                <div class="footer-nav-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#about-us">About Us</a></li>
+                        <li><a href="#our-team">Our Team</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#news-updates">News & Updates</a></li>
+                        <li><a href="#contact-us">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Resources -->
+                <div class="footer-nav-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#articles-insights">Articles & Insights</a></li>
+                        <li><a href="#faqs">FAQs</a></li>
+                        <li><a href="#insurance-guide">Insurance Guide</a></li>
+                        <li><a href="#claims-center">Claims Center</a></li>
+                        <li><a href="#agent-resources">Agent Resources</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 5: Support -->
+                <div class="footer-nav-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#claims">Claims</a></li>
+                        <li><a href="#make-payment">Make a Payment</a></li>
+                        <li><a href="#agent-login">Agent Login</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                <div class="footer-bottom-links">
+                    <a href="#privacy">Privacy Policy</a> &nbsp;|&nbsp;
+                    <a href="#terms">Terms of Service</a> &nbsp;|&nbsp;
+                    <span>&copy; {{ date('Y') }} Surebound. All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         INTERACTIVE GET A QUOTE MODAL
+         ========================================== -->
+    <div class="modal-overlay" id="quoteModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeQuoteModal()" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <h3>Get Your Free Quote</h3>
+                <p>Tailored coverage with great rates in less than 2 minutes.</p>
+            </div>
+            <form onsubmit="handleQuoteSubmit(event)">
+                <div class="modal-form-group">
+                    <label for="coverage-type">Select Insurance Type</label>
+                    <select id="coverage-type" required>
+                        <option value="Home Insurance">Home Insurance</option>
+                        <option value="Auto Insurance">Auto Insurance</option>
+                        <option value="Business Insurance">Business Insurance</option>
+                        <option value="Property Insurance">Property Insurance</option>
+                        <option value="Personal Coverage">Personal Coverage</option>
+                        <option value="Specialty Coverage">Specialty Coverage</option>
+                    </select>
+                </div>
+                <div class="modal-form-group">
+                    <label for="quote-name">Full Name</label>
+                    <input type="text" id="quote-name" placeholder="John Doe" required>
+                </div>
+                <div class="modal-form-group">
+                    <label for="quote-email">Email Address</label>
+                    <input type="email" id="quote-email" placeholder="john@example.com" required>
+                </div>
+                <div class="modal-form-group">
+                    <label for="quote-zip">ZIP / Postal Code</label>
+                    <input type="text" id="quote-zip" placeholder="e.g. 90210" required>
+                </div>
+                <button type="submit" class="btn-submit-modal" id="submitQuoteBtn">
+                    View Instant Quote Estimate &rarr;
+                </button>
+            </form>
+            <div id="quoteSuccessMessage" style="display:none; margin-top:16px; padding:12px; background:#e8f4fc; border-radius:8px; color:#1255db; text-align:center; font-weight:600; font-size:14px;">
+                ✓ Request received! An agent is matching the best plan for you right now.
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function openQuoteModal(type) {
+            if (type) {
+                const select = document.getElementById('coverage-type');
+                if (select) select.value = type;
+            }
+            const modal = document.getElementById('quoteModal');
+            if (modal) modal.classList.add('active');
+        }
+
+        function closeQuoteModal() {
+            const modal = document.getElementById('quoteModal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('quoteModal');
+            if (e.target === modal) {
+                closeQuoteModal();
+            }
+        });
+
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitQuoteBtn');
+            const msg = document.getElementById('quoteSuccessMessage');
+            btn.innerHTML = 'Calculating Best Rates...';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.style.display = 'none';
+                msg.style.display = 'block';
+                setTimeout(() => {
+                    closeQuoteModal();
+                    btn.style.display = 'block';
+                    btn.disabled = false;
+                    btn.innerHTML = 'View Instant Quote Estimate &rarr;';
+                    msg.style.display = 'none';
+                }, 2200);
+            }, 700);
+        }
+
+        // Mobile menu toggle with accordion support
+        const toggleBtn = document.getElementById('mobile-toggle');
+        const mainNav = document.getElementById('main-nav');
+        if (toggleBtn && mainNav) {
+            toggleBtn.addEventListener('click', () => {
+                const isOpen = mainNav.classList.toggle('is-open');
+                toggleBtn.classList.toggle('is-active', isOpen);
+                document.body.classList.toggle('mobile-menu-open', isOpen);
+            });
+
+            // Handle mobile accordion dropdowns
+            mainNav.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+                const link = dropdown.querySelector('.nav-link');
+                if (link) {
+                    link.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 860) {
+                            e.preventDefault();
+                            // Toggle this dropdown and close others
+                            const wasActive = dropdown.classList.contains('active-mobile');
+                            mainNav.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('active-mobile'));
+                            if (!wasActive) {
+                                dropdown.classList.add('active-mobile');
+                            }
+                        }
+                    });
+                }
+            });
+
+            // Close mobile menu when clicking any sub-link
+            mainNav.querySelectorAll('.dropdown-flyout a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mainNav.classList.remove('is-open');
+                    toggleBtn.classList.remove('is-active');
+                    document.body.classList.remove('mobile-menu-open');
+                });
+            });
+        }
+    </script>
+
+    @yield('scripts')
+</body>
+</html>
