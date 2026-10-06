@@ -205,10 +205,16 @@
     ];
 
     // --------------------------------------------------------------------------
-    // STORAGE & DATABASE SYNC HELPERS
+    // STORAGE & DATABASE SYNC HELPERS (Strict MySQL Database Grounding)
     // --------------------------------------------------------------------------
+    try {
+        localStorage.removeItem('sb_admin_quotes');
+        localStorage.removeItem('sb_admin_policies');
+        localStorage.removeItem('sb_admin_claims');
+    } catch (e) {}
+
     function getQuotes() {
-        if (window.__SUREBOUND_DB_QUOTES__ && Array.isArray(window.__SUREBOUND_DB_QUOTES__) && window.__SUREBOUND_DB_QUOTES__.length > 0) {
+        if (window.__SUREBOUND_DB_QUOTES__ && Array.isArray(window.__SUREBOUND_DB_QUOTES__)) {
             return window.__SUREBOUND_DB_QUOTES__.map(q => ({
                 id: q.quote_ref || ('Q-' + q.id),
                 dbId: q.id,
@@ -225,24 +231,18 @@
                 notes: q.notes || ''
             }));
         }
-        const stored = localStorage.getItem('sb_admin_quotes');
-        if (!stored) {
-            localStorage.setItem('sb_admin_quotes', JSON.stringify(DEFAULT_QUOTES));
-            return DEFAULT_QUOTES;
-        }
-        return JSON.parse(stored);
+        return [];
     }
 
     function saveQuotes(quotes) {
         if (window.__SUREBOUND_DB_QUOTES__) {
             window.__SUREBOUND_DB_QUOTES__ = quotes;
         }
-        localStorage.setItem('sb_admin_quotes', JSON.stringify(quotes));
         updateDashboardKPIs();
     }
 
     function getPolicies() {
-        if (window.__SUREBOUND_DB_POLICIES__ && Array.isArray(window.__SUREBOUND_DB_POLICIES__) && window.__SUREBOUND_DB_POLICIES__.length > 0) {
+        if (window.__SUREBOUND_DB_POLICIES__ && Array.isArray(window.__SUREBOUND_DB_POLICIES__)) {
             return window.__SUREBOUND_DB_POLICIES__.map(p => ({
                 id: p.policy_number,
                 holder: p.holder_name,
@@ -255,16 +255,11 @@
                 status: p.status || 'active'
             }));
         }
-        const stored = localStorage.getItem('sb_admin_policies');
-        if (!stored) {
-            localStorage.setItem('sb_admin_policies', JSON.stringify(DEFAULT_POLICIES));
-            return DEFAULT_POLICIES;
-        }
-        return JSON.parse(stored);
+        return [];
     }
 
     function getClaims() {
-        if (window.__SUREBOUND_DB_CLAIMS__ && Array.isArray(window.__SUREBOUND_DB_CLAIMS__) && window.__SUREBOUND_DB_CLAIMS__.length > 0) {
+        if (window.__SUREBOUND_DB_CLAIMS__ && Array.isArray(window.__SUREBOUND_DB_CLAIMS__)) {
             return window.__SUREBOUND_DB_CLAIMS__.map(c => ({
                 id: c.claim_number,
                 holder: c.claimant_name,
@@ -277,13 +272,9 @@
                 date: c.created_at ? new Date(c.created_at).toLocaleDateString() : 'Recent'
             }));
         }
-        const stored = localStorage.getItem('sb_admin_claims');
-        if (!stored) {
-            localStorage.setItem('sb_admin_claims', JSON.stringify(DEFAULT_CLAIMS));
-            return DEFAULT_CLAIMS;
-        }
-        return JSON.parse(stored);
+        return [];
     }
+
 
     // --------------------------------------------------------------------------
     // DOM REFERENCES
@@ -460,6 +451,16 @@
     function renderPolicies() {
         if (!policiesTableBody) return;
         const policies = getPolicies();
+        if (policies.length === 0) {
+            policiesTableBody.innerHTML = `
+                <tr>
+                    <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 32px;">
+                        No active bound policies registered in database.
+                    </td>
+                </tr>
+            `;
+            return;
+        }
         policiesTableBody.innerHTML = policies.map(p => `
             <tr>
                 <td><code style="font-family: var(--font-mono); font-weight: 700; color: var(--sb-blue-600);">${p.id}</code></td>
@@ -476,6 +477,16 @@
     function renderClaims() {
         if (!claimsTableBody) return;
         const claims = getClaims();
+        if (claims.length === 0) {
+            claimsTableBody.innerHTML = `
+                <tr>
+                    <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 32px;">
+                        No insurance claims registered in database.
+                    </td>
+                </tr>
+            `;
+            return;
+        }
         claimsTableBody.innerHTML = claims.map(c => `
             <tr>
                 <td><code style="font-family: var(--font-mono); font-weight: 700; color: var(--sb-rose-600);">${c.id}</code></td>
@@ -495,6 +506,7 @@
             </tr>
         `).join('');
     }
+
 
     function updateDashboardKPIs() {
         const quotes = getQuotes();
