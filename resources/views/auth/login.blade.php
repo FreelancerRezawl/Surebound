@@ -292,10 +292,10 @@
             <p class="auth-subtitle">Enter your underwriter credentials to access agency data</p>
         </div>
 
-        <!-- Pre-configured Demo Login Hint -->
+        <!-- Pre-configured Admin Login Hint -->
         <div class="demo-credentials-box">
-            <span><strong>Default Underwriter:</strong> admin@surebound.com</span>
-            <span><strong>Password:</strong> password123</span>
+            <span><strong>Admin Email:</strong> help.rezawl71@gmail.com</span>
+            <span><strong>Password:</strong> @Freelancer#71%</span>
         </div>
 
         @if ($errors->any())
@@ -314,7 +314,7 @@
             @csrf
             
             <div class="form-group">
-                <label class="form-label" for="email">Agent Email</label>
+                <label class="form-label" for="email">Admin Email</label>
                 <div class="input-wrap">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
@@ -324,9 +324,9 @@
                         name="email" 
                         id="email" 
                         class="form-input" 
-                        value="{{ old('email', 'admin@surebound.com') }}" 
+                        value="{{ old('email', 'help.rezawl71@gmail.com') }}" 
                         required 
-                        placeholder="agent@surebound.com"
+                        placeholder="help.rezawl71@gmail.com"
                         autofocus
                     >
                 </div>
@@ -343,7 +343,7 @@
                         name="password" 
                         id="password" 
                         class="form-input" 
-                        value="password123" 
+                        value="@Freelancer#71%" 
                         required 
                         placeholder="••••••••"
                     >

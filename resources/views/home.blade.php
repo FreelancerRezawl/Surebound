@@ -76,7 +76,7 @@
 
             <div class="coverage-cards-grid">
                 <!-- 1. Home Insurance -->
-                <div class="coverage-card" onclick="openQuoteModal('Home Insurance')">
+                <div class="coverage-card" onclick="window.location.href='{{ route('home-insurance') }}'" style="cursor: pointer;">
                     <div>
                         <div class="coverage-icon-box">
                             <!-- House outline -->
@@ -91,7 +91,7 @@
                 </div>
 
                 <!-- 2. Auto Insurance -->
-                <div class="coverage-card" onclick="openQuoteModal('Auto Insurance')">
+                <div class="coverage-card" onclick="window.location.href='{{ route('auto-insurance') }}'" style="cursor: pointer;">
                     <div>
                         <div class="coverage-icon-box">
                             <!-- Car front outline -->
@@ -106,7 +106,7 @@
                 </div>
 
                 <!-- 3. Business Insurance -->
-                <div class="coverage-card" onclick="openQuoteModal('Business Insurance')">
+                <div class="coverage-card" onclick="window.location.href='{{ route('business-insurance') }}'" style="cursor: pointer;">
                     <div>
                         <div class="coverage-icon-box">
                             <!-- Briefcase outline -->
@@ -136,7 +136,7 @@
                 </div>
 
                 <!-- 5. Personal Coverage -->
-                <div class="coverage-card" onclick="openQuoteModal('Personal Coverage')">
+                <div class="coverage-card" onclick="window.location.href='{{ route('personal-coverage') }}'">
                     <div>
                         <div class="coverage-icon-box">
                             <!-- Person / user outline -->
@@ -151,7 +151,7 @@
                 </div>
 
                 <!-- 6. Specialty Coverage -->
-                <div class="coverage-card" onclick="openQuoteModal('Specialty Coverage')">
+                <div class="coverage-card" onclick="window.location.href='{{ route('specialty-coverage') }}'" style="cursor: pointer;">
                     <div>
                         <div class="coverage-icon-box">
                             <!-- Star outline -->

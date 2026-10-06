@@ -240,6 +240,52 @@ button {
   padding-left: 24px;
 }
 
+/* Active Navigation & Page States */
+.nav-link.active,
+.nav-dropdown.active > .nav-link {
+  color: var(--color-primary) !important;
+  background-color: var(--color-sky-light) !important;
+  font-weight: 700 !important;
+  box-shadow: inset 0 -2px 0 var(--color-primary);
+}
+
+.dropdown-flyout a.active {
+  background-color: var(--color-sky-light) !important;
+  color: var(--color-primary) !important;
+  font-weight: 700 !important;
+  border-left: 3.5px solid var(--color-primary) !important;
+  padding-left: 20px !important;
+}
+
+.active-dot {
+  display: inline-block;
+  color: var(--color-primary);
+  font-weight: 900;
+  margin-right: 4px;
+}
+
+.active-page-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-sky-light);
+  color: var(--color-primary);
+  border: 1px solid #bfdbfe;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12.5px;
+  font-weight: 700;
+  margin-left: 14px;
+}
+
+.active-page-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+}
+
 /* Header Quote Button */
 .btn-header-quote {
   display: inline-flex;
@@ -2170,3 +2216,106 @@ button {
     overflow-y: auto;
   }
 }
+
+/* =========================================================
+   FAQ ACCORDION & HOME INSURANCE EXTENSIONS
+   ========================================================= */
+.faq-section {
+  padding: 90px 0;
+  background-color: var(--color-bg-gray);
+}
+
+.faq-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-item.active {
+  border-color: #bcd4f8;
+  box-shadow: var(--shadow-card);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 26px;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-navy);
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+
+.faq-question:hover {
+  color: var(--color-primary);
+}
+
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-sky-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 26px;
+  color: var(--color-text-body);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 400px;
+  padding: 0 26px 24px 26px;
+}
+
+/* Home Insurance Specific Highlights */
+.policy-tier-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--color-sky);
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+

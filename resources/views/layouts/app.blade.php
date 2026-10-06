@@ -62,37 +62,63 @@
          ========================================== -->
     <header class="site-header" id="site-header">
         <div class="container">
-            <a href="{{ url('/') }}" class="brand-logo-link">
-                <img src="{{ asset('images/logo.png') }}" alt="Surebound" class="brand-logo-img">
-            </a>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <a href="{{ url('/') }}" class="brand-logo-link">
+                    <img src="{{ asset('images/logo.png') }}" alt="Surebound" class="brand-logo-img">
+                </a>
+
+                @if(request()->routeIs('home-insurance'))
+                    <div class="active-page-badge"><span class="active-page-badge-dot"></span> Home Insurance</div>
+                @elseif(request()->routeIs('auto-insurance'))
+                    <div class="active-page-badge"><span class="active-page-badge-dot"></span> Auto Insurance</div>
+                @elseif(request()->routeIs('personal-coverage'))
+                    <div class="active-page-badge"><span class="active-page-badge-dot"></span> Personal Coverage</div>
+                @elseif(request()->routeIs('specialty-coverage'))
+                    <div class="active-page-badge"><span class="active-page-badge-dot"></span> Specialty Coverage</div>
+                @elseif(request()->routeIs('business-insurance'))
+                    <div class="active-page-badge"><span class="active-page-badge-dot"></span> Business Insurance</div>
+                @elseif(request()->routeIs('home'))
+                    <div class="active-page-badge"><span class="active-page-badge-dot"></span> Home</div>
+                @endif
+            </div>
 
             <nav class="main-nav" id="main-nav">
                 <!-- Personal -->
-                <div class="nav-dropdown">
-                    <a href="#personal" class="nav-link">
-                        Personal
+                <div class="nav-dropdown {{ request()->routeIs('home-insurance', 'auto-insurance', 'personal-coverage', 'specialty-coverage') ? 'active' : '' }}">
+                    <a href="javascript:void(0)" class="nav-link {{ request()->routeIs('home-insurance', 'auto-insurance', 'personal-coverage', 'specialty-coverage') ? 'active' : '' }}">
+                        <span>Personal</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>
                     </a>
                     <div class="dropdown-flyout">
-                        <a href="#home-insurance">Home Insurance</a>
-                        <a href="#auto-insurance">Auto Insurance</a>
-                        <a href="#personal-coverage">Personal Coverage</a>
-                        <a href="#specialty-coverage">Specialty Coverage</a>
+                        <a href="{{ route('home-insurance') }}" class="{{ request()->routeIs('home-insurance') ? 'active' : '' }}">
+                            @if(request()->routeIs('home-insurance'))<span class="active-dot">•</span>@endif Home Insurance
+                        </a>
+                        <a href="{{ route('auto-insurance') }}" class="{{ request()->routeIs('auto-insurance') ? 'active' : '' }}">
+                            @if(request()->routeIs('auto-insurance'))<span class="active-dot">•</span>@endif Auto Insurance
+                        </a>
+                        <a href="{{ route('personal-coverage') }}" class="{{ request()->routeIs('personal-coverage') ? 'active' : '' }}">
+                            @if(request()->routeIs('personal-coverage'))<span class="active-dot">•</span>@endif Personal Coverage
+                        </a>
+                        <a href="{{ route('specialty-coverage') }}" class="{{ request()->routeIs('specialty-coverage') ? 'active' : '' }}">
+                            @if(request()->routeIs('specialty-coverage'))<span class="active-dot">•</span>@endif Specialty Coverage
+                        </a>
                     </div>
                 </div>
 
                 <!-- Business -->
-                <div class="nav-dropdown">
-                    <a href="#business" class="nav-link">
-                        Business
+                <div class="nav-dropdown {{ request()->routeIs('business-insurance') ? 'active' : '' }}">
+                    <a href="javascript:void(0)" class="nav-link {{ request()->routeIs('business-insurance') ? 'active' : '' }}">
+                        <span>Business</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>
                     </a>
                     <div class="dropdown-flyout">
-                        <a href="#business-insurance">Business Insurance</a>
+                        <a href="{{ route('business-insurance') }}" class="{{ request()->routeIs('business-insurance') ? 'active' : '' }}">
+                            @if(request()->routeIs('business-insurance'))<span class="active-dot">•</span>@endif Business Insurance
+                        </a>
                         <a href="#property-insurance">Property Insurance</a>
                         <a href="#liability-insurance">Commercial Liability</a>
                         <a href="#group-benefits">Workers Compensation</a>
@@ -209,12 +235,12 @@
                 <div class="footer-nav-col">
                     <h4>Coverage</h4>
                     <ul class="footer-links-list">
-                        <li><a href="#home-insurance">Home Insurance</a></li>
-                        <li><a href="#auto-insurance">Auto Insurance</a></li>
+                        <li><a href="{{ route('home-insurance') }}">Home Insurance</a></li>
+                        <li><a href="{{ route('auto-insurance') }}">Auto Insurance</a></li>
                         <li><a href="#business-insurance">Business Insurance</a></li>
                         <li><a href="#property-insurance">Property Insurance</a></li>
-                        <li><a href="#personal-coverage">Personal Coverage</a></li>
-                        <li><a href="#specialty-coverage">Specialty Coverage</a></li>
+                        <li><a href="{{ route('personal-coverage') }}">Personal Coverage</a></li>
+                        <li><a href="{{ route('specialty-coverage') }}">Specialty Coverage</a></li>
                     </ul>
                 </div>
 
