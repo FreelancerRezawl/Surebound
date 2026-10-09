@@ -11,7 +11,7 @@
         <!-- Right side full bleed photo with seamless alpha mask & right royal blue gradient -->
         <div class="hero-photo-bleed">
             <img 
-                src="{{ asset($content['hero_image'] ?? 'images/hero-specialty.jpg') }}" 
+                src="{{ asset($content['hero_image'] ?? 'images/specialty_hero_new.jpg') }}" 
                 alt="Comprehensive Specialty Insurance & Unique Asset Protection" 
                 class="hero-photo-img"
             >

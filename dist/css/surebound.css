@@ -1,5 +1,52 @@
 /* ===== SUREBOUND — COMPREHENSIVE DESIGN SYSTEM & STYLES ===== */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+/* Brand Guidelines 2026: Primary Headlines: Minion Variable Concept Bold | Secondary/Body: Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Minion Variable Concept Bold & Regular font-face declarations */
+@font-face {
+  font-family: 'Minion Variable Concept';
+  src: local('Minion Variable Concept Bold'),
+       local('Minion Variable Concept'),
+       local('MinionVariableConcept-Bold'),
+       local('MinionPro-Bold'),
+       url('../fonts/minion/MinionPro-Bold.otf') format('opentype'),
+       url('../fonts/minion/MinionPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Minion Variable Concept';
+  src: local('Minion Variable Concept'),
+       local('MinionVariableConcept-Regular'),
+       local('MinionPro-Regular'),
+       url('../fonts/minion/MinionPro-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Minion Pro';
+  src: local('Minion Pro Bold'),
+       local('MinionPro-Bold'),
+       url('../fonts/minion/MinionPro-Bold.otf') format('opentype'),
+       url('../fonts/minion/MinionPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Minion Pro';
+  src: local('Minion Pro Regular'),
+       local('MinionPro-Regular'),
+       url('../fonts/minion/MinionPro-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --color-primary: #195acd;
@@ -17,8 +64,10 @@
   --color-text-muted: #64748b;
   --color-text-light: #94a3b8;
   
-  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Brand Guidelines 2026 Typography */
+  --font-headline: 'Minion Variable Concept', 'Minion Pro', Georgia, 'Times New Roman', serif;
+  --font-serif: 'Minion Variable Concept', 'Minion Pro', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   
   --radius-xs: 4px;
   --radius-sm: 8px;
@@ -44,6 +93,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -53,6 +103,23 @@ body {
   line-height: 1.6;
   font-size: 15px;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Brand Guidelines 2026: Headlines typeset with Optical kerning, tracking 0, sentence case */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  letter-spacing: 0;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+}
+
+p, span, li, label, input, select, textarea, button {
+  font-family: var(--font-sans);
 }
 
 a {
@@ -432,12 +499,16 @@ button {
 }
 
 .hero-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-headline);
   font-size: clamp(48px, 5.2vw, 68px);
   font-weight: 700;
   color: var(--color-navy);
   line-height: 1.1;
-  letter-spacing: -0.8px;
+  letter-spacing: 0;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
   margin-bottom: 24px;
 }
 
@@ -601,12 +672,16 @@ button {
 }
 
 .section-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-headline);
   font-size: clamp(28px, 3.2vw, 38px);
   font-weight: 700;
   color: var(--color-navy);
   text-align: center;
-  letter-spacing: -0.4px;
+  letter-spacing: 0;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
   line-height: 1.22;
   margin-bottom: 10px;
 }
@@ -835,13 +910,17 @@ button {
 }
 
 .simpler-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-headline);
   font-size: clamp(32px, 3.4vw, 44px);
   font-weight: 700;
   color: var(--color-navy);
   line-height: 1.15;
   margin-bottom: 18px;
-  letter-spacing: -0.5px;
+  letter-spacing: 0;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
 }
 
 .simpler-paragraph {
@@ -973,11 +1052,15 @@ button {
 }
 
 .resources-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-headline);
   font-size: clamp(26px, 2.4vw, 32px);
   font-weight: 700;
   color: var(--color-navy);
-  letter-spacing: -0.3px;
+  letter-spacing: 0;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
   line-height: 1.15;
   margin-bottom: 14px;
 }
@@ -1145,12 +1228,16 @@ button {
 }
 
 .cta-text-wrap h2 {
-  font-family: var(--font-serif);
+  font-family: var(--font-headline);
   font-size: clamp(24px, 2.8vw, 29px);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 5px;
-  letter-spacing: -0.3px;
+  letter-spacing: 0;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
 }
 
 .cta-text-wrap p {
@@ -2318,4 +2405,115 @@ button {
   color: var(--color-primary);
   margin-bottom: 12px;
 }
+
+/* =========================================================
+   BRAND GUIDELINES 2026: PULL QUOTES & TESTIMONIALS
+   Typeset in Inter Style Set 2, Tracking 0, Optical kerning
+   Quote Mark Inter 36, Body Inter 18/21, Attribution
+   ========================================================= */
+.pull-quote-section {
+  padding: 72px 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #edf4fc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.pull-quote-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.brand-pull-quote-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: 44px 52px;
+  box-shadow: 0 10px 30px rgba(11, 26, 72, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.brand-pull-quote-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(25, 90, 205, 0.1);
+}
+
+.brand-quote-mark {
+  font-family: var(--font-sans);
+  font-size: 36px; /* Brand Guidelines: Quote Mark Inter 36 */
+  line-height: 1;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.brand-quote-text {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss02" 1; /* Brand Guidelines: Inter Style Set 2 */
+  font-size: 18px; /* Brand Guidelines: Inter 18/21 */
+  line-height: 1.45;
+  letter-spacing: 0; /* Optical tracking set to 0 */
+  font-weight: 500;
+  color: var(--color-navy);
+  margin-bottom: 22px;
+  font-style: normal;
+}
+
+.brand-quote-attribution {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #edf2f7;
+  padding-top: 16px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand-quote-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.brand-quote-author {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-navy);
+  letter-spacing: 0;
+}
+
+.brand-quote-role {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.brand-quote-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-sky);
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 768px) {
+  .brand-pull-quote-card {
+    padding: 30px 24px;
+  }
+  .brand-quote-text {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+}
+
 

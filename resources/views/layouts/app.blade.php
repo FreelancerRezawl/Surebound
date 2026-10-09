@@ -9,10 +9,10 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/icon.png') }}">
     
-    <!-- Google Fonts: Lora (Serif) & Plus Jakarta Sans -->
+    <!-- Google Fonts: Inter (Brand Guidelines 2026) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/surebound.css') }}">
@@ -26,14 +26,14 @@
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-links">
-                <a href="#claims" class="top-bar-link">
+                <a href="{{ route('claims') }}" class="top-bar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
                     <span>Claims</span>
                 </a>
                 <span class="top-bar-divider"></span>
-                <a href="#payment" class="top-bar-link">
+                <a href="{{ route('payment') }}" class="top-bar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-6-8.25h19.5a1.5 1.5 0 0 1 1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5V10.5a1.5 1.5 0 0 1 1.5-1.5Z" />
                     </svg>
@@ -47,7 +47,7 @@
                     <span>Agent Login</span>
                 </a>
                 <span class="top-bar-divider"></span>
-                <a href="#contact" class="top-bar-link">
+                <a href="{{ route('contact') }}" class="top-bar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                     </svg>
@@ -67,19 +67,6 @@
                     <img src="{{ asset('images/logo.png') }}" alt="Surebound" class="brand-logo-img">
                 </a>
 
-                @if(request()->routeIs('home-insurance'))
-                    <div class="active-page-badge"><span class="active-page-badge-dot"></span> Home Insurance</div>
-                @elseif(request()->routeIs('auto-insurance'))
-                    <div class="active-page-badge"><span class="active-page-badge-dot"></span> Auto Insurance</div>
-                @elseif(request()->routeIs('personal-coverage'))
-                    <div class="active-page-badge"><span class="active-page-badge-dot"></span> Personal Coverage</div>
-                @elseif(request()->routeIs('specialty-coverage'))
-                    <div class="active-page-badge"><span class="active-page-badge-dot"></span> Specialty Coverage</div>
-                @elseif(request()->routeIs('business-insurance'))
-                    <div class="active-page-badge"><span class="active-page-badge-dot"></span> Business Insurance</div>
-                @elseif(request()->routeIs('home'))
-                    <div class="active-page-badge"><span class="active-page-badge-dot"></span> Home</div>
-                @endif
             </div>
 
             <nav class="main-nav" id="main-nav">
@@ -108,8 +95,8 @@
                 </div>
 
                 <!-- Business -->
-                <div class="nav-dropdown {{ request()->routeIs('business-insurance') ? 'active' : '' }}">
-                    <a href="javascript:void(0)" class="nav-link {{ request()->routeIs('business-insurance') ? 'active' : '' }}">
+                <div class="nav-dropdown {{ request()->routeIs('business-insurance', 'property-insurance', 'liability-insurance', 'group-benefits') ? 'active' : '' }}">
+                    <a href="javascript:void(0)" class="nav-link {{ request()->routeIs('business-insurance', 'property-insurance', 'liability-insurance', 'group-benefits') ? 'active' : '' }}">
                         <span>Business</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
@@ -119,56 +106,82 @@
                         <a href="{{ route('business-insurance') }}" class="{{ request()->routeIs('business-insurance') ? 'active' : '' }}">
                             @if(request()->routeIs('business-insurance'))<span class="active-dot">•</span>@endif Business Insurance
                         </a>
-                        <a href="#property-insurance">Property Insurance</a>
-                        <a href="#liability-insurance">Commercial Liability</a>
-                        <a href="#group-benefits">Workers Compensation</a>
+                        <a href="{{ route('property-insurance') }}" class="{{ request()->routeIs('property-insurance') ? 'active' : '' }}">
+                            @if(request()->routeIs('property-insurance'))<span class="active-dot">•</span>@endif Property Insurance
+                        </a>
+                        <a href="{{ route('liability-insurance') }}" class="{{ request()->routeIs('liability-insurance') ? 'active' : '' }}">
+                            @if(request()->routeIs('liability-insurance'))<span class="active-dot">•</span>@endif Commercial Liability
+                        </a>
+                        <a href="{{ route('group-benefits') }}" class="{{ request()->routeIs('group-benefits') ? 'active' : '' }}">
+                            @if(request()->routeIs('group-benefits'))<span class="active-dot">•</span>@endif Workers Compensation
+                        </a>
                     </div>
                 </div>
 
                 <!-- Coverage -->
-                <div class="nav-dropdown">
-                    <a href="#coverage" class="nav-link">
+                <div class="nav-dropdown {{ request()->routeIs('coverage', 'custom-quote', 'compare') ? 'active' : '' }}">
+                    <a href="{{ route('coverage') }}" class="nav-link {{ request()->routeIs('coverage', 'custom-quote', 'compare') ? 'active' : '' }}">
                         Coverage
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>
                     </a>
                     <div class="dropdown-flyout">
-                        <a href="#coverage">All Coverage Solutions</a>
-                        <a href="#custom-quote">Custom Tailored Plans</a>
-                        <a href="#compare">Compare Policies</a>
+                        <a href="{{ route('coverage') }}" class="{{ request()->routeIs('coverage') ? 'active' : '' }}">
+                            @if(request()->routeIs('coverage'))<span class="active-dot">•</span>@endif All Coverage Solutions
+                        </a>
+                        <a href="{{ route('custom-quote') }}" class="{{ request()->routeIs('custom-quote') ? 'active' : '' }}">
+                            @if(request()->routeIs('custom-quote'))<span class="active-dot">•</span>@endif Custom Tailored Plans
+                        </a>
+                        <a href="{{ route('compare') }}" class="{{ request()->routeIs('compare') ? 'active' : '' }}">
+                            @if(request()->routeIs('compare'))<span class="active-dot">•</span>@endif Compare Policies
+                        </a>
                     </div>
                 </div>
 
                 <!-- About Us -->
-                <div class="nav-dropdown">
-                    <a href="#about" class="nav-link">
+                <div class="nav-dropdown {{ request()->routeIs('story', 'team', 'careers', 'community') ? 'active' : '' }}">
+                    <a href="#about" class="nav-link {{ request()->routeIs('story', 'team', 'careers', 'community') ? 'active' : '' }}">
                         About Us
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>
                     </a>
                     <div class="dropdown-flyout">
-                        <a href="#story">Our Mission</a>
-                        <a href="#team">Leadership Team</a>
-                        <a href="#careers">Careers</a>
-                        <a href="#community">Community Impact</a>
+                        <a href="{{ route('story') }}" class="{{ request()->routeIs('story') ? 'active' : '' }}">
+                            @if(request()->routeIs('story'))<span class="active-dot">•</span>@endif Our Mission
+                        </a>
+                        <a href="{{ route('team') }}" class="{{ request()->routeIs('team') ? 'active' : '' }}">
+                            @if(request()->routeIs('team'))<span class="active-dot">•</span>@endif Leadership Team
+                        </a>
+                        <a href="{{ route('careers') }}" class="{{ request()->routeIs('careers') ? 'active' : '' }}">
+                            @if(request()->routeIs('careers'))<span class="active-dot">•</span>@endif Careers
+                        </a>
+                        <a href="{{ route('community') }}" class="{{ request()->routeIs('community') ? 'active' : '' }}">
+                            @if(request()->routeIs('community'))<span class="active-dot">•</span>@endif Community Impact
+                        </a>
                     </div>
                 </div>
 
                 <!-- Resources -->
-                <div class="nav-dropdown">
-                    <a href="#resources" class="nav-link">
+                <div class="nav-dropdown {{ request()->routeIs('articles', 'faqs', 'guides', 'claims') ? 'active' : '' }}">
+                    <a href="#resources" class="nav-link {{ request()->routeIs('articles', 'faqs', 'guides', 'claims') ? 'active' : '' }}">
                         Resources
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>
                     </a>
                     <div class="dropdown-flyout">
-                        <a href="#articles">Articles & Insights</a>
-                        <a href="#faqs">Frequently Asked Questions</a>
-                        <a href="#guides">Insurance Guides</a>
-                        <a href="#claims-center">Claims Help Center</a>
+                        <a href="{{ route('articles') }}" class="{{ request()->routeIs('articles') ? 'active' : '' }}">
+                            @if(request()->routeIs('articles'))<span class="active-dot">•</span>@endif Articles & Insights
+                        </a>
+                        <a href="{{ route('faqs') }}" class="{{ request()->routeIs('faqs') ? 'active' : '' }}">
+                            @if(request()->routeIs('faqs'))<span class="active-dot">•</span>@endif Frequently Asked Questions
+                        </a>
+                        <a href="{{ route('guides') }}" class="{{ request()->routeIs('guides') ? 'active' : '' }}">
+                            @if(request()->routeIs('guides'))<span class="active-dot">•</span>@endif Insurance Guides
+                        </a>
+                        <a href="{{ route('claims') }}">Claims Help Center</a>
                     </div>
                 </div>
             </nav>
@@ -237,8 +250,8 @@
                     <ul class="footer-links-list">
                         <li><a href="{{ route('home-insurance') }}">Home Insurance</a></li>
                         <li><a href="{{ route('auto-insurance') }}">Auto Insurance</a></li>
-                        <li><a href="#business-insurance">Business Insurance</a></li>
-                        <li><a href="#property-insurance">Property Insurance</a></li>
+                        <li><a href="{{ route('business-insurance') }}">Business Insurance</a></li>
+                        <li><a href="{{ route('property-insurance') }}">Property Insurance</a></li>
                         <li><a href="{{ route('personal-coverage') }}">Personal Coverage</a></li>
                         <li><a href="{{ route('specialty-coverage') }}">Specialty Coverage</a></li>
                     </ul>
@@ -252,7 +265,7 @@
                         <li><a href="#our-team">Our Team</a></li>
                         <li><a href="#careers">Careers</a></li>
                         <li><a href="#news-updates">News & Updates</a></li>
-                        <li><a href="#contact-us">Contact Us</a></li>
+                        <li><a href="{{ route('contact') }}">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -263,7 +276,7 @@
                         <li><a href="#articles-insights">Articles & Insights</a></li>
                         <li><a href="#faqs">FAQs</a></li>
                         <li><a href="#insurance-guide">Insurance Guide</a></li>
-                        <li><a href="#claims-center">Claims Center</a></li>
+                        <li><a href="{{ route('claims') }}">Claims Center</a></li>
                         <li><a href="#agent-resources">Agent Resources</a></li>
                     </ul>
                 </div>
@@ -272,10 +285,12 @@
                 <div class="footer-nav-col">
                     <h4>Support</h4>
                     <ul class="footer-links-list">
-                        <li><a href="#claims">Claims</a></li>
-                        <li><a href="#make-payment">Make a Payment</a></li>
-                        <li><a href="/admin">Agent Login</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="{{ route('claims') }}">Claims</a></li>
+                        <li><a href="{{ route('payment') }}">Make a Payment</a></li>
+                        <li><a href="{{ route('login') }}">Sign In</a></li>
+                        <li><a href="{{ route('register') }}">Create Account</a></li>
+                        <li><a href="/admin">Agent Portal</a></li>
+                        <li><a href="{{ route('contact') }}">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -328,7 +343,7 @@
                     View Instant Quote Estimate &rarr;
                 </button>
             </form>
-            <div id="quoteSuccessMessage" style="display:none; margin-top:16px; padding:12px; background:#e8f4fc; border-radius:8px; color:#1255db; text-align:center; font-weight:600; font-size:14px;">
+            <div id="quoteSuccessMessage" style="display:none; margin-top:16px; padding:12px; background:#e8f4fc; border-radius:8px; color:#1255db; text-align:center; font-weight:600; font-size: 16px;">
                 ✓ Request received! An agent is matching the best plan for you right now.
             </div>
         </div>

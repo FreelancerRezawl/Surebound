@@ -3,6 +3,31 @@
    Aesthetics: Sleek Modern Dashboard, Curated Palette, Glassmorphism, Responsive
    ========================================================================== */
 
+/* Brand Guidelines 2026: Minion Variable Concept */
+@font-face {
+  font-family: 'Minion Variable Concept';
+  src: local('Minion Variable Concept Bold'),
+       local('Minion Variable Concept'),
+       local('MinionVariableConcept-Bold'),
+       local('MinionPro-Bold'),
+       url('../fonts/minion/MinionPro-Bold.otf') format('opentype'),
+       url('../fonts/minion/MinionPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Minion Variable Concept';
+  src: local('Minion Variable Concept'),
+       local('MinionVariableConcept-Regular'),
+       local('MinionPro-Regular'),
+       url('../fonts/minion/MinionPro-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
     /* Brand & Accent Palette */
     --sb-navy-950: #070e17;
@@ -43,9 +68,10 @@
     --text-muted: #94a3b8;
     --text-inverse: #ffffff;
 
-    /* Typography & Sizing */
-    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --font-serif: 'Lora', Georgia, serif;
+    /* Typography & Sizing - Brand Guidelines 2026 */
+    --font-headline: 'Minion Variable Concept', 'Minion Pro', Georgia, serif;
+    --font-serif: 'Minion Variable Concept', 'Minion Pro', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
     /* Shadows & Radii */
@@ -192,7 +218,7 @@ button, input, select, textarea {
 }
 
 .brand-title {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: -0.02em;
     color: #ffffff;
@@ -200,7 +226,7 @@ button, input, select, textarea {
 }
 
 .brand-subtitle {
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -218,7 +244,7 @@ button, input, select, textarea {
 }
 
 .nav-section-title {
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -234,7 +260,7 @@ button, input, select, textarea {
     padding: 10px 14px;
     border-radius: var(--radius-md);
     color: #94a3b8;
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 500;
     transition: all var(--transition-fast);
     cursor: pointer;
@@ -268,7 +294,7 @@ button, input, select, textarea {
     margin-left: auto;
     background: rgba(16, 185, 129, 0.2);
     color: #34d399;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 700;
     padding: 2px 7px;
     border-radius: var(--radius-full);
@@ -306,7 +332,7 @@ button, input, select, textarea {
     justify-content: center;
     font-weight: 700;
     color: #ffffff;
-    font-size: 0.875rem;
+    font-size: 1rem;
     flex-shrink: 0;
 }
 
@@ -316,7 +342,7 @@ button, input, select, textarea {
 }
 
 .agent-name {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     color: #ffffff;
     white-space: nowrap;
@@ -325,7 +351,7 @@ button, input, select, textarea {
 }
 
 .agent-role {
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
     color: #94a3b8;
 }
 
@@ -339,7 +365,7 @@ button, input, select, textarea {
     border-radius: var(--radius-md);
     background: rgba(255, 255, 255, 0.06);
     color: #cbd5e1;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
     transition: all var(--transition-fast);
 }
@@ -397,7 +423,7 @@ button, input, select, textarea {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 
@@ -444,7 +470,7 @@ button, input, select, textarea {
     border: 1px solid var(--border-subtle);
     background: var(--bg-surface-secondary);
     color: var(--text-primary);
-    font-size: 0.875rem;
+    font-size: 1rem;
     transition: all var(--transition-fast);
 }
 
@@ -460,7 +486,7 @@ button, input, select, textarea {
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
     font-family: var(--font-mono);
     color: var(--text-muted);
     background: var(--bg-surface);
@@ -519,7 +545,7 @@ button, input, select, textarea {
     gap: 8px;
     background: linear-gradient(135deg, var(--sb-emerald-600) 0%, var(--sb-emerald-500) 100%);
     color: #ffffff;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     padding: 0 16px;
     height: 38px;
@@ -575,14 +601,14 @@ button, input, select, textarea {
 }
 
 .view-title-group h1 {
-    font-size: 1.5rem;
+    font-size: 1.625rem;
     font-weight: 800;
     color: var(--text-primary);
     letter-spacing: -0.02em;
 }
 
 .view-title-group p {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     margin-top: 2px;
 }
@@ -603,7 +629,7 @@ button, input, select, textarea {
     padding: 0 14px;
     height: 38px;
     border-radius: var(--radius-md);
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     cursor: pointer;
     transition: all var(--transition-fast);
@@ -654,7 +680,7 @@ button, input, select, textarea {
 }
 
 .metric-label {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     color: var(--text-secondary);
     text-transform: uppercase;
@@ -696,7 +722,7 @@ button, input, select, textarea {
 }
 
 .metric-value {
-    font-size: 1.875rem;
+    font-size: 2rem;
     font-weight: 800;
     color: var(--text-primary);
     letter-spacing: -0.02em;
@@ -708,7 +734,7 @@ button, input, select, textarea {
     align-items: center;
     gap: 8px;
     margin-top: 10px;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
 }
 
 .metric-trend {
@@ -766,14 +792,14 @@ button, input, select, textarea {
 }
 
 .card-title {
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 700;
     color: var(--text-primary);
     letter-spacing: -0.01em;
 }
 
 .card-subtitle {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     color: var(--text-muted);
 }
 
@@ -834,7 +860,7 @@ button, input, select, textarea {
     transform: translateX(-50%);
     background: var(--sb-navy-950);
     color: #ffffff;
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
     font-weight: 700;
     padding: 3px 6px;
     border-radius: var(--radius-sm);
@@ -843,7 +869,7 @@ button, input, select, textarea {
 }
 
 .chart-label {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
     color: var(--text-muted);
 }
@@ -865,7 +891,7 @@ button, input, select, textarea {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
 }
 
 .dist-category {
@@ -926,7 +952,7 @@ button, input, select, textarea {
     border: none;
     background: none;
     padding: 6px 12px;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
     color: var(--text-secondary);
     border-radius: var(--radius-sm);
@@ -959,7 +985,7 @@ button, input, select, textarea {
     width: 100%;
     height: 34px;
     padding: 0 12px 0 34px;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     background: var(--bg-surface-secondary);
@@ -980,14 +1006,14 @@ button, input, select, textarea {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
 }
 
 .data-table th {
     background: var(--bg-surface-secondary);
     color: var(--text-secondary);
     font-weight: 700;
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     padding: 12px 18px;
@@ -1027,7 +1053,7 @@ button, input, select, textarea {
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     flex-shrink: 0;
 }
 
@@ -1037,7 +1063,7 @@ button, input, select, textarea {
 }
 
 .user-cell-email {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     color: var(--text-muted);
 }
 
@@ -1046,7 +1072,7 @@ button, input, select, textarea {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
     padding: 3px 8px;
     border-radius: var(--radius-md);
@@ -1077,7 +1103,7 @@ button, input, select, textarea {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 700;
     padding: 3px 9px;
     border-radius: var(--radius-full);
@@ -1117,6 +1143,73 @@ button, input, select, textarea {
     background: #fff7ed;
     color: #c2410c;
     border: 1px solid #ffedd5;
+}
+
+.status-pill.role-admin {
+    background: #faf5ff;
+    color: #7e22ce;
+    border: 1px solid #e9d5ff;
+}
+
+.status-pill.role-agent {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+}
+
+.status-pill.role-user {
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
+
+.user-role-select {
+    background: #ffffff;
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 5px 9px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.user-role-select:hover,
+.user-role-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+.user-delete-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #fecaca;
+    background: #fef2f2;
+    color: #dc2626;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.user-delete-btn:hover {
+    background: #fee2e2;
+    border-color: #f87171;
+    color: #b91c1c;
+}
+
+.user-you-badge {
+    font-size: 12px;
+    font-weight: 700;
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+    padding: 1px 6px;
+    border-radius: var(--radius-full);
 }
 
 /* Table Action Buttons */
@@ -1210,7 +1303,7 @@ button, input, select, textarea {
 }
 
 .modal-title {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
 }
@@ -1250,7 +1343,7 @@ button, input, select, textarea {
 }
 
 .form-label {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -1261,7 +1354,7 @@ button, input, select, textarea {
     width: 100%;
     height: 40px;
     padding: 0 12px;
-    font-size: 0.875rem;
+    font-size: 1rem;
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     background: var(--bg-surface);
@@ -1327,20 +1420,20 @@ button, input, select, textarea {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.625rem;
     font-weight: 700;
     margin-bottom: 14px;
     box-shadow: var(--shadow-md);
 }
 
 .agent-card-name {
-    font-size: 1.0625rem;
+    font-size: 1.1875rem;
     font-weight: 700;
     color: var(--text-primary);
 }
 
 .agent-card-role {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     color: var(--sb-emerald-600);
     font-weight: 600;
     margin-bottom: 16px;
@@ -1362,13 +1455,13 @@ button, input, select, textarea {
 }
 
 .agent-stat-value {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: var(--text-primary);
 }
 
 .agent-stat-label {
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
     color: var(--text-muted);
     text-transform: uppercase;
     font-weight: 600;
@@ -1381,7 +1474,7 @@ button, input, select, textarea {
     background: var(--bg-surface-secondary);
     color: var(--text-secondary);
     border: 1px solid var(--border-subtle);
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
     cursor: pointer;
     display: flex;

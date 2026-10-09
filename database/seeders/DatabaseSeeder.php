@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\ApiSetting;
 use App\Models\Claim;
+use App\Models\Invoice;
 use App\Models\Policy;
 use App\Models\Quote;
 use App\Models\User;
@@ -47,6 +49,28 @@ class DatabaseSeeder extends Seeder
                 'role' => 'agent',
                 'title' => 'Commercial Lines Broker',
                 'phone' => '(509) 555-0724',
+            ]
+        );
+
+        User::updateOrCreate(
+            ['email' => 'eleanor.vance@gmail.com'],
+            [
+                'name' => 'Eleanor Vance',
+                'password' => Hash::make('password123'),
+                'role' => 'user',
+                'title' => 'Policyholder',
+                'phone' => '(206) 555-8901',
+            ]
+        );
+
+        User::updateOrCreate(
+            ['email' => 'michael.chen@apexlogistics.com'],
+            [
+                'name' => 'Michael Chen',
+                'password' => Hash::make('password123'),
+                'role' => 'user',
+                'title' => 'Commercial Client',
+                'phone' => '(509) 555-3412',
             ]
         );
 
@@ -274,7 +298,6 @@ class DatabaseSeeder extends Seeder
             Policy::updateOrCreate(['policy_number' => $p['policy_number']], $p);
         }
 
-
         // 4. Real Claims
         $claims = [
             [
@@ -333,7 +356,7 @@ class DatabaseSeeder extends Seeder
                 'payment_transaction_id' => 'ch_3Mtw2eLkdIwHu7ix0HqZ9yP1',
                 'paid_at' => '2026-05-14 10:30:00',
                 'line_items' => [
-                    ['desc' => 'Homeowners Deluxe Annual Premium (Policy #SB-POL-98412)', 'qty' => 1, 'price' => 2250.00, 'tax_pct' => 8.0, 'total' => 2430.00]
+                    ['desc' => 'Homeowners Deluxe Annual Premium (Policy #SB-POL-98412)', 'qty' => 1, 'price' => 2250.00, 'tax_pct' => 8.0, 'total' => 2430.00],
                 ],
                 'notes' => 'Thank you for choosing Surebound Insurance. Payment processed successfully via Stripe US gateway.',
             ],
@@ -356,7 +379,7 @@ class DatabaseSeeder extends Seeder
                 'paid_at' => '2026-07-11 14:15:00',
                 'line_items' => [
                     ['desc' => 'Commercial Fleet & BOP Annual Premium (8 Vehicles + Liability)', 'qty' => 1, 'price' => 18400.00, 'tax_pct' => 0, 'total' => 18400.00],
-                    ['desc' => 'Fleet Safety Bundle Discount', 'qty' => 1, 'price' => -500.00, 'tax_pct' => 0, 'total' => -500.00]
+                    ['desc' => 'Fleet Safety Bundle Discount', 'qty' => 1, 'price' => -500.00, 'tax_pct' => 0, 'total' => -500.00],
                 ],
                 'notes' => 'ACH Transfer settled via FedNow / NACHA Direct Debit. COI dispatched to carrier.',
             ],
@@ -378,7 +401,7 @@ class DatabaseSeeder extends Seeder
                 'payment_transaction_id' => null,
                 'paid_at' => null,
                 'line_items' => [
-                    ['desc' => 'Commercial Property & BOP Annual Coverage Premium', 'qty' => 1, 'price' => 28500.00, 'tax_pct' => 0, 'total' => 28500.00]
+                    ['desc' => 'Commercial Property & BOP Annual Coverage Premium', 'qty' => 1, 'price' => 28500.00, 'tax_pct' => 0, 'total' => 28500.00],
                 ],
                 'notes' => 'Invoice issued. Please remit wire payment using ABA Routing #021000021.',
             ],
@@ -400,14 +423,14 @@ class DatabaseSeeder extends Seeder
                 'payment_transaction_id' => null,
                 'paid_at' => null,
                 'line_items' => [
-                    ['desc' => 'Marine & Property BOP Annual Premium', 'qty' => 1, 'price' => 32000.00, 'tax_pct' => 0, 'total' => 32000.00]
+                    ['desc' => 'Marine & Property BOP Annual Premium', 'qty' => 1, 'price' => 32000.00, 'tax_pct' => 0, 'total' => 32000.00],
                 ],
                 'notes' => 'OVERDUE: Payment past due. Notice of cancellation pending unless paid within 10 days.',
             ],
         ];
 
         foreach ($invoices as $inv) {
-            \App\Models\Invoice::updateOrCreate(['invoice_number' => $inv['invoice_number']], $inv);
+            Invoice::updateOrCreate(['invoice_number' => $inv['invoice_number']], $inv);
         }
 
         // 6. Default API Integrations (Claims API & US Payment Gateways)
@@ -473,7 +496,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($defaultApiSettings as $key => $val) {
-            \App\Models\ApiSetting::updateOrCreate(['key' => $key], ['value' => $val]);
+            ApiSetting::updateOrCreate(['key' => $key], ['value' => $val]);
         }
     }
 }

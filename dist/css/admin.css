@@ -3,6 +3,31 @@
    Aesthetics: Sleek Modern Dashboard, Curated Palette, Glassmorphism, Responsive
    ========================================================================== */
 
+/* Brand Guidelines 2026: Minion Variable Concept */
+@font-face {
+  font-family: 'Minion Variable Concept';
+  src: local('Minion Variable Concept Bold'),
+       local('Minion Variable Concept'),
+       local('MinionVariableConcept-Bold'),
+       local('MinionPro-Bold'),
+       url('../fonts/minion/MinionPro-Bold.otf') format('opentype'),
+       url('../fonts/minion/MinionPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Minion Variable Concept';
+  src: local('Minion Variable Concept'),
+       local('MinionVariableConcept-Regular'),
+       local('MinionPro-Regular'),
+       url('../fonts/minion/MinionPro-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
     /* Brand & Accent Palette */
     --sb-navy-950: #070e17;
@@ -43,9 +68,10 @@
     --text-muted: #94a3b8;
     --text-inverse: #ffffff;
 
-    /* Typography & Sizing */
-    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --font-serif: 'Lora', Georgia, serif;
+    /* Typography & Sizing - Brand Guidelines 2026 */
+    --font-headline: 'Minion Variable Concept', 'Minion Pro', Georgia, serif;
+    --font-serif: 'Minion Variable Concept', 'Minion Pro', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
     /* Shadows & Radii */
@@ -1117,6 +1143,73 @@ button, input, select, textarea {
     background: #fff7ed;
     color: #c2410c;
     border: 1px solid #ffedd5;
+}
+
+.status-pill.role-admin {
+    background: #faf5ff;
+    color: #7e22ce;
+    border: 1px solid #e9d5ff;
+}
+
+.status-pill.role-agent {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+}
+
+.status-pill.role-user {
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
+
+.user-role-select {
+    background: #ffffff;
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 5px 9px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.user-role-select:hover,
+.user-role-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+.user-delete-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #fecaca;
+    background: #fef2f2;
+    color: #dc2626;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.user-delete-btn:hover {
+    background: #fee2e2;
+    border-color: #f87171;
+    color: #b91c1c;
+}
+
+.user-you-badge {
+    font-size: 10px;
+    font-weight: 700;
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+    padding: 1px 6px;
+    border-radius: var(--radius-full);
 }
 
 /* Table Action Buttons */

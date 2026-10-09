@@ -259,6 +259,32 @@
     </section>
 
     <!-- ==========================================
+         BRAND GUIDELINES 2026: PULL QUOTES & TESTIMONIAL
+         ========================================== -->
+    <section class="pull-quote-section">
+        <div class="container pull-quote-container">
+            <div class="brand-pull-quote-card">
+                <span class="brand-quote-mark">&ldquo;</span>
+                <blockquote class="brand-quote-text">
+                    We believe that the advantages are so great that a shift to working on slack, or something like it, is inevitable.
+                </blockquote>
+                <div class="brand-quote-attribution">
+                    <div class="brand-quote-author-info">
+                        <span class="brand-quote-author">Marcel Gherkina</span>
+                        <span class="brand-quote-role">Spokesperson, Surebound</span>
+                    </div>
+                    <div class="brand-quote-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Verified Perspective</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
          WHY CHOOSE SUREBOUND SECTION
          ========================================== -->
     <section class="why-section">

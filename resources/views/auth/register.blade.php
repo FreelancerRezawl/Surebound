@@ -3,284 +3,1268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Surebound Agent Registration">
-    <title>Agent Registration – Surebound Insurance Portal</title>
+    <meta name="description" content="Create your Surebound Insurance account to manage policies, file claims, and access instant quotes.">
+    <title>Create an Account – Surebound Insurance</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/icon.png') }}">
     
-    <!-- Fonts -->
+    <!-- Fonts: Inter (Brand Guidelines 2026) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --sb-navy-950: #070e17;
-            --sb-navy-900: #0b1524;
-            --sb-emerald-500: #10b981;
-            --sb-emerald-600: #059669;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #94a3b8;
-            --border-subtle: #e2e8f0;
-            --radius-md: 10px;
-            --radius-lg: 16px;
+        /* Brand Guidelines 2026: Minion Variable Concept Bold */
+        @font-face {
+            font-family: 'Minion Variable Concept';
+            src: local('Minion Variable Concept Bold'),
+                 local('Minion Variable Concept'),
+                 local('MinionVariableConcept-Bold'),
+                 local('MinionPro-Bold'),
+                 url('/fonts/minion/MinionPro-Bold.otf') format('opentype'),
+                 url('/fonts/minion/MinionPro-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
         }
 
-        * {
+        @font-face {
+            font-family: 'Minion Variable Concept';
+            src: local('Minion Variable Concept'),
+                 local('MinionVariableConcept-Regular'),
+                 local('MinionPro-Regular'),
+                 url('/fonts/minion/MinionPro-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --font-headline: 'Minion Variable Concept', 'Minion Pro', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            
+            --color-primary: #195acd;
+            --color-primary-hover: #1247a8;
+            --color-navy: #0b1a48;
+            --color-navy-dark: #071336;
+            --color-sky-light: #f0f6ff;
+            --color-sky: #e1edfe;
+            --color-text-dark: #0b1a48;
+            --color-text-body: #475569;
+            --color-text-muted: #64748b;
+            --color-card-border: #e2e8f0;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-pill: 9999px;
+            
+            --shadow-subtle: 0 4px 20px rgba(11, 26, 72, 0.05);
+            --shadow-card: 0 20px 45px rgba(11, 26, 72, 0.08), 0 1px 3px rgba(11, 26, 72, 0.04);
+        }
+
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: var(--font-sans);
             min-height: 100vh;
-            background: linear-gradient(135deg, #070e17 0%, #0b1524 50%, #0f1c2e 100%);
+            background: linear-gradient(145deg, #edf4fc 0%, #f7faff 40%, #f0f6ff 100%);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            padding: 40px 16px;
+            color: var(--color-text-body);
             position: relative;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        body::before {
-            content: '';
+        /* Ambient background lighting */
+        .ambient-glow-1 {
             position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+            top: -150px;
+            left: -150px;
+            width: 520px;
+            height: 520px;
+            background: radial-gradient(circle, rgba(25, 90, 205, 0.12) 0%, transparent 70%);
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
         }
 
-        .auth-container {
+        .ambient-glow-2 {
+            position: absolute;
+            bottom: -150px;
+            right: -150px;
+            width: 580px;
+            height: 580px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .auth-wrapper {
             width: 100%;
-            max-width: 480px;
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: var(--radius-lg);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
-            padding: 36px 32px;
+            max-width: 520px;
             position: relative;
             z-index: 2;
         }
 
-        .auth-brand {
+        /* Top Brand Navigation */
+        .auth-top-nav {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .brand-icon-wrap {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
-        }
-
-        .brand-icon-wrap svg {
-            width: 24px;
-            height: 24px;
-            color: #ffffff;
-        }
-
-        .brand-name {
-            font-size: 1.375rem;
-            font-weight: 800;
-            color: #0b1524;
-            letter-spacing: -0.02em;
-        }
-
-        .auth-header {
-            text-align: center;
+            justify-content: space-between;
             margin-bottom: 24px;
+            padding: 0 4px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 15.5px;
+            font-weight: 500;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--color-primary);
+            transform: translateX(-2px);
+        }
+
+        .auth-badge-portal {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #ffffff;
+            border: 1px solid var(--color-card-border);
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--color-navy);
+            box-shadow: 0 2px 6px rgba(11, 26, 72, 0.04);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #10b981;
+        }
+
+        /* Main Auth Card */
+        .auth-card {
+            background: #ffffff;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            padding: 40px 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #195acd 0%, #38bdf8 100%);
+        }
+
+        /* Brand Logo */
+        .auth-brand-header {
+            text-align: center;
+            margin-bottom: 26px;
+        }
+
+        .brand-logo-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .brand-logo-link:hover {
+            transform: scale(1.02);
+            opacity: 0.95;
+        }
+
+        .brand-logo-img {
+            height: 44px;
+            width: auto;
+            max-width: 220px;
+            object-fit: contain;
+            display: block;
         }
 
         .auth-title {
-            font-size: 1.25rem;
+            font-family: var(--font-headline);
+            font-size: 30px;
             font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.01em;
+            color: var(--color-navy);
+            letter-spacing: 0;
+            font-kerning: normal;
+            font-feature-settings: "kern" 1, "liga" 1;
+            text-rendering: optimizeLegibility;
+            text-transform: none;
+            line-height: 1.25;
+            margin-bottom: 6px;
         }
 
         .auth-subtitle {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-            margin-top: 4px;
+            font-size: 15.5px;
+            color: var(--color-text-muted);
+            line-height: 1.5;
         }
 
-        .form-grid {
+        /* Math Challenge Security Styles */
+        .math-security-group {
+            margin-bottom: 20px;
+            background: #f8fafc;
+            border: 1.5px solid var(--color-card-border);
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+        }
+
+        .math-challenge-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .math-equation-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            border: 1.5px solid var(--color-card-border);
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 16.5px;
+            color: var(--color-navy);
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        .btn-refresh-math {
+            background: transparent;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px;
+            border-radius: 4px;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-refresh-math:hover {
+            color: var(--color-primary);
+            transform: rotate(90deg);
+        }
+
+        .math-input-wrap {
+            flex: 1;
+        }
+
+        .form-input.math-input {
+            padding: 10px 14px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .math-notice {
+            font-size: 14px;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* Alerts */
+        .error-alert {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #b91c1c;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .success-alert {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #15803d;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Account Type Pill Selector */
+        .type-selector-label {
+            display: block;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--color-navy);
+            margin-bottom: 8px;
+        }
+
+        .type-selector-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .type-pill {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 6px;
+            background: #f8fafc;
+            border: 1.5px solid var(--color-card-border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            user-select: none;
+        }
+
+        .type-pill:hover {
+            background: var(--color-sky-light);
+            border-color: #cbd5e1;
+        }
+
+        .type-pill.active {
+            background: var(--color-sky-light);
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            box-shadow: 0 0 0 2px rgba(25, 90, 205, 0.12);
+        }
+
+        .type-pill svg {
+            width: 18px;
+            height: 18px;
+            margin-bottom: 4px;
+            color: #64748b;
+            transition: color 0.2s ease;
+        }
+
+        .type-pill.active svg {
+            color: var(--color-primary);
+        }
+
+        .type-pill span {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--color-navy);
+        }
+
+        .type-pill.active span {
+            color: var(--color-primary);
+        }
+
+        /* Form Grid (for 2-column sections) */
+        .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 14px;
         }
 
-        .form-group {
-            margin-bottom: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+        @media (max-width: 540px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .type-selector-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .form-group.full {
-            grid-column: span 2;
-            margin-bottom: 0;
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 18px;
         }
 
         .form-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            color: var(--text-secondary);
+            display: block;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--color-navy);
+            margin-bottom: 6px;
+            letter-spacing: 0;
+        }
+
+        .input-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 14px;
+            width: 18px;
+            height: 18px;
+            color: #94a3b8;
+            pointer-events: none;
+            transition: color 0.2s ease;
         }
 
         .form-input {
             width: 100%;
-            height: 42px;
-            padding: 0 12px;
-            font-size: 0.875rem;
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
+            padding: 11px 14px 11px 42px;
+            font-family: var(--font-sans);
+            font-size: 15.5px;
+            color: var(--color-navy);
             background: #ffffff;
-            color: var(--text-primary);
-            transition: all 0.15s ease;
+            border: 1.5px solid var(--color-card-border);
+            border-radius: var(--radius-sm);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .form-input:focus {
-            outline: none;
-            border-color: var(--sb-emerald-500);
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(25, 90, 205, 0.15);
         }
 
+        .form-input:focus + .input-icon,
+        .input-wrap:focus-within .input-icon {
+            color: var(--color-primary);
+        }
+
+        /* Live Email Validation Feedback */
+        .form-input.is-valid {
+            border-color: #10b981 !important;
+            background-color: #f0fdf4 !important;
+        }
+
+        .form-input.is-valid:focus {
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18) !important;
+        }
+
+        .form-input.is-invalid {
+            border-color: #ef4444 !important;
+            background-color: #fef2f2 !important;
+        }
+
+        .form-input.is-invalid:focus {
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.18) !important;
+        }
+
+        .email-notice {
+            font-size: 13.5px;
+            margin-top: 6px;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .email-notice.valid {
+            color: #10b981;
+        }
+
+        .email-notice.invalid {
+            color: #ef4444;
+        }
+
+        .email-notice.checking {
+            color: #2563eb;
+        }
+
+        .email-notice a {
+            color: var(--color-primary);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        @keyframes emailSpinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .spinner-icon {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #93c5fd;
+            border-top-color: #2563eb;
+            border-radius: 50%;
+            animation: emailSpinner 0.7s linear infinite;
+            flex-shrink: 0;
+        }
+
+        .toggle-password-btn {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+        }
+
+        .toggle-password-btn:hover {
+            color: var(--color-navy);
+        }
+
+        /* Password Strength Bar */
+        .password-strength-container {
+            margin-top: 6px;
+        }
+
+        .strength-meter {
+            height: 4px;
+            width: 100%;
+            background: #e2e8f0;
+            border-radius: 2px;
+            overflow: hidden;
+            display: flex;
+            gap: 2px;
+        }
+
+        .strength-segment {
+            height: 100%;
+            flex: 1;
+            background: #e2e8f0;
+            transition: background 0.25s ease;
+        }
+
+        .strength-segment.active-weak {
+            background: #ef4444;
+        }
+
+        .strength-segment.active-fair {
+            background: #f59e0b;
+        }
+
+        .strength-segment.active-good {
+            background: #3b82f6;
+        }
+
+        .strength-segment.active-strong {
+            background: #10b981;
+        }
+
+        .strength-label {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            margin-top: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Checkbox & Terms */
+        .checkbox-container {
+            margin-top: 14px;
+            margin-bottom: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .checkbox-label {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 8px;
+            color: var(--color-text-body);
+            font-size: 14.5px;
+            line-height: 1.45;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checkbox-label input {
+            width: 16px;
+            height: 16px;
+            margin-top: 1px;
+            border-radius: 4px;
+            border: 1.5px solid var(--color-card-border);
+            accent-color: var(--color-primary);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .checkbox-label a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .checkbox-label a:hover {
+            text-decoration: underline;
+        }
+
+        /* Submit Button */
         .btn-submit {
             width: 100%;
-            height: 44px;
-            background: linear-gradient(135deg, var(--sb-emerald-600) 0%, var(--sb-emerald-500) 100%);
+            padding: 13px 20px;
+            background: linear-gradient(135deg, #195acd 0%, #1346a0 100%);
             color: #ffffff;
-            font-size: 0.875rem;
-            font-weight: 700;
-            border-radius: var(--radius-md);
+            font-family: var(--font-sans);
+            font-size: 17px;
+            font-weight: 600;
             border: none;
+            border-radius: var(--radius-sm);
             cursor: pointer;
-            margin-top: 18px;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 4px 14px rgba(25, 90, 205, 0.28);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .btn-submit:hover {
             transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.45);
+            box-shadow: 0 6px 18px rgba(25, 90, 205, 0.35);
+            background: linear-gradient(135deg, #144eb7 0%, #0d3680 100%);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        /* Divider & Switch */
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            margin: 22px 0 18px 0;
+            color: #94a3b8;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
+        }
+
+        .auth-divider span {
+            padding: 0 12px;
         }
 
         .auth-footer {
             text-align: center;
-            margin-top: 24px;
-            padding-top: 18px;
-            border-top: 1px solid var(--border-subtle);
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
+            font-size: 15.5px;
+            color: var(--color-text-muted);
         }
 
-        .auth-link {
-            color: var(--sb-emerald-600);
-            font-weight: 700;
+        .auth-footer a {
+            color: var(--color-primary);
+            font-weight: 600;
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
-        .auth-link:hover {
+        .auth-footer a:hover {
+            color: var(--color-primary-hover);
             text-decoration: underline;
         }
 
-        .error-alert {
-            background: #fff1f2;
-            border: 1px solid #fecdd3;
-            color: #e11d48;
-            padding: 10px 14px;
-            border-radius: var(--radius-md);
-            font-size: 0.8125rem;
-            margin-bottom: 18px;
+        /* Security Assurance */
+        .security-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 24px;
+            font-size: 13.5px;
+            color: #94a3b8;
+        }
+
+        .security-note svg {
+            width: 14px;
+            height: 14px;
+            color: #10b981;
         }
     </style>
 </head>
 <body>
 
-    <div class="auth-container">
-        <div class="auth-brand">
-            <div class="brand-icon-wrap">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
+    <div class="auth-wrapper">
+        <!-- Top Nav Link -->
+        <div class="auth-top-nav">
+            <a href="/" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
+                <span>Back to Home</span>
+            </a>
+            <div class="auth-badge-portal">
+                <span class="status-dot"></span>
+                <span>Secure Portal</span>
             </div>
-            <span class="brand-name">Surebound</span>
         </div>
 
-        <div class="auth-header">
-            <h1 class="auth-title">Register Agent Account</h1>
-            <p class="auth-subtitle">Create an account to access policies, leads and claims</p>
+        <!-- Auth Card -->
+        <div class="auth-card">
+            <!-- Brand Logo Header -->
+            <div class="auth-brand-header">
+                <a href="/" class="brand-logo-link" aria-label="Surebound Home">
+                    <img src="{{ asset('images/logo.png') }}" alt="Surebound" class="brand-logo-img">
+                </a>
+                <h1 class="auth-title">Create your account</h1>
+                <p class="auth-subtitle">Join Surebound for instant policy management, digital COIs, and online claims.</p>
+            </div>
+
+            @if ($errors->any())
+                <div class="error-alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                    </svg>
+                    <span>{{ $errors->first() }}</span>
+                </div>
+            @endif
+
+            @if (session('success'))
+                <div class="success-alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{{ session('success') }}</span>
+                </div>
+            @endif
+
+            <!-- Register Form -->
+            <form action="{{ route('register.post') }}" method="POST" id="registerForm" onsubmit="handleRegisterSubmit(event)">
+                @csrf
+                
+                <!-- Account Type Selector -->
+                <label class="type-selector-label">I am registering as</label>
+                <div class="type-selector-grid">
+                    <div class="type-pill active" onclick="selectAccountType(this, 'Policyholder')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>
+                        <span>Policyholder</span>
+                    </div>
+                    <div class="type-pill" onclick="selectAccountType(this, 'Commercial Client')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                        </svg>
+                        <span>Business Client</span>
+                    </div>
+                    <div class="type-pill" onclick="selectAccountType(this, 'Licensed Agent')">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                        </svg>
+                        <span>Agent / Broker</span>
+                    </div>
+                </div>
+                <input type="hidden" name="title" id="accountTypeInput" value="Policyholder">
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label class="form-label" for="name">Full Legal Name</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>
+                        <input 
+                            type="text" 
+                            name="name" 
+                            id="name" 
+                            class="form-input" 
+                            value="{{ old('name') }}" 
+                            required 
+                            placeholder="e.g. Eleanor Vance"
+                            autocomplete="name"
+                            autofocus
+                        >
+                    </div>
+                </div>
+
+                <!-- Email & Phone in 2 Columns -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <div class="input-wrap">
+                            <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                            </svg>
+                            <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                class="form-input" 
+                                value="{{ old('email') }}" 
+                                required 
+                                placeholder="name@example.com"
+                                autocomplete="email"
+                                oninput="checkEmailLive()"
+                                onblur="checkEmailLive()"
+                            >
+                        </div>
+                        <div id="emailNotice" class="email-notice" style="display: none;"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number <span style="font-weight: 400; color: #94a3b8;">(Optional)</span></label>
+                        <div class="input-wrap">
+                            <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H3.75A2.25 2.25 0 0 0 1.5 4.5v2.25Z" />
+                            </svg>
+                            <input 
+                                type="tel" 
+                                name="phone" 
+                                id="phone" 
+                                class="form-input" 
+                                value="{{ old('phone') }}" 
+                                placeholder="(555) 234-5678"
+                                autocomplete="tel"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password with Strength Meter -->
+                <div class="form-group">
+                    <label class="form-label" for="password">Create Password</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                        </svg>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            class="form-input" 
+                            required 
+                            placeholder="At least 8 characters"
+                            autocomplete="new-password"
+                            oninput="checkPasswordStrength(this.value)"
+                        >
+                        <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('password', 'eyeIcon1')" aria-label="Toggle password visibility">
+                            <svg id="eyeIcon1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="password-strength-container">
+                        <div class="strength-meter">
+                            <div class="strength-segment" id="seg1"></div>
+                            <div class="strength-segment" id="seg2"></div>
+                            <div class="strength-segment" id="seg3"></div>
+                            <div class="strength-segment" id="seg4"></div>
+                        </div>
+                        <div class="strength-label">
+                            <span id="strengthText">Password strength</span>
+                            <span style="color: #94a3b8;">Min 8 chars</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label class="form-label" for="password_confirmation">Confirm Password</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                        </svg>
+                        <input 
+                            type="password" 
+                            name="password_confirmation" 
+                            id="password_confirmation" 
+                            class="form-input" 
+                            required 
+                            placeholder="Re-enter your password"
+                            autocomplete="new-password"
+                            oninput="checkPasswordMatch()"
+                        >
+                        <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('password_confirmation', 'eyeIcon2')" aria-label="Toggle confirm password visibility">
+                            <svg id="eyeIcon2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="matchNotice" style="display: none; font-size: 13.5px; margin-top: 5px;"></div>
+                </div>
+
+                <!-- Security Math Verification -->
+                <div class="form-group math-security-group">
+                    <label class="form-label" for="math_answer" style="margin-bottom: 2px;">
+                        <span>Security Verification</span>
+                    </label>
+                    <p style="font-size: 14px; color: var(--color-text-muted); margin-bottom: 8px;">Please solve this simple math equation to verify you are human:</p>
+                    <div class="math-challenge-box">
+                        <div class="math-equation-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="17" height="17" style="color: var(--color-primary);">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                            </svg>
+                            <span id="mathQuestion" class="math-question-text">5 + 7 = ?</span>
+                            <button type="button" class="btn-refresh-math" onclick="generateMathChallenge()" title="Get new equation" aria-label="Get new equation">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="math-input-wrap">
+                            <input 
+                                type="number" 
+                                name="math_answer" 
+                                id="math_answer" 
+                                class="form-input math-input" 
+                                required 
+                                placeholder="Your answer"
+                                autocomplete="off"
+                                oninput="validateMathRealtime()"
+                            >
+                        </div>
+                    </div>
+                    <input type="hidden" name="math_num1" id="math_num1" value="5">
+                    <input type="hidden" name="math_num2" id="math_num2" value="7">
+                    <div id="mathNotice" class="math-notice" style="display: none;"></div>
+                </div>
+
+                <!-- Terms & Policies Checkbox -->
+                <div class="checkbox-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="terms" id="terms" required checked>
+                        <span>I accept Surebound's <a href="javascript:void(0)" onclick="alert('Surebound Terms: All accounts subject to standard policy verification and state licensing regulations.')">Terms of Service</a> and <a href="javascript:void(0)" onclick="alert('Surebound Privacy: We protect policyholder records with end-to-end encryption.')">Privacy Policy</a>.</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="communications" id="communications" checked>
+                        <span>Keep me notified of digital policy documents, renewals, and quote savings.</span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span>Create Account</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </button>
+            </form>
+
+            <div class="auth-divider">
+                <span>Already registered?</span>
+            </div>
+
+            <div class="auth-footer">
+                <span>Already have an account? </span>
+                <a href="/login">Sign in here</a>
+            </div>
         </div>
 
-        @if ($errors->any())
-            <div class="error-alert">
-                {{ $errors->first() }}
-            </div>
-        @endif
-
-        <form action="{{ route('register.post') }}" method="POST">
-            @csrf
-
-            <div class="form-group">
-                <label class="form-label" for="name">Full Name *</label>
-                <input type="text" name="name" id="name" class="form-input" value="{{ old('name') }}" required placeholder="e.g. Marcus Sterling">
-            </div>
-
-            <div class="form-group">
-                <label class="form-label" for="email">Work Email *</label>
-                <input type="email" name="email" id="email" class="form-input" value="{{ old('email') }}" required placeholder="marcus@surebound.com">
-            </div>
-
-            <div class="form-grid">
-                <div class="form-group">
-                    <label class="form-label" for="title">Title / Role</label>
-                    <input type="text" name="title" id="title" class="form-input" value="{{ old('title') }}" placeholder="Underwriter">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="phone">Direct Phone</label>
-                    <input type="tel" name="phone" id="phone" class="form-input" value="{{ old('phone') }}" placeholder="(206) 555-0100">
-                </div>
-            </div>
-
-            <div class="form-grid" style="margin-top: 6px;">
-                <div class="form-group">
-                    <label class="form-label" for="password">Password *</label>
-                    <input type="password" name="password" id="password" class="form-input" required placeholder="Min 8 characters">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="password_confirmation">Confirm Password *</label>
-                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-input" required placeholder="Retype password">
-                </div>
-            </div>
-
-            <button type="submit" class="btn-submit">
-                Complete Registration
-            </button>
-        </form>
-
-        <div class="auth-footer">
-            <p>Already have an agent profile? <a href="{{ route('login') }}" class="auth-link">Sign In</a></p>
+        <!-- Security Note -->
+        <div class="security-note">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" />
+            </svg>
+            <span>256-Bit SSL Encrypted Insurance Portal</span>
         </div>
     </div>
 
+    <script>
+        let mathExpected = 12;
+
+        function generateMathChallenge() {
+            const n1 = Math.floor(Math.random() * 8) + 2; // 2 to 9
+            const n2 = Math.floor(Math.random() * 8) + 2; // 2 to 9
+            mathExpected = n1 + n2;
+            const num1El = document.getElementById('math_num1');
+            const num2El = document.getElementById('math_num2');
+            const questionEl = document.getElementById('mathQuestion');
+            const inputEl = document.getElementById('math_answer');
+            const noticeEl = document.getElementById('mathNotice');
+
+            if (num1El) num1El.value = n1;
+            if (num2El) num2El.value = n2;
+            if (questionEl) questionEl.innerText = `${n1} + ${n2} = ?`;
+            if (inputEl) inputEl.value = '';
+            if (noticeEl) noticeEl.style.display = 'none';
+        }
+
+        function validateMathRealtime() {
+            const inputEl = document.getElementById('math_answer');
+            const noticeEl = document.getElementById('mathNotice');
+            if (!inputEl || !noticeEl) return;
+            const val = inputEl.value.trim();
+            if (!val) {
+                noticeEl.style.display = 'none';
+                return;
+            }
+            noticeEl.style.display = 'block';
+            if (parseInt(val, 10) === mathExpected) {
+                noticeEl.innerText = '✓ Calculation verified';
+                noticeEl.style.color = '#10b981';
+            } else {
+                noticeEl.innerText = '⚠ Please solve the calculation correctly';
+                noticeEl.style.color = '#ef4444';
+            }
+        }
+
+        // Initialize math challenge on page load
+        document.addEventListener('DOMContentLoaded', generateMathChallenge);
+
+        function selectAccountType(el, role) {
+            document.querySelectorAll('.type-pill').forEach(pill => pill.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('accountTypeInput').value = role;
+        }
+
+        function togglePasswordVisibility(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />`;
+            } else {
+                input.type = 'password';
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />`;
+            }
+        }
+
+        function checkPasswordStrength(val) {
+            const seg1 = document.getElementById('seg1');
+            const seg2 = document.getElementById('seg2');
+            const seg3 = document.getElementById('seg3');
+            const seg4 = document.getElementById('seg4');
+            const label = document.getElementById('strengthText');
+            
+            // Reset
+            [seg1, seg2, seg3, seg4].forEach(s => s.className = 'strength-segment');
+
+            if (!val || val.length === 0) {
+                label.innerText = 'Password strength';
+                label.style.color = '#64748b';
+                return;
+            }
+
+            let score = 0;
+            if (val.length >= 8) score++;
+            if (/[A-Z]/.test(val) && /[a-z]/.test(val)) score++;
+            if (/[0-9]/.test(val)) score++;
+            if (/[^A-Za-z0-9]/.test(val)) score++;
+
+            if (score <= 1) {
+                seg1.classList.add('active-weak');
+                label.innerText = 'Weak';
+                label.style.color = '#ef4444';
+            } else if (score === 2) {
+                seg1.classList.add('active-fair');
+                seg2.classList.add('active-fair');
+                label.innerText = 'Fair';
+                label.style.color = '#f59e0b';
+            } else if (score === 3) {
+                seg1.classList.add('active-good');
+                seg2.classList.add('active-good');
+                seg3.classList.add('active-good');
+                label.innerText = 'Good';
+                label.style.color = '#3b82f6';
+            } else {
+                seg1.classList.add('active-strong');
+                seg2.classList.add('active-strong');
+                seg3.classList.add('active-strong');
+                seg4.classList.add('active-strong');
+                label.innerText = 'Strong & Secure';
+                label.style.color = '#10b981';
+            }
+        }
+
+        function checkPasswordMatch() {
+            const pwd = document.getElementById('password').value;
+            const confirm = document.getElementById('password_confirmation').value;
+            const notice = document.getElementById('matchNotice');
+            
+            if (!confirm) {
+                notice.style.display = 'none';
+                return;
+            }
+
+            notice.style.display = 'block';
+            if (pwd === confirm) {
+                notice.innerText = '✓ Passwords match';
+                notice.style.color = '#10b981';
+            } else {
+                notice.innerText = '⚠ Passwords do not match';
+                notice.style.color = '#ef4444';
+            }
+        }
+
+        // Real-time Email Format and Database Availability Check
+        let emailDebounceTimer = null;
+        let isEmailAvailable = false;
+        let lastCheckedEmail = '';
+        let isCheckingEmail = false;
+
+        function checkEmailLive() {
+            const emailInput = document.getElementById('email');
+            const noticeEl = document.getElementById('emailNotice');
+            if (!emailInput || !noticeEl) return;
+
+            const val = emailInput.value.trim();
+
+            if (!val) {
+                noticeEl.style.display = 'none';
+                noticeEl.className = 'email-notice';
+                noticeEl.innerHTML = '';
+                emailInput.classList.remove('is-valid', 'is-invalid');
+                isEmailAvailable = false;
+                lastCheckedEmail = '';
+                isCheckingEmail = false;
+                return;
+            }
+
+            // Client-side regex format check
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(val)) {
+                noticeEl.style.display = 'flex';
+                noticeEl.className = 'email-notice invalid';
+                noticeEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" /></svg> Invalid email format (e.g. name@example.com)';
+                emailInput.classList.remove('is-valid');
+                emailInput.classList.add('is-invalid');
+                isEmailAvailable = false;
+                return;
+            }
+
+            // Format is valid, show checking indicator
+            noticeEl.style.display = 'flex';
+            noticeEl.className = 'email-notice checking';
+            noticeEl.innerHTML = '<span class="spinner-icon"></span> Checking database availability...';
+            isCheckingEmail = true;
+
+            clearTimeout(emailDebounceTimer);
+            emailDebounceTimer = setTimeout(() => {
+                fetch('/check-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]')?.value || '',
+                    },
+                    body: JSON.stringify({ email: val })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    isCheckingEmail = false;
+                    if (emailInput.value.trim().toLowerCase() !== val.toLowerCase()) return;
+                    lastCheckedEmail = val.toLowerCase();
+
+                    if (data.available) {
+                        isEmailAvailable = true;
+                        emailInput.classList.remove('is-invalid');
+                        emailInput.classList.add('is-valid');
+                        noticeEl.className = 'email-notice valid';
+                        noticeEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 12.75l6 6 9-13.5" /></svg> Email is available and valid';
+                    } else {
+                        isEmailAvailable = false;
+                        emailInput.classList.remove('is-valid');
+                        emailInput.classList.add('is-invalid');
+                        noticeEl.className = 'email-notice invalid';
+                        if (data.reason === 'exists') {
+                            noticeEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" /></svg> Email already registered. <a href="/login">Sign in here</a>';
+                        } else {
+                            noticeEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" /></svg> ' + (data.message || 'Invalid email format');
+                        }
+                    }
+                })
+                .catch(err => {
+                    isCheckingEmail = false;
+                    // Fallback for static file preview / export
+                    if (emailPattern.test(val)) {
+                        isEmailAvailable = true;
+                        emailInput.classList.remove('is-invalid');
+                        emailInput.classList.add('is-valid');
+                        noticeEl.className = 'email-notice valid';
+                        noticeEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 12.75l6 6 9-13.5" /></svg> Email format is valid';
+                    }
+                });
+            }, 300);
+        }
+
+        // Static fallback for static hosts (Vercel, Hostinger static export)
+        function handleRegisterSubmit(e) {
+            // Check email format & database availability
+            const emailInput = document.getElementById('email');
+            const emailVal = emailInput.value.trim();
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(emailVal)) {
+                e.preventDefault();
+                alert('Please enter a valid email address (e.g. name@example.com).');
+                emailInput.focus();
+                return;
+            }
+
+            if (isEmailAvailable === false && lastCheckedEmail === emailVal.toLowerCase()) {
+                e.preventDefault();
+                alert('This email is already registered in our database. Please sign in or use a different email.');
+                emailInput.focus();
+                return;
+            }
+
+            // Check password match
+            const pwd = document.getElementById('password').value;
+            const confirm = document.getElementById('password_confirmation').value;
+            if (pwd !== confirm) {
+                e.preventDefault();
+                alert('Please ensure your passwords match.');
+                return;
+            }
+
+            // Check math calculation
+            const mathInput = document.getElementById('math_answer');
+            const mathVal = parseInt(mathInput.value.trim(), 10);
+            if (isNaN(mathVal) || mathVal !== mathExpected) {
+                e.preventDefault();
+                alert('Please solve the security math calculation correctly to proceed.');
+                mathInput.focus();
+                return;
+            }
+
+            if (window.location.protocol === 'file:' || !window.location.port || window.location.pathname.endsWith('.html')) {
+                e.preventDefault();
+                const btn = document.getElementById('submitBtn');
+                btn.innerHTML = '<span>Creating account...</span>';
+                setTimeout(() => {
+                    alert('Registration successful! Redirecting to your dashboard...');
+                    window.location.href = '/dashboard';
+                }, 400);
+            }
+        }
+    </script>
 </body>
 </html>

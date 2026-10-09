@@ -31,6 +31,7 @@ fs.mkdirSync(distDir, { recursive: true });
 copyDirSync(path.join(publicDir, 'css'), path.join(distDir, 'css'));
 copyDirSync(path.join(publicDir, 'js'), path.join(distDir, 'js'));
 copyDirSync(path.join(publicDir, 'images'), path.join(distDir, 'images'));
+copyDirSync(path.join(publicDir, 'fonts'), path.join(distDir, 'fonts'));
 if (fs.existsSync(path.join(publicDir, 'build'))) {
     copyDirSync(path.join(publicDir, 'build'), path.join(distDir, 'build'));
 }

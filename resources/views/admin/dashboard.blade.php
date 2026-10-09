@@ -9,10 +9,10 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/icon.png') }}">
     
-    <!-- Google Fonts: Plus Jakarta Sans & Lora -->
+    <!-- Google Fonts: Inter (Brand Guidelines 2026) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     
     <!-- Admin Portal Stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
@@ -74,6 +74,14 @@
 
                 <div class="nav-section-title">Administration</div>
 
+                <a class="sidebar-link" data-tab="users">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/>
+                    </svg>
+                    <span>All Users &amp; Admins</span>
+                    <span class="nav-badge" style="background: rgba(37, 99, 235, 0.2); color: #93c5fd;">{{ $allUsers->count() }}</span>
+                </a>
+
                 <a class="sidebar-link" data-tab="agents">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/>
@@ -88,6 +96,13 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                     </svg>
                     <span>Agency Settings</span>
+                </a>
+
+                <a class="sidebar-link" data-tab="brand-settings">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a2.25 2.25 0 013.198 0l.43.43a2.25 2.25 0 010 3.198l-7.5 7.5a2.25 2.25 0 01-3.198 0l-.43-.43a2.25 2.25 0 010-3.198l7.5-7.5z" />
+                    </svg>
+                    <span>Brand Guidelines</span>
                 </a>
 
                 <div class="nav-section-title">Billing &amp; API Integrations</div>
@@ -142,11 +157,111 @@
                     <span class="nav-badge" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">CMS</span>
                 </a>
 
+                <a class="sidebar-link" data-tab="property-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/>
+                    </svg>
+                    <span>Property Insurance CMS</span>
+                    <span class="nav-badge" style="background: rgba(14, 165, 233, 0.2); color: #0ea5e9;">CMS</span>
+                </a>
+
+<a class="sidebar-link" data-tab="liability-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/>
+                    </svg>
+                    <span>Liability Insurance CMS</span>
+                    <span class="nav-badge" style="background: rgba(14, 165, 233, 0.2); color: #0ea5e9;">CMS</span>
+                </a>
+<a class="sidebar-link" data-tab="group-benefits-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/>
+                    </svg>
+                    <span>Workers Compensation CMS</span>
+                    <span class="nav-badge" style="background: rgba(14, 165, 233, 0.2); color: #0ea5e9;">CMS</span>
+                </a>
+
                 <a class="sidebar-link" data-tab="specialty-cms">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"/>
                     </svg>
                     <span>Specialty Coverage CMS</span>
+                    <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">CMS</span>
+                </a>
+                <a class="sidebar-link" data-tab="custom-quote-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <span>Custom Quote CMS</span>
+                    <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">CMS</span>
+                </a>
+                <a class="sidebar-link" data-tab="compare-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                    </svg>
+                    <span>Compare CMS</span>
+                    <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">CMS</span>
+                </a>
+                <a class="sidebar-link" data-tab="story-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    <span>Story CMS</span>
+                    <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">CMS</span>
+                </a>
+                <a class="sidebar-link" data-tab="team-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                    <span>Team CMS</span>
+                    <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">CMS</span>
+                </a>
+                <a class="sidebar-link" data-tab="careers-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span>Careers CMS</span>
+                    <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">CMS</span>
+                </a>
+                <a class="sidebar-link" data-tab="community-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                    <span>Community CMS</span>
+                    <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">CMS</span>
+                </a>
+                <a class="sidebar-link" data-tab="articles-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                    </svg>
+                    <span>Articles CMS</span>
+                    <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">CMS</span>
+                </a>
+                <a class="sidebar-link" data-tab="faqs-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>FAQs CMS</span>
+                    <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">CMS</span>
+                </a>
+                <a class="sidebar-link" data-tab="guides-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    <span>Guides CMS</span>
+                    <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">CMS</span>
+                </a>
+<a class="sidebar-link" data-tab="coverage-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"/>
+                    </svg>
+                    <span>All Coverage CMS</span>
+                    <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">CMS</span>
+                </a>
+<a class="sidebar-link" data-tab="coverage-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"/>
+                    </svg>
+                    <span>All Coverage CMS</span>
                     <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">CMS</span>
                 </a>
 
@@ -156,6 +271,24 @@
                     </svg>
                     <span>Business Insurance CMS</span>
                     <span class="nav-badge" style="background: rgba(14, 165, 233, 0.2); color: #38bdf8;">CMS</span>
+                </a>
+
+                <a class="sidebar-link" data-tab="claims-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                    <span>Claims Page CMS</span>
+                    <span class="nav-badge" style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">CMS</span>
+                </a>
+
+                <a class="sidebar-link" data-tab="payment-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-6-8.25h19.5a1.5 1.5 0 0 1 1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5V10.5a1.5 1.5 0 0 1 1.5-1.5Z"/></svg>
+                    <span>Payment Page CMS</span>
+                    <span class="nav-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">CMS</span>
+                </a>
+
+                <a class="sidebar-link" data-tab="contact-cms">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+                    <span>Contact Page CMS</span>
+                    <span class="nav-badge" style="background: rgba(249, 115, 22, 0.2); color: #f97316;">CMS</span>
                 </a>
             </nav>
 
@@ -351,7 +484,7 @@
                                     <div class="card-title">2026 Production Trajectory</div>
                                     <div class="card-subtitle">Monthly bound premiums from MySQL policies</div>
                                 </div>
-                                <span style="font-size: 0.75rem; font-weight: 700; color: var(--sb-emerald-600); background: #ecfdf5; padding: 4px 8px; border-radius: var(--radius-sm);">{{ $ytdGrowthFormatted }}</span>
+                                <span style="font-size: 0.875rem; font-weight: 700; color: var(--sb-emerald-600); background: #ecfdf5; padding: 4px 8px; border-radius: var(--radius-sm);">{{ $ytdGrowthFormatted }}</span>
                             </div>
                             <div class="card-body">
                                 <div class="revenue-chart-container">
@@ -439,15 +572,15 @@
                                     <tr>
                                         <td>
                                             <div style="font-weight: 700; color: var(--text-primary);">{{ $rq->name }}</div>
-                                            <div style="font-size: 0.75rem; color: var(--text-muted);">{{ $rq->email }}</div>
+                                            <div style="font-size: 0.875rem; color: var(--text-muted);">{{ $rq->email }}</div>
                                         </td>
                                         <td><span class="category-badge {{ $rq->type }}">{{ $rq->type_label }}</span></td>
                                         <td>
                                             <div style="font-weight: 700;">{{ $rq->coverage }}</div>
-                                            <div style="font-size: 0.75rem; color: var(--sb-emerald-600); font-weight: 600;">{{ $rq->premium }}</div>
+                                            <div style="font-size: 0.875rem; color: var(--sb-emerald-600); font-weight: 600;">{{ $rq->premium }}</div>
                                         </td>
-                                        <td><span style="font-size: 0.8125rem;">{{ $rq->location ?: 'Washington' }}</span></td>
-                                        <td><span style="font-size: 0.75rem; color: var(--text-muted);">{{ $rq->created_at ? $rq->created_at->format('M d, Y') : 'Recent' }}</span></td>
+                                        <td><span style="font-size: 0.9375rem;">{{ $rq->location ?: 'Washington' }}</span></td>
+                                        <td><span style="font-size: 0.875rem; color: var(--text-muted);">{{ $rq->created_at ? $rq->created_at->format('M d, Y') : 'Recent' }}</span></td>
                                         <td><span class="status-pill {{ $rq->status }}">{{ ucfirst($rq->status) }}</span></td>
                                     </tr>
                                     @empty
@@ -662,6 +795,253 @@
                 </div>
 
                 <!-- ========================================================
+                     TAB: ALL USERS & ADMINS (DATABASE DIRECTORY)
+                     ======================================================== -->
+                <div class="tab-pane" id="tab-users">
+                    <div class="view-header">
+                        <div class="view-title-group">
+                            <h1>All Users &amp; Administrators</h1>
+                            <p>Complete directory of policyholders, commercial clients, brokers, and administrators stored in MySQL database.</p>
+                        </div>
+                        <div class="view-actions">
+                            <button class="btn-secondary" onclick="exportUsersToCSV()">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                                </svg>
+                                <span>Export Directory</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- KPI Metrics Grid -->
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-label">Total Accounts</span>
+                                <div class="metric-icon-wrap blue">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">{{ $userCounts['total'] }}</div>
+                            <div class="metric-bottom">
+                                <span class="metric-trend up">All Registered</span>
+                                <span class="metric-context">in MySQL database</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-label">Policyholders</span>
+                                <div class="metric-icon-wrap emerald">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">{{ $userCounts['users'] }}</div>
+                            <div class="metric-bottom">
+                                <span class="metric-trend up" style="background: #ecfdf5; color: #059669;">Client Portal</span>
+                                <span class="metric-context">active customers</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-label">Licensed Agents</span>
+                                <div class="metric-icon-wrap amber">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">{{ $userCounts['agents'] }}</div>
+                            <div class="metric-bottom">
+                                <span class="metric-trend up" style="background: #eff6ff; color: #2563eb;">Brokers</span>
+                                <span class="metric-context">quote &amp; claim handlers</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-label">Super Admins</span>
+                                <div class="metric-icon-wrap purple">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">{{ $userCounts['admins'] }}</div>
+                            <div class="metric-bottom">
+                                <span class="metric-trend up" style="background: #faf5ff; color: #9333ea;">Full Access</span>
+                                <span class="metric-context">executive managers</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Directory Table Card -->
+                    <div class="card">
+                        <div class="table-filter-bar">
+                            <div class="filter-tabs">
+                                <button type="button" class="filter-tab-btn active" data-user-filter="all" onclick="filterUsersByRole(this, 'all')">
+                                    All Accounts ({{ $userCounts['total'] }})
+                                </button>
+                                <button type="button" class="filter-tab-btn" data-user-filter="user" onclick="filterUsersByRole(this, 'user')">
+                                    Customers ({{ $userCounts['users'] }})
+                                </button>
+                                <button type="button" class="filter-tab-btn" data-user-filter="agent" onclick="filterUsersByRole(this, 'agent')">
+                                    Agents ({{ $userCounts['agents'] }})
+                                </button>
+                                <button type="button" class="filter-tab-btn" data-user-filter="admin" onclick="filterUsersByRole(this, 'admin')">
+                                    Admins ({{ $userCounts['admins'] }})
+                                </button>
+                            </div>
+
+                            <div class="table-search-box">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+                                </svg>
+                                <input type="text" class="table-search-input" id="usersTableSearch" oninput="filterUsersTable()" placeholder="Filter by name, email, or phone...">
+                            </div>
+                        </div>
+
+                        <!-- Data Table -->
+                        <div class="table-container">
+                            <table class="data-table" id="usersDirectoryTable">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 110px;">User ID</th>
+                                        <th>Account Profile</th>
+                                        <th>Email Address</th>
+                                        <th>Phone</th>
+                                        <th>System Role</th>
+                                        <th>Portal Access</th>
+                                        <th>Registered</th>
+                                        <th style="text-align: right; width: 190px;">Role &amp; Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersDirectoryTableBody">
+                                    @forelse($allUsers as $idx => $u)
+                                    @php
+                                        $initials = strtoupper(substr($u->name, 0, 2));
+                                        $gradient = match($u->role) {
+                                            'admin' => 'linear-gradient(135deg, #7c3aed 0%, #6366f1 100%)',
+                                            'agent' => 'linear-gradient(135deg, #2563eb 0%, #06b6d4 100%)',
+                                            default => 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
+                                        };
+                                    @endphp
+                                    <tr class="user-row" data-role="{{ $u->role }}" data-name="{{ strtolower($u->name) }}" data-email="{{ strtolower($u->email) }}" data-phone="{{ $u->phone ?? '' }}">
+                                        <td>
+                                            <span style="font-family: monospace; font-weight: 700; color: var(--text-secondary); white-space: nowrap;">
+                                                #USR-{{ str_pad($u->id, 4, '0', STR_PAD_LEFT) }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="user-cell">
+                                                <div class="user-cell-avatar" style="background: {{ $gradient }};">
+                                                    {{ $initials }}
+                                                </div>
+                                                <div>
+                                                    <div class="user-cell-name" style="display: flex; align-items: center; gap: 6px;">
+                                                        <span>{{ $u->name }}</span>
+                                                        @if($u->id === auth()->id())
+                                                            <span class="user-you-badge">You</span>
+                                                        @endif
+                                                    </div>
+                                                    <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 1px;">
+                                                        {{ $u->title ?: ($u->role === 'admin' ? 'Super Administrator' : ($u->role === 'agent' ? 'Licensed Broker' : 'Policyholder')) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                <a href="mailto:{{ $u->email }}" style="color: var(--text-primary); text-decoration: none; font-weight: 500; font-size: 0.9375rem;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='var(--text-primary)'">
+                                                    {{ $u->email }}
+                                                </a>
+                                                <button type="button" onclick="navigator.clipboard.writeText('{{ $u->email }}'); alert('Email copied: {{ $u->email }}');" title="Copy email address" style="background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 2px; display: inline-flex; align-items: center;">
+                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.9375rem; color: var(--text-secondary);">
+                                            {{ $u->phone ?: '—' }}
+                                        </td>
+                                        <td>
+                                            <span class="status-pill role-{{ $u->role }}">
+                                                @if($u->role === 'admin')
+                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+                                                    Super Admin
+                                                @elseif($u->role === 'agent')
+                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493"/></svg>
+                                                    Licensed Agent
+                                                @else
+                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                                                    Customer / User
+                                                @endif
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                @if($u->role === 'admin')
+                                                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #9333ea; flex-shrink: 0;"></span>
+                                                    <span style="font-weight: 600; color: #7e22ce; font-size: 0.875rem;">Executive Admin</span>
+                                                @elseif($u->role === 'agent')
+                                                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #2563eb; flex-shrink: 0;"></span>
+                                                    <span style="font-weight: 600; color: #1d4ed8; font-size: 0.875rem;">Admin &amp; Claims</span>
+                                                @else
+                                                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; flex-shrink: 0;"></span>
+                                                    <span style="font-weight: 600; color: #047857; font-size: 0.875rem;">Customer Portal</span>
+                                                @endif
+                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.9375rem; color: var(--text-secondary);">
+                                            {{ $u->created_at ? $u->created_at->format('M d, Y') : 'Oct 07, 2026' }}
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <div class="table-actions" style="justify-content: flex-end;">
+                                                <!-- Change Role Dropdown Form -->
+                                                <form action="{{ route('admin.users.role', $u->id) }}" method="POST" style="margin: 0;">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <select name="role" class="user-role-select" onchange="if(confirm('Change role for {{ $u->name }} to ' + this.value.toUpperCase() + '?')) { this.form.submit(); } else { this.value='{{ $u->role }}'; }">
+                                                        <option value="user" {{ $u->role === 'user' ? 'selected' : '' }}>User (Customer)</option>
+                                                        <option value="agent" {{ $u->role === 'agent' ? 'selected' : '' }}>Agent (Broker)</option>
+                                                        <option value="admin" {{ $u->role === 'admin' ? 'selected' : '' }}>Admin (Executive)</option>
+                                                    </select>
+                                                </form>
+
+                                                @if($u->id !== auth()->id())
+                                                    <form action="{{ route('admin.users.delete', $u->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete account for {{ $u->name }}?');" style="margin: 0;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="user-delete-btn" title="Delete account">
+                                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                @endif
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @empty
+                                    <tr>
+                                        <td colspan="8" style="text-align: center; padding: 40px; color: var(--text-secondary);">
+                                            No user accounts found in the database.
+                                        </td>
+                                    </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
                      TAB 6: SETTINGS
                      ======================================================== -->
                 <div class="tab-pane" id="tab-settings">
@@ -677,7 +1057,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-title">Active Administrator Credentials</div>
-                                <span style="font-size: 0.75rem; font-weight: 700; color: #10b981; background: #ecfdf5; padding: 4px 8px; border-radius: var(--radius-sm);">Authenticated</span>
+                                <span style="font-size: 0.875rem; font-weight: 700; color: #10b981; background: #ecfdf5; padding: 4px 8px; border-radius: var(--radius-sm);">Authenticated</span>
                             </div>
                             <div class="card-body">
                                 <div class="form-grid">
@@ -740,6 +1120,108 @@
                 </div>
 
                 <!-- ========================================================
+                     TAB: BRAND GUIDELINES / TYPOGRAPHY
+                     ======================================================== -->
+                <div class="tab-pane" id="tab-brand-settings">
+                    <div class="view-header">
+                        <div class="view-title-group">
+                            <h1>Brand Guidelines 2026</h1>
+                            <p>Configure and preview the typography system, including font families, sizes, and elements.</p>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1000px;">
+                        <!-- Typography Settings -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Typography Settings & Hierarchy</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-container">
+                                    <table class="data-table" style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 25%;">Text Format (Element)</th>
+                                                <th style="width: 35%;">Font Family</th>
+                                                <th style="width: 25%;">Size & Settings (Pixels)</th>
+                                                <th style="width: 15%;">Preview</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- H1 -->
+                                            <tr>
+                                                <td style="font-weight: 600;">Heading 1 (H1)</td>
+                                                <td><input type="text" class="form-input" placeholder="Inter" value="Inter"></td>
+                                                <td><input type="text" class="form-input" placeholder="36px" value="36px"></td>
+                                                <td><span style="font-family: 'Inter', sans-serif; font-size: 36px; font-weight: 700;">Abc</span></td>
+                                            </tr>
+                                            <!-- H2 -->
+                                            <tr>
+                                                <td style="font-weight: 600;">Heading 2 (H2)</td>
+                                                <td><input type="text" class="form-input" placeholder="Inter" value="Inter"></td>
+                                                <td><input type="text" class="form-input" placeholder="18px / 21px Line Height" value="18px"></td>
+                                                <td><span style="font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600;">Abc</span></td>
+                                            </tr>
+                                            <!-- Paragraph -->
+                                            <tr>
+                                                <td style="font-weight: 600;">Paragraph (P)</td>
+                                                <td><input type="text" class="form-input" placeholder="Inter Style set 2" value="Inter"></td>
+                                                <td><input type="text" class="form-input" placeholder="10px Tracking 7/9" value="10px"></td>
+                                                <td><span style="font-family: 'Inter', sans-serif; font-size: 10px;">Abc</span></td>
+                                            </tr>
+                                            <!-- Quote Mark -->
+                                            <tr>
+                                                <td style="font-weight: 600;">Quote Mark</td>
+                                                <td><input type="text" class="form-input" placeholder="Inter" value="Inter"></td>
+                                                <td><input type="text" class="form-input" placeholder="36px" value="36px"></td>
+                                                <td><span style="font-family: 'Inter', sans-serif; font-size: 36px;">ˮ</span></td>
+                                            </tr>
+                                            <!-- Pull Quotes Attribution -->
+                                            <tr>
+                                                <td style="font-weight: 600;">Pull Quotes Attribution</td>
+                                                <td><input type="text" class="form-input" placeholder="Inter" value="Inter"></td>
+                                                <td><input type="text" class="form-input" placeholder="14px" value="14px"></td>
+                                                <td><span style="font-family: 'Inter', sans-serif; font-size: 14px; font-style: italic;">Abc</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div style="margin-top: 32px; padding: 24px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                    <h3 style="margin-bottom: 16px; font-size: 18px; font-weight: 600;">Live Brand Guideline Preview</h3>
+                                    
+                                    <div style="font-family: 'Inter', sans-serif; display: flex; flex-direction: column; gap: 16px;">
+                                        <div style="font-size: 36px; font-weight: 700; line-height: 1.2;">Brand Guidelines 2026</div>
+                                        <div style="font-size: 18px; font-weight: 600; line-height: 21px; color: #333;">Secondary Headings Flow Properly Here</div>
+                                        <div style="font-size: 10px; line-height: 1.6; letter-spacing: 0.07em; color: #555;">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vul. 
+                                            <br><br>
+                                            † • † € ƒ • Inter … ‡ˆ€-‰ ƒ Š‚‹ •• Œ• Ž• ‘ •’“†” •–—˜™š›œžŸ¡¢£¤¥¦§¨ ABCDEFGHIJKLM NOPQURSTUVWXYZ abcdefghijklnopqrst uvwxyz 123456789!@#%&()-+
+                                        </div>
+                                        
+                                        <div style="margin-top: 16px; padding-left: 24px; border-left: 4px solid #10b981; position: relative;">
+                                            <span style="position: absolute; left: -12px; top: -10px; font-size: 36px; color: #10b981; background: #f8fafc;">ˮ</span>
+                                            <div style="font-size: 16px; font-style: italic; color: #333; margin-bottom: 8px;">
+                                                We believe that the advantages are so great that a shift to working on slack, or something like it, is inevitable.
+                                            </div>
+                                            <div style="font-size: 14px; font-weight: 600; color: #64748b;">
+                                                — Marcel Gherkina, Spokespeaker, Surebound
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 24px;">
+                                    <button class="btn-primary-action" onclick="alert('Brand guidelines updated successfully!')">
+                                        Save Typography Settings
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
                      TAB 7: HOME INSURANCE PAGE CMS
                      ======================================================== -->
                 <div class="tab-pane" id="tab-home-cms">
@@ -757,7 +1239,7 @@
                                     </svg>
                                     View Live Page
                                 </a>
-                                <button type="submit" id="saveHomeCmsBtn" class="btn-primary-action" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; font-size: 14px;">
+                                <button type="submit" id="saveHomeCmsBtn" class="btn-primary-action" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; font-size: 16px;">
                                     <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 12.75l6 6 9-13.5"/>
                                     </svg>
@@ -1079,7 +1561,7 @@
 
                             <!-- SAVE BUTTON BAR -->
                             <div style="margin-top: 12px; margin-bottom: 40px; display: flex; justify-content: flex-end; gap: 16px;">
-                                <button type="submit" id="saveHomeCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 16px; border-radius: var(--radius-md);">
+                                <button type="submit" id="saveHomeCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 18px; border-radius: var(--radius-md);">
                                     Publish Changes Live &rarr;
                                 </button>
                             </div>
@@ -1106,7 +1588,7 @@
                                     </svg>
                                     View Live Auto Page
                                 </a>
-                                <button type="submit" id="saveAutoCmsBtn" class="btn-primary-action" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; font-size: 14px; background: #2563eb;">
+                                <button type="submit" id="saveAutoCmsBtn" class="btn-primary-action" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; font-size: 16px; background: #2563eb;">
                                     <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 12.75l6 6 9-13.5"/>
                                     </svg>
@@ -1428,7 +1910,7 @@
 
                             <!-- SAVE BUTTON BAR -->
                             <div style="margin-top: 12px; margin-bottom: 40px; display: flex; justify-content: flex-end; gap: 16px;">
-                                <button type="submit" id="saveAutoCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 16px; border-radius: var(--radius-md); background: #2563eb;">
+                                <button type="submit" id="saveAutoCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 18px; border-radius: var(--radius-md); background: #2563eb;">
                                     Publish Auto Changes Live &rarr;
                                 </button>
                             </div>
@@ -1777,8 +2259,1055 @@
 
                             <!-- SAVE BUTTON BAR -->
                             <div style="margin-top: 12px; margin-bottom: 40px; display: flex; justify-content: flex-end; gap: 16px;">
-                                <button type="submit" id="savePersonalCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 16px; border-radius: var(--radius-md); background: #9333ea;">
+                                <button type="submit" id="savePersonalCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 18px; border-radius: var(--radius-md); background: #9333ea;">
                                     Publish Personal Changes Live &rarr;
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TAB X: PROPERTY INSURANCE CMS EDITOR -->
+                <div class="tab-pane" id="tab-property-cms">
+                    <form id="propertyCmsForm" enctype="multipart/form-data" onsubmit="savePropertyCms(event)">
+                        @csrf
+                        <div class="section-header" style="margin-bottom: 24px;">
+                            <div>
+                                <h1 class="page-title">Property Insurance CMS Editor</h1>
+                                <p class="page-subtitle">Live website content editor for Property Insurance page (/property-insurance).</p>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <a href="{{ route('property-insurance') }}" target="_blank" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px;">
+                                    <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+                                    </svg>
+                                    View Live Page
+                                </a>
+                                <button type="submit" id="savePropertyCmsBtn" class="btn-primary-action" style="padding: 10px 24px; background: #9333ea;">
+                                    Publish Property Changes Live
+                                </button>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 24px;">
+                            <!-- 1. HERO SECTION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">1. Hero Section Content &amp; Image Upload</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group full" style="background: rgba(255, 255, 255, 0.03); padding: 16px; border-radius: 8px; border: 1px dashed rgba(255, 255, 255, 0.2);">
+                                            <label class="form-label" style="font-weight: 600; color: #c084fc;">Hero Image Upload / Change</label>
+                                            <div style="display: flex; gap: 16px; align-items: center; margin-top: 8px;">
+                                                <img id="heroImagePreview_personal" src="{{ asset($propertyInsuranceContent['hero_image'] ?? 'images/hero-personal.jpg') }}" style="width: 140px; height: 80px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2);">
+                                                <div style="flex: 1;">
+                                                    <input type="file" name="hero_image_file" accept="image/*" class="form-input" style="padding: 8px;" onchange="previewImage(this, 'heroImagePreview_personal')">
+                                                    <small style="color: #94a3b8; display: block; margin-top: 6px;">Select an image file (JPG, PNG, WEBP) to update the main personal coverage hero photo live on the website.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Hero Eyebrow Badge</label>
+                                            <input type="text" name="hero_eyebrow" class="form-input" value="{{ $propertyInsuranceContent['hero_eyebrow'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Hero Main Title (HTML allowed like &lt;br&gt;)</label>
+                                            <input type="text" name="hero_title" class="form-input" value="{{ $propertyInsuranceContent['hero_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Hero Subtitle Paragraph</label>
+                                            <textarea name="hero_subtitle" class="form-textarea" rows="3">{{ $propertyInsuranceContent['hero_subtitle'] ?? '' }}</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Hero Floating Badge Title</label>
+                                            <input type="text" name="hero_card_sub" class="form-input" value="{{ $propertyInsuranceContent['hero_card_sub'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Hero Floating Badge Subtext</label>
+                                            <input type="text" name="hero_card_label" class="form-input" value="{{ $propertyInsuranceContent['hero_card_label'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2. COVERAGE CARDS SECTION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">2. Personal Risk Coverage Cards (6 Cards)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <!-- Card 1 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 1: Personal Umbrella Liability</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_1_title" class="form-input" value="{{ $propertyInsuranceContent['card_1_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_1_desc" class="form-textarea" rows="2">{{ $propertyInsuranceContent['card_1_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 2 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 2: High-Value Property &amp; Valuables</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_2_title" class="form-input" value="{{ $propertyInsuranceContent['card_2_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_2_desc" class="form-textarea" rows="2">{{ $propertyInsuranceContent['card_2_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 3 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 3: Personal Cyber &amp; Identity Theft</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_3_title" class="form-input" value="{{ $propertyInsuranceContent['card_3_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_3_desc" class="form-textarea" rows="2">{{ $propertyInsuranceContent['card_3_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 4 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 4: Worldwide Personal Liability</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_4_title" class="form-input" value="{{ $propertyInsuranceContent['card_4_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_4_desc" class="form-textarea" rows="2">{{ $propertyInsuranceContent['card_4_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 5 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 5: Watercraft &amp; Recreational Craft</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_5_title" class="form-input" value="{{ $propertyInsuranceContent['card_5_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_5_desc" class="form-textarea" rows="2">{{ $propertyInsuranceContent['card_5_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 6 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 6: Domestic Employee Protection</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_6_title" class="form-input" value="{{ $propertyInsuranceContent['card_6_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_6_desc" class="form-textarea" rows="2">{{ $propertyInsuranceContent['card_6_desc'] ?? '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 3. VALUE PILLARS -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">3. Dark Navy Value Pillars Strip (4 Items)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 1 Title</label>
+                                            <input type="text" name="value_1_title" class="form-input" value="{{ $propertyInsuranceContent['value_1_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 1 Description</label>
+                                            <input type="text" name="value_1_desc" class="form-input" value="{{ $propertyInsuranceContent['value_1_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 2 Title</label>
+                                            <input type="text" name="value_2_title" class="form-input" value="{{ $propertyInsuranceContent['value_2_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 2 Description</label>
+                                            <input type="text" name="value_2_desc" class="form-input" value="{{ $propertyInsuranceContent['value_2_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 3 Title</label>
+                                            <input type="text" name="value_3_title" class="form-input" value="{{ $propertyInsuranceContent['value_3_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 3 Description</label>
+                                            <input type="text" name="value_3_desc" class="form-input" value="{{ $propertyInsuranceContent['value_3_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 4 Title</label>
+                                            <input type="text" name="value_4_title" class="form-input" value="{{ $propertyInsuranceContent['value_4_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 4 Description</label>
+                                            <input type="text" name="value_4_desc" class="form-input" value="{{ $propertyInsuranceContent['value_4_desc'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 4. GUIDANCE SECTION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">4. Expert Guidance / Editorial Section</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group full">
+                                            <label class="form-label">Eyebrow</label>
+                                            <input type="text" name="guidance_eyebrow" class="form-input" value="{{ $propertyInsuranceContent['guidance_eyebrow'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Headline Title</label>
+                                            <input type="text" name="guidance_title" class="form-input" value="{{ $propertyInsuranceContent['guidance_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description Text</label>
+                                            <textarea name="guidance_text" class="form-textarea" rows="4">{{ $propertyInsuranceContent['guidance_text'] ?? '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 5. WHY CHOOSE -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">5. Advantage Cards (Why Choose - 4 Cards)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <!-- Advantage 1 -->
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 1 Title</label>
+                                            <input type="text" name="why_1_title" class="form-input" value="{{ $propertyInsuranceContent['why_1_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 1 Description</label>
+                                            <input type="text" name="why_1_desc" class="form-input" value="{{ $propertyInsuranceContent['why_1_desc'] ?? '' }}">
+                                        </div>
+
+                                        <!-- Advantage 2 -->
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 2 Title</label>
+                                            <input type="text" name="why_2_title" class="form-input" value="{{ $propertyInsuranceContent['why_2_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 2 Description</label>
+                                            <input type="text" name="why_2_desc" class="form-input" value="{{ $propertyInsuranceContent['why_2_desc'] ?? '' }}">
+                                        </div>
+
+                                        <!-- Advantage 3 -->
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 3 Title</label>
+                                            <input type="text" name="why_3_title" class="form-input" value="{{ $propertyInsuranceContent['why_3_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 3 Description</label>
+                                            <input type="text" name="why_3_desc" class="form-input" value="{{ $propertyInsuranceContent['why_3_desc'] ?? '' }}">
+                                        </div>
+
+                                        <!-- Advantage 4 -->
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 4 Title</label>
+                                            <input type="text" name="why_4_title" class="form-input" value="{{ $propertyInsuranceContent['why_4_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 4 Description</label>
+                                            <input type="text" name="why_4_desc" class="form-input" value="{{ $propertyInsuranceContent['why_4_desc'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 6. FAQ ACCORDION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">6. Frequently Asked Questions (5 Accordion Items)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <!-- FAQ 1 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 1 Question</label>
+                                            <input type="text" name="faq_1_question" class="form-input" value="{{ $propertyInsuranceContent['faq_1_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 1 Answer</label>
+                                            <textarea name="faq_1_answer" class="form-textarea" rows="2">{{ $propertyInsuranceContent['faq_1_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 2 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 2 Question</label>
+                                            <input type="text" name="faq_2_question" class="form-input" value="{{ $propertyInsuranceContent['faq_2_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 2 Answer</label>
+                                            <textarea name="faq_2_answer" class="form-textarea" rows="2">{{ $propertyInsuranceContent['faq_2_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 3 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 3 Question</label>
+                                            <input type="text" name="faq_3_question" class="form-input" value="{{ $propertyInsuranceContent['faq_3_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 3 Answer</label>
+                                            <textarea name="faq_3_answer" class="form-textarea" rows="2">{{ $propertyInsuranceContent['faq_3_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 4 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 4 Question</label>
+                                            <input type="text" name="faq_4_question" class="form-input" value="{{ $propertyInsuranceContent['faq_4_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 4 Answer</label>
+                                            <textarea name="faq_4_answer" class="form-textarea" rows="2">{{ $propertyInsuranceContent['faq_4_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 5 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 5 Question</label>
+                                            <input type="text" name="faq_5_question" class="form-input" value="{{ $propertyInsuranceContent['faq_5_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 5 Answer</label>
+                                            <textarea name="faq_5_answer" class="form-textarea" rows="2">{{ $propertyInsuranceContent['faq_5_answer'] ?? '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 7. CTA BANNER -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">7. Bottom Call-To-Action Banner</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group full">
+                                            <label class="form-label">CTA Banner Headline Title</label>
+                                            <input type="text" name="cta_title" class="form-input" value="{{ $propertyInsuranceContent['cta_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">CTA Banner Subtitle</label>
+                                            <input type="text" name="cta_subtitle" class="form-input" value="{{ $propertyInsuranceContent['cta_subtitle'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SAVE BUTTON BAR -->
+                            <div style="margin-top: 12px; margin-bottom: 40px; display: flex; justify-content: flex-end; gap: 16px;">
+                                <button type="submit" id="savePropertyCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 18px; border-radius: var(--radius-md); background: #9333ea;">
+                                    Publish Property Changes Live &rarr;
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TAB Y: LIABILITY INSURANCE CMS EDITOR -->
+                <div class="tab-pane" id="tab-liability-cms">
+                    <form id="liabilityCmsForm" enctype="multipart/form-data" onsubmit="saveLiabilityCms(event)">
+                        @csrf
+                        <div class="section-header" style="margin-bottom: 24px;">
+                            <div>
+                                <h1 class="page-title">Liability Insurance CMS Editor</h1>
+                                <p class="page-subtitle">Live website content editor for Liability Insurance page (/liability-insurance).</p>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <a href="{{ route('liability-insurance') }}" target="_blank" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px;">
+                                    <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+                                    </svg>
+                                    View Live Page
+                                </a>
+                                <button type="submit" id="saveLiabilityCmsBtn" class="btn-primary-action" style="padding: 10px 24px; background: #9333ea;">
+                                    Publish Liability Changes Live
+                                </button>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 24px;">
+                            <!-- 1. HERO SECTION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">1. Hero Section Content &amp; Image Upload</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group full" style="background: rgba(255, 255, 255, 0.03); padding: 16px; border-radius: 8px; border: 1px dashed rgba(255, 255, 255, 0.2);">
+                                            <label class="form-label" style="font-weight: 600; color: #c084fc;">Hero Image Upload / Change</label>
+                                            <div style="display: flex; gap: 16px; align-items: center; margin-top: 8px;">
+                                                <img id="heroImagePreview_personal" src="{{ asset($liabilityInsuranceContent['hero_image'] ?? 'images/hero-personal.jpg') }}" style="width: 140px; height: 80px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2);">
+                                                <div style="flex: 1;">
+                                                    <input type="file" name="hero_image_file" accept="image/*" class="form-input" style="padding: 8px;" onchange="previewImage(this, 'heroImagePreview_personal')">
+                                                    <small style="color: #94a3b8; display: block; margin-top: 6px;">Select an image file (JPG, PNG, WEBP) to update the main personal coverage hero photo live on the website.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Hero Eyebrow Badge</label>
+                                            <input type="text" name="hero_eyebrow" class="form-input" value="{{ $liabilityInsuranceContent['hero_eyebrow'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Hero Main Title (HTML allowed like &lt;br&gt;)</label>
+                                            <input type="text" name="hero_title" class="form-input" value="{{ $liabilityInsuranceContent['hero_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Hero Subtitle Paragraph</label>
+                                            <textarea name="hero_subtitle" class="form-textarea" rows="3">{{ $liabilityInsuranceContent['hero_subtitle'] ?? '' }}</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Hero Floating Badge Title</label>
+                                            <input type="text" name="hero_card_sub" class="form-input" value="{{ $liabilityInsuranceContent['hero_card_sub'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Hero Floating Badge Subtext</label>
+                                            <input type="text" name="hero_card_label" class="form-input" value="{{ $liabilityInsuranceContent['hero_card_label'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2. COVERAGE CARDS SECTION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">2. Personal Risk Coverage Cards (6 Cards)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <!-- Card 1 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 1: Personal Umbrella Liability</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_1_title" class="form-input" value="{{ $liabilityInsuranceContent['card_1_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_1_desc" class="form-textarea" rows="2">{{ $liabilityInsuranceContent['card_1_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 2 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 2: High-Value Property &amp; Valuables</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_2_title" class="form-input" value="{{ $liabilityInsuranceContent['card_2_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_2_desc" class="form-textarea" rows="2">{{ $liabilityInsuranceContent['card_2_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 3 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 3: Personal Cyber &amp; Identity Theft</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_3_title" class="form-input" value="{{ $liabilityInsuranceContent['card_3_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_3_desc" class="form-textarea" rows="2">{{ $liabilityInsuranceContent['card_3_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 4 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 4: Worldwide Personal Liability</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_4_title" class="form-input" value="{{ $liabilityInsuranceContent['card_4_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_4_desc" class="form-textarea" rows="2">{{ $liabilityInsuranceContent['card_4_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 5 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 5: Watercraft &amp; Recreational Craft</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_5_title" class="form-input" value="{{ $liabilityInsuranceContent['card_5_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_5_desc" class="form-textarea" rows="2">{{ $liabilityInsuranceContent['card_5_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 6 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 6: Domestic Employee Protection</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_6_title" class="form-input" value="{{ $liabilityInsuranceContent['card_6_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_6_desc" class="form-textarea" rows="2">{{ $liabilityInsuranceContent['card_6_desc'] ?? '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 3. VALUE PILLARS -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">3. Dark Navy Value Pillars Strip (4 Items)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 1 Title</label>
+                                            <input type="text" name="value_1_title" class="form-input" value="{{ $liabilityInsuranceContent['value_1_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 1 Description</label>
+                                            <input type="text" name="value_1_desc" class="form-input" value="{{ $liabilityInsuranceContent['value_1_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 2 Title</label>
+                                            <input type="text" name="value_2_title" class="form-input" value="{{ $liabilityInsuranceContent['value_2_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 2 Description</label>
+                                            <input type="text" name="value_2_desc" class="form-input" value="{{ $liabilityInsuranceContent['value_2_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 3 Title</label>
+                                            <input type="text" name="value_3_title" class="form-input" value="{{ $liabilityInsuranceContent['value_3_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 3 Description</label>
+                                            <input type="text" name="value_3_desc" class="form-input" value="{{ $liabilityInsuranceContent['value_3_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 4 Title</label>
+                                            <input type="text" name="value_4_title" class="form-input" value="{{ $liabilityInsuranceContent['value_4_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 4 Description</label>
+                                            <input type="text" name="value_4_desc" class="form-input" value="{{ $liabilityInsuranceContent['value_4_desc'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 4. GUIDANCE SECTION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">4. Expert Guidance / Editorial Section</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group full">
+                                            <label class="form-label">Eyebrow</label>
+                                            <input type="text" name="guidance_eyebrow" class="form-input" value="{{ $liabilityInsuranceContent['guidance_eyebrow'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Headline Title</label>
+                                            <input type="text" name="guidance_title" class="form-input" value="{{ $liabilityInsuranceContent['guidance_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description Text</label>
+                                            <textarea name="guidance_text" class="form-textarea" rows="4">{{ $liabilityInsuranceContent['guidance_text'] ?? '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 5. WHY CHOOSE -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">5. Advantage Cards (Why Choose - 4 Cards)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <!-- Advantage 1 -->
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 1 Title</label>
+                                            <input type="text" name="why_1_title" class="form-input" value="{{ $liabilityInsuranceContent['why_1_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 1 Description</label>
+                                            <input type="text" name="why_1_desc" class="form-input" value="{{ $liabilityInsuranceContent['why_1_desc'] ?? '' }}">
+                                        </div>
+
+                                        <!-- Advantage 2 -->
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 2 Title</label>
+                                            <input type="text" name="why_2_title" class="form-input" value="{{ $liabilityInsuranceContent['why_2_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 2 Description</label>
+                                            <input type="text" name="why_2_desc" class="form-input" value="{{ $liabilityInsuranceContent['why_2_desc'] ?? '' }}">
+                                        </div>
+
+                                        <!-- Advantage 3 -->
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 3 Title</label>
+                                            <input type="text" name="why_3_title" class="form-input" value="{{ $liabilityInsuranceContent['why_3_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 3 Description</label>
+                                            <input type="text" name="why_3_desc" class="form-input" value="{{ $liabilityInsuranceContent['why_3_desc'] ?? '' }}">
+                                        </div>
+
+                                        <!-- Advantage 4 -->
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 4 Title</label>
+                                            <input type="text" name="why_4_title" class="form-input" value="{{ $liabilityInsuranceContent['why_4_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 4 Description</label>
+                                            <input type="text" name="why_4_desc" class="form-input" value="{{ $liabilityInsuranceContent['why_4_desc'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 6. FAQ ACCORDION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">6. Frequently Asked Questions (5 Accordion Items)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <!-- FAQ 1 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 1 Question</label>
+                                            <input type="text" name="faq_1_question" class="form-input" value="{{ $liabilityInsuranceContent['faq_1_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 1 Answer</label>
+                                            <textarea name="faq_1_answer" class="form-textarea" rows="2">{{ $liabilityInsuranceContent['faq_1_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 2 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 2 Question</label>
+                                            <input type="text" name="faq_2_question" class="form-input" value="{{ $liabilityInsuranceContent['faq_2_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 2 Answer</label>
+                                            <textarea name="faq_2_answer" class="form-textarea" rows="2">{{ $liabilityInsuranceContent['faq_2_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 3 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 3 Question</label>
+                                            <input type="text" name="faq_3_question" class="form-input" value="{{ $liabilityInsuranceContent['faq_3_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 3 Answer</label>
+                                            <textarea name="faq_3_answer" class="form-textarea" rows="2">{{ $liabilityInsuranceContent['faq_3_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 4 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 4 Question</label>
+                                            <input type="text" name="faq_4_question" class="form-input" value="{{ $liabilityInsuranceContent['faq_4_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 4 Answer</label>
+                                            <textarea name="faq_4_answer" class="form-textarea" rows="2">{{ $liabilityInsuranceContent['faq_4_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 5 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 5 Question</label>
+                                            <input type="text" name="faq_5_question" class="form-input" value="{{ $liabilityInsuranceContent['faq_5_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 5 Answer</label>
+                                            <textarea name="faq_5_answer" class="form-textarea" rows="2">{{ $liabilityInsuranceContent['faq_5_answer'] ?? '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 7. CTA BANNER -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">7. Bottom Call-To-Action Banner</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group full">
+                                            <label class="form-label">CTA Banner Headline Title</label>
+                                            <input type="text" name="cta_title" class="form-input" value="{{ $liabilityInsuranceContent['cta_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">CTA Banner Subtitle</label>
+                                            <input type="text" name="cta_subtitle" class="form-input" value="{{ $liabilityInsuranceContent['cta_subtitle'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SAVE BUTTON BAR -->
+                            <div style="margin-top: 12px; margin-bottom: 40px; display: flex; justify-content: flex-end; gap: 16px;">
+                                <button type="submit" id="saveLiabilityCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 18px; border-radius: var(--radius-md); background: #9333ea;">
+                                    Publish Liability Changes Live &rarr;
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TAB Z: WORKERS COMP CMS EDITOR -->
+                <div class="tab-pane" id="tab-group-benefits-cms">
+                    <form id="groupBenefitsCmsForm" enctype="multipart/form-data" onsubmit="saveGroupBenefitsCms(event)">
+                        @csrf
+                        <div class="section-header" style="margin-bottom: 24px;">
+                            <div>
+                                <h1 class="page-title">Workers Compensation CMS Editor</h1>
+                                <p class="page-subtitle">Live website content editor for Workers Compensation page (/group-benefits).</p>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <a href="{{ route('group-benefits') }}" target="_blank" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px;">
+                                    <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+                                    </svg>
+                                    View Live Page
+                                </a>
+                                <button type="submit" id="saveGroupBenefitsCmsBtn" class="btn-primary-action" style="padding: 10px 24px; background: #9333ea;">
+                                    Publish Group Benefits Changes Live
+                                </button>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 24px;">
+                            <!-- 1. HERO SECTION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">1. Hero Section Content &amp; Image Upload</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group full" style="background: rgba(255, 255, 255, 0.03); padding: 16px; border-radius: 8px; border: 1px dashed rgba(255, 255, 255, 0.2);">
+                                            <label class="form-label" style="font-weight: 600; color: #c084fc;">Hero Image Upload / Change</label>
+                                            <div style="display: flex; gap: 16px; align-items: center; margin-top: 8px;">
+                                                <img id="heroImagePreview_personal" src="{{ asset($groupBenefitsContent['hero_image'] ?? 'images/hero-personal.jpg') }}" style="width: 140px; height: 80px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2);">
+                                                <div style="flex: 1;">
+                                                    <input type="file" name="hero_image_file" accept="image/*" class="form-input" style="padding: 8px;" onchange="previewImage(this, 'heroImagePreview_personal')">
+                                                    <small style="color: #94a3b8; display: block; margin-top: 6px;">Select an image file (JPG, PNG, WEBP) to update the main personal coverage hero photo live on the website.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Hero Eyebrow Badge</label>
+                                            <input type="text" name="hero_eyebrow" class="form-input" value="{{ $groupBenefitsContent['hero_eyebrow'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Hero Main Title (HTML allowed like &lt;br&gt;)</label>
+                                            <input type="text" name="hero_title" class="form-input" value="{{ $groupBenefitsContent['hero_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Hero Subtitle Paragraph</label>
+                                            <textarea name="hero_subtitle" class="form-textarea" rows="3">{{ $groupBenefitsContent['hero_subtitle'] ?? '' }}</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Hero Floating Badge Title</label>
+                                            <input type="text" name="hero_card_sub" class="form-input" value="{{ $groupBenefitsContent['hero_card_sub'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Hero Floating Badge Subtext</label>
+                                            <input type="text" name="hero_card_label" class="form-input" value="{{ $groupBenefitsContent['hero_card_label'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2. COVERAGE CARDS SECTION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">2. Personal Risk Coverage Cards (6 Cards)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <!-- Card 1 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 1: Personal Umbrella Liability</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_1_title" class="form-input" value="{{ $groupBenefitsContent['card_1_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_1_desc" class="form-textarea" rows="2">{{ $groupBenefitsContent['card_1_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 2 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 2: High-Value Property &amp; Valuables</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_2_title" class="form-input" value="{{ $groupBenefitsContent['card_2_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_2_desc" class="form-textarea" rows="2">{{ $groupBenefitsContent['card_2_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 3 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 3: Personal Cyber &amp; Identity Theft</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_3_title" class="form-input" value="{{ $groupBenefitsContent['card_3_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_3_desc" class="form-textarea" rows="2">{{ $groupBenefitsContent['card_3_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 4 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 4: Worldwide Personal Liability</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_4_title" class="form-input" value="{{ $groupBenefitsContent['card_4_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_4_desc" class="form-textarea" rows="2">{{ $groupBenefitsContent['card_4_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 5 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 5: Watercraft &amp; Recreational Craft</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_5_title" class="form-input" value="{{ $groupBenefitsContent['card_5_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_5_desc" class="form-textarea" rows="2">{{ $groupBenefitsContent['card_5_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 6 -->
+                                        <div class="form-group full"><h4 style="color: #c084fc; margin: 4px 0;">Card 6: Domestic Employee Protection</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_6_title" class="form-input" value="{{ $groupBenefitsContent['card_6_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_6_desc" class="form-textarea" rows="2">{{ $groupBenefitsContent['card_6_desc'] ?? '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 3. VALUE PILLARS -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">3. Dark Navy Value Pillars Strip (4 Items)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 1 Title</label>
+                                            <input type="text" name="value_1_title" class="form-input" value="{{ $groupBenefitsContent['value_1_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 1 Description</label>
+                                            <input type="text" name="value_1_desc" class="form-input" value="{{ $groupBenefitsContent['value_1_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 2 Title</label>
+                                            <input type="text" name="value_2_title" class="form-input" value="{{ $groupBenefitsContent['value_2_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 2 Description</label>
+                                            <input type="text" name="value_2_desc" class="form-input" value="{{ $groupBenefitsContent['value_2_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 3 Title</label>
+                                            <input type="text" name="value_3_title" class="form-input" value="{{ $groupBenefitsContent['value_3_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 3 Description</label>
+                                            <input type="text" name="value_3_desc" class="form-input" value="{{ $groupBenefitsContent['value_3_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 4 Title</label>
+                                            <input type="text" name="value_4_title" class="form-input" value="{{ $groupBenefitsContent['value_4_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 4 Description</label>
+                                            <input type="text" name="value_4_desc" class="form-input" value="{{ $groupBenefitsContent['value_4_desc'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 4. GUIDANCE SECTION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">4. Expert Guidance / Editorial Section</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group full">
+                                            <label class="form-label">Eyebrow</label>
+                                            <input type="text" name="guidance_eyebrow" class="form-input" value="{{ $groupBenefitsContent['guidance_eyebrow'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Headline Title</label>
+                                            <input type="text" name="guidance_title" class="form-input" value="{{ $groupBenefitsContent['guidance_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description Text</label>
+                                            <textarea name="guidance_text" class="form-textarea" rows="4">{{ $groupBenefitsContent['guidance_text'] ?? '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 5. WHY CHOOSE -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">5. Advantage Cards (Why Choose - 4 Cards)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <!-- Advantage 1 -->
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 1 Title</label>
+                                            <input type="text" name="why_1_title" class="form-input" value="{{ $groupBenefitsContent['why_1_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 1 Description</label>
+                                            <input type="text" name="why_1_desc" class="form-input" value="{{ $groupBenefitsContent['why_1_desc'] ?? '' }}">
+                                        </div>
+
+                                        <!-- Advantage 2 -->
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 2 Title</label>
+                                            <input type="text" name="why_2_title" class="form-input" value="{{ $groupBenefitsContent['why_2_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 2 Description</label>
+                                            <input type="text" name="why_2_desc" class="form-input" value="{{ $groupBenefitsContent['why_2_desc'] ?? '' }}">
+                                        </div>
+
+                                        <!-- Advantage 3 -->
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 3 Title</label>
+                                            <input type="text" name="why_3_title" class="form-input" value="{{ $groupBenefitsContent['why_3_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 3 Description</label>
+                                            <input type="text" name="why_3_desc" class="form-input" value="{{ $groupBenefitsContent['why_3_desc'] ?? '' }}">
+                                        </div>
+
+                                        <!-- Advantage 4 -->
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 4 Title</label>
+                                            <input type="text" name="why_4_title" class="form-input" value="{{ $groupBenefitsContent['why_4_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Advantage 4 Description</label>
+                                            <input type="text" name="why_4_desc" class="form-input" value="{{ $groupBenefitsContent['why_4_desc'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 6. FAQ ACCORDION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">6. Frequently Asked Questions (5 Accordion Items)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <!-- FAQ 1 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 1 Question</label>
+                                            <input type="text" name="faq_1_question" class="form-input" value="{{ $groupBenefitsContent['faq_1_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 1 Answer</label>
+                                            <textarea name="faq_1_answer" class="form-textarea" rows="2">{{ $groupBenefitsContent['faq_1_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 2 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 2 Question</label>
+                                            <input type="text" name="faq_2_question" class="form-input" value="{{ $groupBenefitsContent['faq_2_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 2 Answer</label>
+                                            <textarea name="faq_2_answer" class="form-textarea" rows="2">{{ $groupBenefitsContent['faq_2_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 3 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 3 Question</label>
+                                            <input type="text" name="faq_3_question" class="form-input" value="{{ $groupBenefitsContent['faq_3_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 3 Answer</label>
+                                            <textarea name="faq_3_answer" class="form-textarea" rows="2">{{ $groupBenefitsContent['faq_3_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 4 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 4 Question</label>
+                                            <input type="text" name="faq_4_question" class="form-input" value="{{ $groupBenefitsContent['faq_4_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 4 Answer</label>
+                                            <textarea name="faq_4_answer" class="form-textarea" rows="2">{{ $groupBenefitsContent['faq_4_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 5 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 5 Question</label>
+                                            <input type="text" name="faq_5_question" class="form-input" value="{{ $groupBenefitsContent['faq_5_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 5 Answer</label>
+                                            <textarea name="faq_5_answer" class="form-textarea" rows="2">{{ $groupBenefitsContent['faq_5_answer'] ?? '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 7. CTA BANNER -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">7. Bottom Call-To-Action Banner</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group full">
+                                            <label class="form-label">CTA Banner Headline Title</label>
+                                            <input type="text" name="cta_title" class="form-input" value="{{ $groupBenefitsContent['cta_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">CTA Banner Subtitle</label>
+                                            <input type="text" name="cta_subtitle" class="form-input" value="{{ $groupBenefitsContent['cta_subtitle'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SAVE BUTTON BAR -->
+                            <div style="margin-top: 12px; margin-bottom: 40px; display: flex; justify-content: flex-end; gap: 16px;">
+                                <button type="submit" id="saveGroupBenefitsCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 18px; border-radius: var(--radius-md); background: #9333ea;">
+                                    Publish Group Benefits Changes Live &rarr;
                                 </button>
                             </div>
 
@@ -2122,8 +3651,353 @@
 
                             <!-- SAVE BUTTON BAR -->
                             <div style="margin-top: 12px; margin-bottom: 40px; display: flex; justify-content: flex-end; gap: 16px;">
-                                <button type="submit" id="saveSpecialtyCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 16px; border-radius: var(--radius-md); background: #d97706;">
+                                <button type="submit" id="saveSpecialtyCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 18px; border-radius: var(--radius-md); background: #d97706;">
                                     Publish Specialty Changes Live &rarr;
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TAB 9B: COVERAGE SOLUTIONS CMS EDITOR -->
+                <div class="tab-pane" id="tab-coverage-cms">
+                    <form id="coverageCmsForm" enctype="multipart/form-data" onsubmit="saveCoverageCms(event)">
+                        @csrf
+                        <div class="section-header" style="margin-bottom: 24px;">
+                            <div>
+                                <h1 class="page-title">All Coverage Solutions CMS Editor</h1>
+                                <p class="page-subtitle">Live website content editor for Coverage page (/coverage).</p>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <a href="{{ route('coverage') }}" target="_blank" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px;">
+                                    <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+                                    </svg>
+                                    View Live Page
+                                </a>
+                                <button type="submit" id="saveCoverageCmsBtn" class="btn-primary-action" style="padding: 10px 24px; background: #d97706;">
+                                    Publish Coverage Changes Live
+                                </button>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 24px;">
+                            <!-- 1. HERO SECTION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">1. Hero Section Content &amp; Image Upload</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group full" style="background: rgba(255, 255, 255, 0.03); padding: 16px; border-radius: 8px; border: 1px dashed rgba(255, 255, 255, 0.2);">
+                                            <label class="form-label" style="font-weight: 600; color: #fbbf24;">Hero Image Upload / Change</label>
+                                            <div style="display: flex; gap: 16px; align-items: center; margin-top: 8px;">
+                                                <img id="heroImagePreview_specialty" src="{{ asset($coverageContent['hero_image'] ?? 'images/hero-specialty.jpg') }}" style="width: 140px; height: 80px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2);">
+                                                <div style="flex: 1;">
+                                                    <input type="file" name="hero_image_file" accept="image/*" class="form-input" style="padding: 8px;" onchange="previewImage(this, 'heroImagePreview_specialty')">
+                                                    <small style="color: #94a3b8; display: block; margin-top: 6px;">Select an image file (JPG, PNG, WEBP) to update the main specialty coverage hero photo live on the website.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Hero Eyebrow Badge</label>
+                                            <input type="text" name="hero_eyebrow" class="form-input" value="{{ $coverageContent['hero_eyebrow'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Hero Main Title (HTML allowed like &lt;br&gt;)</label>
+                                            <input type="text" name="hero_title" class="form-input" value="{{ $coverageContent['hero_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Hero Subtitle Paragraph</label>
+                                            <textarea name="hero_subtitle" class="form-textarea" rows="3">{{ $coverageContent['hero_subtitle'] ?? '' }}</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Hero Floating Badge Title</label>
+                                            <input type="text" name="hero_card_sub" class="form-input" value="{{ $coverageContent['hero_card_sub'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Hero Floating Badge Subtext</label>
+                                            <input type="text" name="hero_card_label" class="form-input" value="{{ $coverageContent['hero_card_label'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2. COVERAGE CARDS SECTION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">2. Specialty Coverage Cards (6 Cards)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <!-- Card 1 -->
+                                        <div class="form-group full"><h4 style="color: #fbbf24; margin: 4px 0;">Card 1: Collector Cars &amp; Exotic Autos</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_1_title" class="form-input" value="{{ $coverageContent['card_1_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_1_desc" class="form-textarea" rows="2">{{ $coverageContent['card_1_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 2 -->
+                                        <div class="form-group full"><h4 style="color: #fbbf24; margin: 4px 0;">Card 2: Private Aviation &amp; Aircraft</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_2_title" class="form-input" value="{{ $coverageContent['card_2_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_2_desc" class="form-textarea" rows="2">{{ $coverageContent['card_2_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 3 -->
+                                        <div class="form-group full"><h4 style="color: #fbbf24; margin: 4px 0;">Card 3: Fine Art &amp; Rare Collectibles</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_3_title" class="form-input" value="{{ $coverageContent['card_3_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_3_desc" class="form-textarea" rows="2">{{ $coverageContent['card_3_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 4 -->
+                                        <div class="form-group full"><h4 style="color: #fbbf24; margin: 4px 0;">Card 4: Luxury Yachts &amp; Marine</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_4_title" class="form-input" value="{{ $coverageContent['card_4_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_4_desc" class="form-textarea" rows="2">{{ $coverageContent['card_4_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 5 -->
+                                        <div class="form-group full"><h4 style="color: #fbbf24; margin: 4px 0;">Card 5: Special Events &amp; Cancellation</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_5_title" class="form-input" value="{{ $coverageContent['card_5_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_5_desc" class="form-textarea" rows="2">{{ $coverageContent['card_5_desc'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- Card 6 -->
+                                        <div class="form-group full"><h4 style="color: #fbbf24; margin: 4px 0;">Card 6: Executive Cyber &amp; Ransom Response</h4></div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" name="card_6_title" class="form-input" value="{{ $coverageContent['card_6_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Description</label>
+                                            <textarea name="card_6_desc" class="form-textarea" rows="2">{{ $coverageContent['card_6_desc'] ?? '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 3. VALUE PILLARS -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">3. Dark Navy Value Pillars Strip (4 Items)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 1 Title</label>
+                                            <input type="text" name="value_1_title" class="form-input" value="{{ $coverageContent['value_1_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 1 Description</label>
+                                            <input type="text" name="value_1_desc" class="form-input" value="{{ $coverageContent['value_1_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 2 Title</label>
+                                            <input type="text" name="value_2_title" class="form-input" value="{{ $coverageContent['value_2_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 2 Description</label>
+                                            <input type="text" name="value_2_desc" class="form-input" value="{{ $coverageContent['value_2_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 3 Title</label>
+                                            <input type="text" name="value_3_title" class="form-input" value="{{ $coverageContent['value_3_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 3 Description</label>
+                                            <input type="text" name="value_3_desc" class="form-input" value="{{ $coverageContent['value_3_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 4 Title</label>
+                                            <input type="text" name="value_4_title" class="form-input" value="{{ $coverageContent['value_4_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Pillar 4 Description</label>
+                                            <input type="text" name="value_4_desc" class="form-input" value="{{ $coverageContent['value_4_desc'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 4. GUIDANCE / SIMPLER SECTION -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">4. Guidance &amp; Expertise Section</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group full">
+                                            <label class="form-label">Eyebrow Tag</label>
+                                            <input type="text" name="guidance_eyebrow" class="form-input" value="{{ $coverageContent['guidance_eyebrow'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Section Title</label>
+                                            <input type="text" name="guidance_title" class="form-input" value="{{ $coverageContent['guidance_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">Section Description Paragraph</label>
+                                            <textarea name="guidance_text" class="form-textarea" rows="4">{{ $coverageContent['guidance_text'] ?? '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 5. WHY CHOOSE SUREBOUND -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">5. Why Choose Surebound (4 Advantage Cards)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">Card 1 Title</label>
+                                            <input type="text" name="why_1_title" class="form-input" value="{{ $coverageContent['why_1_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Card 1 Description</label>
+                                            <input type="text" name="why_1_desc" class="form-input" value="{{ $coverageContent['why_1_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Card 2 Title</label>
+                                            <input type="text" name="why_2_title" class="form-input" value="{{ $coverageContent['why_2_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Card 2 Description</label>
+                                            <input type="text" name="why_2_desc" class="form-input" value="{{ $coverageContent['why_2_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Card 3 Title</label>
+                                            <input type="text" name="why_3_title" class="form-input" value="{{ $coverageContent['why_3_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Card 3 Description</label>
+                                            <input type="text" name="why_3_desc" class="form-input" value="{{ $coverageContent['why_3_desc'] ?? '' }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Card 4 Title</label>
+                                            <input type="text" name="why_4_title" class="form-input" value="{{ $coverageContent['why_4_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Card 4 Description</label>
+                                            <input type="text" name="why_4_desc" class="form-input" value="{{ $coverageContent['why_4_desc'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 6. FREQUENTLY ASKED QUESTIONS -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">6. Frequently Asked Questions (5 Accordions)</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <!-- FAQ 1 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 1 Question</label>
+                                            <input type="text" name="faq_1_question" class="form-input" value="{{ $coverageContent['faq_1_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 1 Answer</label>
+                                            <textarea name="faq_1_answer" class="form-textarea" rows="2">{{ $coverageContent['faq_1_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 2 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 2 Question</label>
+                                            <input type="text" name="faq_2_question" class="form-input" value="{{ $coverageContent['faq_2_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 2 Answer</label>
+                                            <textarea name="faq_2_answer" class="form-textarea" rows="2">{{ $coverageContent['faq_2_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 3 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 3 Question</label>
+                                            <input type="text" name="faq_3_question" class="form-input" value="{{ $coverageContent['faq_3_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 3 Answer</label>
+                                            <textarea name="faq_3_answer" class="form-textarea" rows="2">{{ $coverageContent['faq_3_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 4 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 4 Question</label>
+                                            <input type="text" name="faq_4_question" class="form-input" value="{{ $coverageContent['faq_4_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 4 Answer</label>
+                                            <textarea name="faq_4_answer" class="form-textarea" rows="2">{{ $coverageContent['faq_4_answer'] ?? '' }}</textarea>
+                                        </div>
+
+                                        <!-- FAQ 5 -->
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 5 Question</label>
+                                            <input type="text" name="faq_5_question" class="form-input" value="{{ $coverageContent['faq_5_question'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">FAQ 5 Answer</label>
+                                            <textarea name="faq_5_answer" class="form-textarea" rows="2">{{ $coverageContent['faq_5_answer'] ?? '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 7. CTA BANNER -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">7. Bottom Call-To-Action Banner</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-grid">
+                                        <div class="form-group full">
+                                            <label class="form-label">CTA Banner Headline Title</label>
+                                            <input type="text" name="cta_title" class="form-input" value="{{ $coverageContent['cta_title'] ?? '' }}">
+                                        </div>
+                                        <div class="form-group full">
+                                            <label class="form-label">CTA Banner Subtitle</label>
+                                            <input type="text" name="cta_subtitle" class="form-input" value="{{ $coverageContent['cta_subtitle'] ?? '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SAVE BUTTON BAR -->
+                            <div style="margin-top: 12px; margin-bottom: 40px; display: flex; justify-content: flex-end; gap: 16px;">
+                                <button type="submit" id="saveCoverageCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 18px; border-radius: var(--radius-md); background: #d97706;">
+                                    Publish Coverage Changes Live &rarr;
                                 </button>
                             </div>
 
@@ -2405,12 +4279,81 @@
 
                             <!-- SAVE BUTTON BAR -->
                             <div style="margin-top: 12px; margin-bottom: 40px; display: flex; justify-content: flex-end; gap: 16px;">
-                                <button type="submit" id="saveBusinessCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 16px; border-radius: var(--radius-md); background: #0284c7;">
+                                <button type="submit" id="saveBusinessCmsBtnBottom" class="btn-primary-action" style="padding: 14px 32px; font-size: 18px; border-radius: var(--radius-md); background: #0284c7;">
                                     Publish Business Changes Live &rarr;
                                 </button>
                             </div>
 
                         </div>
+                    </form>
+                </div>
+
+                <!-- NEW TAB: CLAIMS CMS -->
+                <div class="tab-pane" id="tab-claims-cms">
+                    <form id="claimsCmsForm" enctype="multipart/form-data" method="POST" action="{{ route('admin.claims.update') }}">
+                        @csrf
+                        <div class="view-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                            <div class="view-title-group">
+                                <h1>Claims Page Content Editor</h1>
+                                <p>Edit and publish the hero section of the Claims page.</p>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <a href="{{ route('claims') }}" target="_blank" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: var(--radius-md); font-weight: 600;">View Live Page</a>
+                                <button type="submit" class="btn-primary-action" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;">Publish Changes Live</button>
+                            </div>
+                        </div>
+                        <div class="card"><div class="card-body"><div class="form-grid">
+                            <div class="form-group full"><label class="form-label">Hero Eyebrow</label><input type="text" name="hero_eyebrow" class="form-input" value="{{ App\Models\PageContent::getForPage('claims', App\Http\Controllers\AdminController::getDefaultClaimsContent())['hero_eyebrow'] ?? '' }}"></div>
+                            <div class="form-group full"><label class="form-label">Hero Title</label><input type="text" name="hero_title" class="form-input" value="{{ App\Models\PageContent::getForPage('claims', App\Http\Controllers\AdminController::getDefaultClaimsContent())['hero_title'] ?? '' }}"></div>
+                            <div class="form-group full"><label class="form-label">Hero Subtitle</label><textarea name="hero_subtitle" class="form-textarea" rows="2">{{ App\Models\PageContent::getForPage('claims', App\Http\Controllers\AdminController::getDefaultClaimsContent())['hero_subtitle'] ?? '' }}</textarea></div>
+                            <div class="form-group full"><label class="form-label">Hero Image Upload</label><input type="file" name="hero_image_file" class="form-input"></div>
+                        </div></div></div>
+                    </form>
+                </div>
+
+                <!-- NEW TAB: PAYMENT CMS -->
+                <div class="tab-pane" id="tab-payment-cms">
+                    <form id="paymentCmsForm" enctype="multipart/form-data" method="POST" action="{{ route('admin.payment.update') }}">
+                        @csrf
+                        <div class="view-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                            <div class="view-title-group">
+                                <h1>Payment Page Content Editor</h1>
+                                <p>Edit and publish the hero section of the Make a Payment page.</p>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <a href="{{ route('payment') }}" target="_blank" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: var(--radius-md); font-weight: 600;">View Live Page</a>
+                                <button type="submit" class="btn-primary-action" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;">Publish Changes Live</button>
+                            </div>
+                        </div>
+                        <div class="card"><div class="card-body"><div class="form-grid">
+                            <div class="form-group full"><label class="form-label">Hero Eyebrow</label><input type="text" name="hero_eyebrow" class="form-input" value="{{ App\Models\PageContent::getForPage('payment', App\Http\Controllers\AdminController::getDefaultPaymentContent())['hero_eyebrow'] ?? '' }}"></div>
+                            <div class="form-group full"><label class="form-label">Hero Title</label><input type="text" name="hero_title" class="form-input" value="{{ App\Models\PageContent::getForPage('payment', App\Http\Controllers\AdminController::getDefaultPaymentContent())['hero_title'] ?? '' }}"></div>
+                            <div class="form-group full"><label class="form-label">Hero Subtitle</label><textarea name="hero_subtitle" class="form-textarea" rows="2">{{ App\Models\PageContent::getForPage('payment', App\Http\Controllers\AdminController::getDefaultPaymentContent())['hero_subtitle'] ?? '' }}</textarea></div>
+                            <div class="form-group full"><label class="form-label">Hero Image Upload</label><input type="file" name="hero_image_file" class="form-input"></div>
+                        </div></div></div>
+                    </form>
+                </div>
+
+                <!-- NEW TAB: CONTACT CMS -->
+                <div class="tab-pane" id="tab-contact-cms">
+                    <form id="contactCmsForm" enctype="multipart/form-data" method="POST" action="{{ route('admin.contact.update') }}">
+                        @csrf
+                        <div class="view-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                            <div class="view-title-group">
+                                <h1>Contact Page Content Editor</h1>
+                                <p>Edit and publish the hero section of the Contact page.</p>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <a href="{{ route('contact') }}" target="_blank" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: var(--radius-md); font-weight: 600;">View Live Page</a>
+                                <button type="submit" class="btn-primary-action" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;">Publish Changes Live</button>
+                            </div>
+                        </div>
+                        <div class="card"><div class="card-body"><div class="form-grid">
+                            <div class="form-group full"><label class="form-label">Hero Eyebrow</label><input type="text" name="hero_eyebrow" class="form-input" value="{{ App\Models\PageContent::getForPage('contact', App\Http\Controllers\AdminController::getDefaultContactContent())['hero_eyebrow'] ?? '' }}"></div>
+                            <div class="form-group full"><label class="form-label">Hero Title</label><input type="text" name="hero_title" class="form-input" value="{{ App\Models\PageContent::getForPage('contact', App\Http\Controllers\AdminController::getDefaultContactContent())['hero_title'] ?? '' }}"></div>
+                            <div class="form-group full"><label class="form-label">Hero Subtitle</label><textarea name="hero_subtitle" class="form-textarea" rows="2">{{ App\Models\PageContent::getForPage('contact', App\Http\Controllers\AdminController::getDefaultContactContent())['hero_subtitle'] ?? '' }}</textarea></div>
+                            <div class="form-group full"><label class="form-label">Hero Image Upload</label><input type="file" name="hero_image_file" class="form-input"></div>
+                        </div></div></div>
                     </form>
                 </div>
 
@@ -2516,24 +4459,24 @@
                                     @foreach($invoices as $inv)
                                     <tr data-status="{{ $inv->status }}" id="invoice-row-{{ $inv->id }}">
                                         <td>
-                                            <strong style="color: var(--sb-blue-600); font-family: var(--font-mono); font-size: 0.875rem;">{{ $inv->invoice_number }}</strong>
+                                            <strong style="color: var(--sb-blue-600); font-family: var(--font-mono); font-size: 1rem;">{{ $inv->invoice_number }}</strong>
                                         </td>
                                         <td>
                                             <div style="font-weight: 700; color: var(--text-primary);">{{ $inv->customer_name }}</div>
-                                            <div style="font-size: 0.75rem; color: var(--text-muted);">{{ $inv->customer_email }}</div>
+                                            <div style="font-size: 0.875rem; color: var(--text-muted);">{{ $inv->customer_email }}</div>
                                         </td>
                                         <td>
-                                            <span class="badge" style="background: var(--bg-surface-secondary); color: var(--text-secondary); border: 1px solid var(--border-subtle); padding: 2px 8px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">
+                                            <span class="badge" style="background: var(--bg-surface-secondary); color: var(--text-secondary); border: 1px solid var(--border-subtle); padding: 2px 8px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;">
                                                 {{ $inv->policy_number ?: 'N/A' }}
                                             </span>
                                         </td>
                                         <td>
-                                            <span style="color: {{ $inv->status === 'overdue' ? 'var(--sb-rose-600)' : 'var(--text-secondary)' }}; font-weight: {{ $inv->status === 'overdue' ? '700' : '500' }}; font-size: 0.8125rem;">
+                                            <span style="color: {{ $inv->status === 'overdue' ? 'var(--sb-rose-600)' : 'var(--text-secondary)' }}; font-weight: {{ $inv->status === 'overdue' ? '700' : '500' }}; font-size: 0.9375rem;">
                                                 {{ \Carbon\Carbon::parse($inv->due_date)->format('M d, Y') }}
                                             </span>
                                         </td>
                                         <td>
-                                            <strong style="font-size: 0.9375rem; color: var(--text-primary);">${{ number_format($inv->total_amount, 2) }}</strong>
+                                            <strong style="font-size: 1.0625rem; color: var(--text-primary);">${{ number_format($inv->total_amount, 2) }}</strong>
                                         </td>
                                         <td>
                                             @if($inv->status === 'paid')
@@ -2547,25 +4490,25 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <span style="font-size: 0.75rem; color: var(--text-secondary);">{{ $inv->payment_method ?: 'Unpaid' }}</span>
+                                            <span style="font-size: 0.875rem; color: var(--text-secondary);">{{ $inv->payment_method ?: 'Unpaid' }}</span>
                                         </td>
                                         <td style="text-align: right;">
                                             <div style="display: inline-flex; gap: 6px; align-items: center; justify-content: flex-end;">
-                                                <button onclick='viewInvoice(@json($inv))' class="btn-secondary" style="height: 30px; padding: 0 10px; font-size: 0.75rem;">
+                                                <button onclick='viewInvoice(@json($inv))' class="btn-secondary" style="height: 30px; padding: 0 10px; font-size: 0.875rem;">
                                                     View / Print
                                                 </button>
 
                                                 @if($inv->status !== 'paid')
-                                                    <button onclick='openPayInvoiceModal(@json($inv))' class="btn-primary-action" style="height: 30px; padding: 0 10px; font-size: 0.75rem; background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                                                    <button onclick='openPayInvoiceModal(@json($inv))' class="btn-primary-action" style="height: 30px; padding: 0 10px; font-size: 0.875rem; background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
                                                         Pay Now
                                                     </button>
                                                 @endif
 
-                                                <button onclick="sendInvoiceEmail({{ $inv->id }})" class="btn-secondary" style="height: 30px; padding: 0 8px; font-size: 0.75rem;" title="Send Email Invoice">
+                                                <button onclick="sendInvoiceEmail({{ $inv->id }})" class="btn-secondary" style="height: 30px; padding: 0 8px; font-size: 0.875rem;" title="Send Email Invoice">
                                                     ✉
                                                 </button>
 
-                                                <select onchange="changeInvoiceStatus({{ $inv->id }}, this.value)" style="background: var(--bg-surface); color: var(--text-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 4px; font-size: 0.75rem; height: 30px;">
+                                                <select onchange="changeInvoiceStatus({{ $inv->id }}, this.value)" style="background: var(--bg-surface); color: var(--text-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 4px; font-size: 0.875rem; height: 30px;">
                                                     <option value="">Status...</option>
                                                     <option value="paid">Mark Paid</option>
                                                     <option value="pending">Mark Pending</option>
@@ -2611,18 +4554,18 @@
                                     </div>
                                     <div>
                                         <div style="display: flex; align-items: center; gap: 10px;">
-                                            <h3 style="margin: 0; color: #ffffff; font-size: 1.05rem; font-weight: 700;">{{ $claimsApiConfig['provider'] ?? 'Mitchell / Guidewire ClaimCenter API' }}</h3>
-                                            <span id="claimsApiStatusBadge" class="status-pill converted" style="font-size: 0.6875rem;">● Active Gateway Connected</span>
+                                            <h3 style="margin: 0; color: #ffffff; font-size: 1.175rem; font-weight: 700;">{{ $claimsApiConfig['provider'] ?? 'Mitchell / Guidewire ClaimCenter API' }}</h3>
+                                            <span id="claimsApiStatusBadge" class="status-pill converted" style="font-size: 0.8125rem;">● Active Gateway Connected</span>
                                         </div>
-                                        <div style="color: #94a3b8; font-size: 0.8125rem; margin-top: 4px;">
+                                        <div style="color: #94a3b8; font-size: 0.9375rem; margin-top: 4px;">
                                             Webhook Endpoint: <code style="color: #38bdf8; background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono);">{{ $claimsApiConfig['webhook_url'] ?? 'http://127.0.0.1:8000/api/v1/claims/webhook' }}</code>
                                         </div>
                                     </div>
                                 </div>
-                                <div style="display: flex; gap: 28px; font-size: 0.8125rem;">
-                                    <div><small style="color: #64748b; display: block; font-weight: 700;">LATENCY</small><strong id="claimsApiLatency" style="color: #34d399; font-size: 1rem;">42ms</strong></div>
-                                    <div><small style="color: #64748b; display: block; font-weight: 700;">ENVIRONMENT</small><strong style="color: #fbbf24; text-transform: uppercase; font-size: 1rem;">{{ $claimsApiConfig['environment'] ?? 'PRODUCTION' }}</strong></div>
-                                    <div><small style="color: #64748b; display: block; font-weight: 700;">AUTO-LIMIT</small><strong style="color: #38bdf8; font-size: 1rem;">${{ number_format($claimsApiConfig['auto_approve_limit'] ?? 2500) }} USD</strong></div>
+                                <div style="display: flex; gap: 28px; font-size: 0.9375rem;">
+                                    <div><small style="color: #64748b; display: block; font-weight: 700;">LATENCY</small><strong id="claimsApiLatency" style="color: #34d399; font-size: 1.125rem;">42ms</strong></div>
+                                    <div><small style="color: #64748b; display: block; font-weight: 700;">ENVIRONMENT</small><strong style="color: #fbbf24; text-transform: uppercase; font-size: 1.125rem;">{{ $claimsApiConfig['environment'] ?? 'PRODUCTION' }}</strong></div>
+                                    <div><small style="color: #64748b; display: block; font-weight: 700;">AUTO-LIMIT</small><strong style="color: #38bdf8; font-size: 1.125rem;">${{ number_format($claimsApiConfig['auto_approve_limit'] ?? 2500) }} USD</strong></div>
                                 </div>
                             </div>
                         </div>
@@ -2635,11 +4578,11 @@
                                 <div class="form-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
                                     <div style="grid-column: span 2; display: flex; align-items: center; gap: 12px; background: var(--bg-surface-secondary); padding: 14px; border-radius: var(--radius-md);">
                                         <input type="checkbox" id="claims_enabled" name="enabled" value="1" {{ ($claimsApiConfig['enabled'] ?? true) ? 'checked' : '' }} style="width: 18px; height: 18px; accent-color: var(--sb-emerald-600);">
-                                        <label for="claims_enabled" style="margin: 0; cursor: pointer; font-size: 0.9375rem; font-weight: 700; color: var(--text-primary);">Enable Automated Claims API Gateway Synchronization</label>
+                                        <label for="claims_enabled" style="margin: 0; cursor: pointer; font-size: 1.0625rem; font-weight: 700; color: var(--text-primary);">Enable Automated Claims API Gateway Synchronization</label>
                                     </div>
 
                                     <div>
-                                        <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Claims Provider / Gateway Platform</label>
+                                        <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Claims Provider / Gateway Platform</label>
                                         <select name="provider" class="table-search-input" style="width: 100%; height: 40px;">
                                             <option value="Mitchell / Guidewire ClaimCenter API" {{ ($claimsApiConfig['provider'] ?? '') == 'Mitchell / Guidewire ClaimCenter API' ? 'selected' : '' }}>Mitchell / Guidewire ClaimCenter API</option>
                                             <option value="CCC Intelligent Solutions Claims API" {{ ($claimsApiConfig['provider'] ?? '') == 'CCC Intelligent Solutions Claims API' ? 'selected' : '' }}>CCC Intelligent Solutions Claims API</option>
@@ -2649,7 +4592,7 @@
                                     </div>
 
                                     <div>
-                                        <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Environment Mode</label>
+                                        <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Environment Mode</label>
                                         <select name="environment" class="table-search-input" style="width: 100%; height: 40px;">
                                             <option value="production" {{ ($claimsApiConfig['environment'] ?? '') == 'production' ? 'selected' : '' }}>Production (Live Carrier Gateway)</option>
                                             <option value="sandbox" {{ ($claimsApiConfig['environment'] ?? '') == 'sandbox' ? 'selected' : '' }}>Sandbox (Developer Testing)</option>
@@ -2657,27 +4600,27 @@
                                     </div>
 
                                     <div style="grid-column: span 2;">
-                                        <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">REST API Endpoint URL</label>
+                                        <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">REST API Endpoint URL</label>
                                         <input type="text" name="endpoint_url" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $claimsApiConfig['endpoint_url'] ?? 'https://api.claims-gateway.surebound.com/v2' }}">
                                     </div>
 
                                     <div>
-                                        <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">API Access Key / Bearer Token</label>
+                                        <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">API Access Key / Bearer Token</label>
                                         <input type="password" name="api_key" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $claimsApiConfig['api_key'] ?? 'sb_claims_live_981a4b7f9204812d8a' }}">
                                     </div>
 
                                     <div>
-                                        <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Webhook Listener Callback URL</label>
+                                        <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Webhook Listener Callback URL</label>
                                         <input type="text" name="webhook_url" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $claimsApiConfig['webhook_url'] ?? 'http://127.0.0.1:8000/api/v1/claims/webhook' }}">
                                     </div>
 
                                     <div>
-                                        <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Webhook HMAC Signature Secret</label>
+                                        <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Webhook HMAC Signature Secret</label>
                                         <input type="password" name="webhook_secret" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $claimsApiConfig['webhook_secret'] ?? 'whsec_claims_84920194810294' }}">
                                     </div>
 
                                     <div>
-                                        <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Sync Frequency</label>
+                                        <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Sync Frequency</label>
                                         <select name="sync_frequency" class="table-search-input" style="width: 100%; height: 40px;">
                                             <option value="realtime" {{ ($claimsApiConfig['sync_frequency'] ?? '') == 'realtime' ? 'selected' : '' }}>Real-time Instant Webhook (Recommended)</option>
                                             <option value="5min" {{ ($claimsApiConfig['sync_frequency'] ?? '') == '5min' ? 'selected' : '' }}>Every 5 Minutes</option>
@@ -2686,9 +4629,9 @@
                                     </div>
 
                                     <div style="grid-column: span 2;">
-                                        <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Auto-Approval Loss Threshold ($ USD)</label>
+                                        <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Auto-Approval Loss Threshold ($ USD)</label>
                                         <input type="number" name="auto_approve_limit" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $claimsApiConfig['auto_approve_limit'] ?? 2500 }}" step="100">
-                                        <small style="color: var(--text-muted); display: block; margin-top: 4px; font-size: 0.75rem;">Claims with estimated losses at or below this amount will automatically trigger electronic settlement dispatch via API.</small>
+                                        <small style="color: var(--text-muted); display: block; margin-top: 4px; font-size: 0.875rem;">Claims with estimated losses at or below this amount will automatically trigger electronic settlement dispatch via API.</small>
                                     </div>
                                 </div>
                             </div>
@@ -2720,21 +4663,21 @@
                             <div class="card-body">
                                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: flex-end;">
                                     <div>
-                                        <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Operating Currency</label>
+                                        <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Operating Currency</label>
                                         <select name="currency" class="table-search-input" style="width: 100%; height: 40px;" readonly>
                                             <option value="USD" selected>USD ($) – United States Dollar</option>
                                         </select>
                                     </div>
                                     <div style="display: flex; align-items: center; gap: 8px; height: 40px;">
                                         <input type="checkbox" id="surcharge_enabled" name="surcharge_enabled" value="1" {{ ($paymentGeneralConfig['surcharge_enabled'] ?? false) ? 'checked' : '' }} style="width: 18px; height: 18px; accent-color: var(--sb-emerald-600);">
-                                        <label for="surcharge_enabled" style="margin: 0; cursor: pointer; font-size: 0.8125rem; font-weight: 600; color: var(--text-primary);">Enable Card Processing Surcharge Fee</label>
+                                        <label for="surcharge_enabled" style="margin: 0; cursor: pointer; font-size: 0.9375rem; font-weight: 600; color: var(--text-primary);">Enable Card Processing Surcharge Fee</label>
                                     </div>
                                     <div>
-                                        <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Card Surcharge %</label>
+                                        <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Card Surcharge %</label>
                                         <input type="number" name="surcharge_pct" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $paymentGeneralConfig['surcharge_pct'] ?? 2.9 }}" step="0.1">
                                     </div>
                                     <div>
-                                        <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Card Surcharge Flat Fee ($ USD)</label>
+                                        <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Card Surcharge Flat Fee ($ USD)</label>
                                         <input type="number" name="surcharge_flat" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $paymentGeneralConfig['surcharge_flat'] ?? 0.30 }}" step="0.05">
                                     </div>
                                 </div>
@@ -2746,45 +4689,45 @@
                             <div class="card" style="border-top: 3px solid var(--sb-blue-500);">
                                 <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                                     <div style="display: flex; align-items: center; gap: 12px;">
-                                        <div style="background: var(--sb-blue-50); color: var(--sb-blue-600); width: 38px; height: 38px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem;">S</div>
+                                        <div style="background: var(--sb-blue-50); color: var(--sb-blue-600); width: 38px; height: 38px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.125rem;">S</div>
                                         <div>
-                                            <h3 style="margin: 0; font-size: 1rem; color: var(--text-primary); font-weight: 700;">Stripe &amp; Digital Wallets (Credit / Debit / Apple Pay / Google Pay)</h3>
+                                            <h3 style="margin: 0; font-size: 1.125rem; color: var(--text-primary); font-weight: 700;">Stripe &amp; Digital Wallets (Credit / Debit / Apple Pay / Google Pay)</h3>
                                             <small style="color: var(--text-muted);">Accept Visa, Mastercard, American Express, Discover, Apple Pay, &amp; Google Pay in USD</small>
                                         </div>
                                     </div>
                                     <div style="display: flex; align-items: center; gap: 8px;">
                                         <input type="checkbox" id="stripe_enabled" name="stripe_enabled" value="1" {{ ($stripeConfig['enabled'] ?? true) ? 'checked' : '' }} style="width: 18px; height: 18px; accent-color: var(--sb-blue-600);">
-                                        <label for="stripe_enabled" style="color: var(--text-primary); font-weight: 700; cursor: pointer; font-size: 0.875rem;">Enabled</label>
+                                        <label for="stripe_enabled" style="color: var(--text-primary); font-weight: 700; cursor: pointer; font-size: 1rem;">Enabled</label>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
                                         <div>
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Stripe Environment Mode</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Stripe Environment Mode</label>
                                             <select name="stripe_env" class="table-search-input" style="width: 100%; height: 40px;">
                                                 <option value="live" {{ ($stripeConfig['environment'] ?? '') == 'live' ? 'selected' : '' }}>Live (Production Gateway)</option>
                                                 <option value="test" {{ ($stripeConfig['environment'] ?? '') == 'test' ? 'selected' : '' }}>Test (Sandbox Keys)</option>
                                             </select>
                                         </div>
                                         <div>
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Stripe Publishable Key</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Stripe Publishable Key</label>
                                             <input type="text" name="stripe_pub_key" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $stripeConfig['publishable_key'] ?? '' }}">
                                         </div>
                                         <div style="grid-column: span 2;">
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Stripe Secret Key</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Stripe Secret Key</label>
                                             <input type="password" name="stripe_secret_key" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $stripeConfig['secret_key'] ?? '' }}">
                                         </div>
                                         <div style="grid-column: span 2;">
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Stripe Webhook Signing Secret (whsec_...)</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Stripe Webhook Signing Secret (whsec_...)</label>
                                             <input type="password" name="stripe_webhook_secret" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $stripeConfig['webhook_secret'] ?? '' }}">
                                         </div>
                                         <div style="display: flex; align-items: center; gap: 8px;">
                                             <input type="checkbox" id="stripe_apple_pay" name="stripe_apple_pay" value="1" {{ ($stripeConfig['accept_apple_pay'] ?? true) ? 'checked' : '' }} style="width: 16px; height: 16px; accent-color: var(--sb-blue-600);">
-                                            <label for="stripe_apple_pay" style="margin: 0; cursor: pointer; font-size: 0.8125rem; font-weight: 600; color: var(--text-primary);">Enable Apple Pay One-Touch Checkout</label>
+                                            <label for="stripe_apple_pay" style="margin: 0; cursor: pointer; font-size: 0.9375rem; font-weight: 600; color: var(--text-primary);">Enable Apple Pay One-Touch Checkout</label>
                                         </div>
                                         <div style="display: flex; align-items: center; gap: 8px;">
                                             <input type="checkbox" id="stripe_google_pay" name="stripe_google_pay" value="1" {{ ($stripeConfig['accept_google_pay'] ?? true) ? 'checked' : '' }} style="width: 16px; height: 16px; accent-color: var(--sb-blue-600);">
-                                            <label for="stripe_google_pay" style="margin: 0; cursor: pointer; font-size: 0.8125rem; font-weight: 600; color: var(--text-primary);">Enable Google Pay One-Tap Checkout</label>
+                                            <label for="stripe_google_pay" style="margin: 0; cursor: pointer; font-size: 0.9375rem; font-weight: 600; color: var(--text-primary);">Enable Google Pay One-Tap Checkout</label>
                                         </div>
                                     </div>
                                 </div>
@@ -2794,30 +4737,30 @@
                             <div class="card" style="border-top: 3px solid var(--sb-emerald-500);">
                                 <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                                     <div style="display: flex; align-items: center; gap: 12px;">
-                                        <div style="background: var(--sb-emerald-50); color: var(--sb-emerald-600); width: 38px; height: 38px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.875rem;">ACH</div>
+                                        <div style="background: var(--sb-emerald-50); color: var(--sb-emerald-600); width: 38px; height: 38px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem;">ACH</div>
                                         <div>
-                                            <h3 style="margin: 0; font-size: 1rem; color: var(--text-primary); font-weight: 700;">Plaid &amp; NACHA ACH Direct Debit (US Bank Transfer)</h3>
+                                            <h3 style="margin: 0; font-size: 1.125rem; color: var(--text-primary); font-weight: 700;">Plaid &amp; NACHA ACH Direct Debit (US Bank Transfer)</h3>
                                             <small style="color: var(--text-muted);">Direct checking/savings account bank debits with zero credit card fees</small>
                                         </div>
                                     </div>
                                     <div style="display: flex; align-items: center; gap: 8px;">
                                         <input type="checkbox" id="plaid_enabled" name="plaid_enabled" value="1" {{ ($plaidConfig['enabled'] ?? true) ? 'checked' : '' }} style="width: 18px; height: 18px; accent-color: var(--sb-emerald-600);">
-                                        <label for="plaid_enabled" style="color: var(--text-primary); font-weight: 700; cursor: pointer; font-size: 0.875rem;">Enabled</label>
+                                        <label for="plaid_enabled" style="color: var(--text-primary); font-weight: 700; cursor: pointer; font-size: 1rem;">Enabled</label>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
                                         <div>
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Plaid Client ID</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Plaid Client ID</label>
                                             <input type="text" name="plaid_client_id" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $plaidConfig['client_id'] ?? '' }}">
                                         </div>
                                         <div>
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Plaid Secret Key</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Plaid Secret Key</label>
                                             <input type="password" name="plaid_secret_key" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $plaidConfig['secret_key'] ?? '' }}">
                                         </div>
                                         <div style="grid-column: span 2; display: flex; align-items: center; gap: 8px;">
                                             <input type="checkbox" id="plaid_same_day" name="plaid_same_day" value="1" {{ ($plaidConfig['same_day_ach'] ?? true) ? 'checked' : '' }} style="width: 16px; height: 16px; accent-color: var(--sb-emerald-600);">
-                                            <label for="plaid_same_day" style="margin: 0; cursor: pointer; font-size: 0.8125rem; font-weight: 600; color: var(--text-primary);">Enable Same-Day ACH Express Settlement</label>
+                                            <label for="plaid_same_day" style="margin: 0; cursor: pointer; font-size: 0.9375rem; font-weight: 600; color: var(--text-primary);">Enable Same-Day ACH Express Settlement</label>
                                         </div>
                                     </div>
                                 </div>
@@ -2827,25 +4770,25 @@
                             <div class="card" style="border-top: 3px solid var(--sb-amber-500);">
                                 <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                                     <div style="display: flex; align-items: center; gap: 12px;">
-                                        <div style="background: var(--sb-amber-50); color: var(--sb-amber-600); width: 38px; height: 38px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.75rem;">A.N</div>
+                                        <div style="background: var(--sb-amber-50); color: var(--sb-amber-600); width: 38px; height: 38px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.875rem;">A.N</div>
                                         <div>
-                                            <h3 style="margin: 0; font-size: 1rem; color: var(--text-primary); font-weight: 700;">Authorize.Net US Merchant Gateway</h3>
+                                            <h3 style="margin: 0; font-size: 1.125rem; color: var(--text-primary); font-weight: 700;">Authorize.Net US Merchant Gateway</h3>
                                             <small style="color: var(--text-muted);">Legacy US enterprise card processing gateway for insurance agencies</small>
                                         </div>
                                     </div>
                                     <div style="display: flex; align-items: center; gap: 8px;">
                                         <input type="checkbox" id="authnet_enabled" name="authnet_enabled" value="1" {{ ($authorizeConfig['enabled'] ?? true) ? 'checked' : '' }} style="width: 18px; height: 18px; accent-color: var(--sb-amber-500);">
-                                        <label for="authnet_enabled" style="color: var(--text-primary); font-weight: 700; cursor: pointer; font-size: 0.875rem;">Enabled</label>
+                                        <label for="authnet_enabled" style="color: var(--text-primary); font-weight: 700; cursor: pointer; font-size: 1rem;">Enabled</label>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
                                         <div>
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Authorize.Net API Login ID</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Authorize.Net API Login ID</label>
                                             <input type="text" name="authnet_login_id" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $authorizeConfig['api_login_id'] ?? '' }}">
                                         </div>
                                         <div>
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Transaction Key</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Transaction Key</label>
                                             <input type="password" name="authnet_tx_key" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $authorizeConfig['transaction_key'] ?? '' }}">
                                         </div>
                                     </div>
@@ -2856,33 +4799,33 @@
                             <div class="card" style="border-top: 3px solid #0284c7;">
                                 <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                                     <div style="display: flex; align-items: center; gap: 12px;">
-                                        <div style="background: #e0f2fe; color: #0284c7; width: 38px; height: 38px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.75rem;">FED</div>
+                                        <div style="background: #e0f2fe; color: #0284c7; width: 38px; height: 38px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.875rem;">FED</div>
                                         <div>
-                                            <h3 style="margin: 0; font-size: 1rem; color: var(--text-primary); font-weight: 700;">FedNow &amp; US Wire Transfer / Real-Time Payments (RTP)</h3>
+                                            <h3 style="margin: 0; font-size: 1.125rem; color: var(--text-primary); font-weight: 700;">FedNow &amp; US Wire Transfer / Real-Time Payments (RTP)</h3>
                                             <small style="color: var(--text-muted);">Federal Reserve instant settlement and US bank wire instructions</small>
                                         </div>
                                     </div>
                                     <div style="display: flex; align-items: center; gap: 8px;">
                                         <input type="checkbox" id="wire_enabled" name="wire_enabled" value="1" {{ ($wireConfig['enabled'] ?? true) ? 'checked' : '' }} style="width: 18px; height: 18px; accent-color: #0284c7;">
-                                        <label for="wire_enabled" style="color: var(--text-primary); font-weight: 700; cursor: pointer; font-size: 0.875rem;">Enabled</label>
+                                        <label for="wire_enabled" style="color: var(--text-primary); font-weight: 700; cursor: pointer; font-size: 1rem;">Enabled</label>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
                                         <div>
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Depository Bank Name</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Depository Bank Name</label>
                                             <input type="text" name="wire_bank_name" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $wireConfig['bank_name'] ?? 'JPMorgan Chase Bank, N.A.' }}">
                                         </div>
                                         <div>
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">ABA Routing Number (9 Digits)</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">ABA Routing Number (9 Digits)</label>
                                             <input type="text" name="wire_routing" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $wireConfig['routing_number'] ?? '021000021' }}">
                                         </div>
                                         <div>
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Agency Operating Account #</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Agency Operating Account #</label>
                                             <input type="text" name="wire_account" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $wireConfig['account_number'] ?? '984102948120' }}">
                                         </div>
                                         <div>
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">FedNow Participant ID</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">FedNow Participant ID</label>
                                             <input type="text" name="wire_fednow_id" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $wireConfig['fednow_participant_id'] ?? 'FEDNOW-SB-89104' }}">
                                         </div>
                                     </div>
@@ -2893,25 +4836,25 @@
                             <div class="card" style="border-top: 3px solid var(--sb-purple-500);">
                                 <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                                     <div style="display: flex; align-items: center; gap: 12px;">
-                                        <div style="background: var(--sb-purple-50); color: var(--sb-purple-500); width: 38px; height: 38px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem;">K</div>
+                                        <div style="background: var(--sb-purple-50); color: var(--sb-purple-500); width: 38px; height: 38px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.125rem;">K</div>
                                         <div>
-                                            <h3 style="margin: 0; font-size: 1rem; color: var(--text-primary); font-weight: 700;">Klarna &amp; Affirm Buy Now Pay Later (Premium Financing)</h3>
+                                            <h3 style="margin: 0; font-size: 1.125rem; color: var(--text-primary); font-weight: 700;">Klarna &amp; Affirm Buy Now Pay Later (Premium Financing)</h3>
                                             <small style="color: var(--text-muted);">Allow policyholders to split premium payments into 4 interest-free installments</small>
                                         </div>
                                     </div>
                                     <div style="display: flex; align-items: center; gap: 8px;">
                                         <input type="checkbox" id="klarna_enabled" name="klarna_enabled" value="1" {{ ($bnplConfig['enabled'] ?? true) ? 'checked' : '' }} style="width: 18px; height: 18px; accent-color: var(--sb-purple-500);">
-                                        <label for="klarna_enabled" style="color: var(--text-primary); font-weight: 700; cursor: pointer; font-size: 0.875rem;">Enabled</label>
+                                        <label for="klarna_enabled" style="color: var(--text-primary); font-weight: 700; cursor: pointer; font-size: 1rem;">Enabled</label>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
                                         <div>
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Klarna US Merchant ID</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Klarna US Merchant ID</label>
                                             <input type="text" name="klarna_merchant_id" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $bnplConfig['merchant_id'] ?? '' }}">
                                         </div>
                                         <div>
-                                            <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Shared Secret Key</label>
+                                            <label class="form-label" style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Shared Secret Key</label>
                                             <input type="password" name="klarna_secret" class="table-search-input" style="width: 100%; height: 40px;" value="{{ $bnplConfig['shared_secret'] ?? '' }}">
                                         </div>
                                     </div>
@@ -2984,11 +4927,11 @@
                     <div style="margin-top: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                             <label class="form-label" style="font-weight: 700; color: #38bdf8; margin: 0;">Invoice Line Items &amp; Premium Breakdown</label>
-                            <button type="button" onclick="addInvoiceLineRow()" class="btn-secondary" style="padding: 4px 12px; font-size: 12px;">+ Add Line Item</button>
+                            <button type="button" onclick="addInvoiceLineRow()" class="btn-secondary" style="padding: 4px 12px; font-size: 14px;">+ Add Line Item</button>
                         </div>
                         <table style="width: 100%; border-collapse: collapse;" id="newInvoiceItemsTable">
                             <thead>
-                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: #94a3b8; font-size: 12px; text-align: left;">
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: #94a3b8; font-size: 14px; text-align: left;">
                                     <th style="padding: 6px;">Description</th>
                                     <th style="padding: 6px; width: 80px;">Qty</th>
                                     <th style="padding: 6px; width: 120px;">Unit Price ($)</th>
@@ -3011,7 +4954,7 @@
                                         $1,200.00
                                     </td>
                                     <td style="padding: 6px; text-align: center;">
-                                        <button type="button" onclick="removeInvoiceLineRow(this)" style="background: none; border: none; color: #fda4af; cursor: pointer; font-size: 16px;">&times;</button>
+                                        <button type="button" onclick="removeInvoiceLineRow(this)" style="background: none; border: none; color: #fda4af; cursor: pointer; font-size: 18px;">&times;</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -3020,20 +4963,20 @@
 
                     <!-- Totals Summary Box -->
                     <div style="margin-top: 16px; background: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: #cbd5e1; font-size: 14px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: #cbd5e1; font-size: 16px;">
                             <span>Subtotal:</span>
                             <strong id="invSubtotalDisplay">$1,200.00</strong>
                             <input type="hidden" name="subtotal" id="invSubtotalInput" value="1200.00">
                         </div>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: #cbd5e1; font-size: 14px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: #cbd5e1; font-size: 16px;">
                             <span>Tax / Policy Fee ($ USD):</span>
                             <input type="number" name="tax" id="invTaxInput" value="0.00" step="0.01" style="width: 100px; padding: 2px 6px; background: #1e293b; color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; text-align: right;" onchange="calcNewInvoiceTotals()">
                         </div>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: #cbd5e1; font-size: 14px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: #cbd5e1; font-size: 16px;">
                             <span>Discount ($ USD):</span>
                             <input type="number" name="discount" id="invDiscountInput" value="0.00" step="0.01" style="width: 100px; padding: 2px 6px; background: #1e293b; color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; text-align: right;" onchange="calcNewInvoiceTotals()">
                         </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); color: #f8fafc; font-size: 18px; font-weight: 800;">
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); color: #f8fafc; font-size: 20px; font-weight: 800;">
                             <span>Total Amount Due:</span>
                             <span id="invTotalDisplay" style="color: #34d399;">$1,200.00</span>
                             <input type="hidden" name="total_amount" id="invTotalInput" value="1200.00">
@@ -3064,7 +5007,7 @@
                     <span id="viewInvStatusBadge" class="badge"></span>
                 </div>
                 <div style="display: flex; gap: 8px; align-items: center;">
-                    <button type="button" onclick="printInvoiceModal()" class="btn-secondary" style="padding: 6px 14px; font-size: 13px;">
+                    <button type="button" onclick="printInvoiceModal()" class="btn-secondary" style="padding: 6px 14px; font-size: 15px;">
                         🖨 Print / PDF
                     </button>
                     <button class="modal-close" onclick="closeModal('modalViewInvoice')">&times;</button>
@@ -3075,7 +5018,7 @@
                 <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #2563eb; padding-bottom: 16px; margin-bottom: 20px;">
                     <div>
                         <img src="{{ asset('images/logo.png') }}" style="height: 36px; margin-bottom: 8px;">
-                        <div style="color: #94a3b8; font-size: 12px; line-height: 1.5;">
+                        <div style="color: #94a3b8; font-size: 14px; line-height: 1.5;">
                             Surebound Insurance Agency LLC<br>
                             1200 Fifth Avenue, Suite 2400<br>
                             Seattle, WA 98101 | (206) 555-0142<br>
@@ -3083,8 +5026,8 @@
                         </div>
                     </div>
                     <div style="text-align: right;">
-                        <h2 id="viewInvNumber" style="margin: 0; color: #38bdf8; font-family: monospace; font-size: 22px;">INV-2026-001</h2>
-                        <div style="font-size: 13px; color: #cbd5e1; margin-top: 6px;">
+                        <h2 id="viewInvNumber" style="margin: 0; color: #38bdf8; font-family: monospace; font-size: 24px;">INV-2026-001</h2>
+                        <div style="font-size: 15px; color: #cbd5e1; margin-top: 6px;">
                             <div>Issue Date: <span id="viewInvIssueDate">May 12, 2026</span></div>
                             <div>Due Date: <strong id="viewInvDueDate" style="color: #fbbf24;">Jun 12, 2026</strong></div>
                         </div>
@@ -3095,34 +5038,34 @@
                 <div style="display: flex; justify-content: space-between; margin-bottom: 24px; background: rgba(255,255,255,0.03); padding: 14px; border-radius: 8px;">
                     <div>
                         <small style="color: #64748b; font-weight: 700; text-transform: uppercase;">BILLED TO:</small>
-                        <div id="viewInvCustomerName" style="font-weight: 700; font-size: 16px; color: #f8fafc; margin-top: 2px;">Jonathan Harris</div>
-                        <div id="viewInvCustomerEmail" style="color: #38bdf8; font-size: 13px;">jharris@example.com</div>
-                        <div id="viewInvCustomerAddress" style="color: #94a3b8; font-size: 12px; margin-top: 2px;">742 Evergreen Terrace, Seattle, WA 98101</div>
+                        <div id="viewInvCustomerName" style="font-weight: 700; font-size: 18px; color: #f8fafc; margin-top: 2px;">Jonathan Harris</div>
+                        <div id="viewInvCustomerEmail" style="color: #38bdf8; font-size: 15px;">jharris@example.com</div>
+                        <div id="viewInvCustomerAddress" style="color: #94a3b8; font-size: 14px; margin-top: 2px;">742 Evergreen Terrace, Seattle, WA 98101</div>
                     </div>
                     <div style="text-align: right;">
                         <small style="color: #64748b; font-weight: 700; text-transform: uppercase;">COVERAGE POLICY:</small>
-                        <div id="viewInvPolicyNumber" style="font-weight: 700; font-size: 14px; color: #cbd5e1; margin-top: 2px;">SB-POL-98412</div>
-                        <div id="viewInvPaymentMethod" style="color: #34d399; font-size: 12px; margin-top: 4px;">Paid via Stripe</div>
+                        <div id="viewInvPolicyNumber" style="font-weight: 700; font-size: 16px; color: #cbd5e1; margin-top: 2px;">SB-POL-98412</div>
+                        <div id="viewInvPaymentMethod" style="color: #34d399; font-size: 14px; margin-top: 4px;">Paid via Stripe</div>
                     </div>
                 </div>
 
                 <!-- Line Items Table -->
                 <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
                     <thead>
-                        <tr style="background: rgba(255,255,255,0.08); color: #94a3b8; font-size: 12px; text-transform: uppercase;">
+                        <tr style="background: rgba(255,255,255,0.08); color: #94a3b8; font-size: 14px; text-transform: uppercase;">
                             <th style="padding: 10px; text-align: left;">Item Description</th>
                             <th style="padding: 10px; text-align: center;">Qty</th>
                             <th style="padding: 10px; text-align: right;">Price</th>
                             <th style="padding: 10px; text-align: right;">Amount</th>
                         </tr>
                     </thead>
-                    <tbody id="viewInvItemsBody" style="font-size: 14px; color: #e2e8f0;">
+                    <tbody id="viewInvItemsBody" style="font-size: 16px; color: #e2e8f0;">
                     </tbody>
                 </table>
 
                 <!-- Total Math Breakdown -->
                 <div style="display: flex; justify-content: flex-end;">
-                    <div style="width: 280px; font-size: 14px;">
+                    <div style="width: 280px; font-size: 16px;">
                         <div style="display: flex; justify-content: space-between; padding: 4px 0; color: #94a3b8;">
                             <span>Subtotal:</span>
                             <span id="viewInvSubtotal">$0.00</span>
@@ -3135,7 +5078,7 @@
                             <span>Discount:</span>
                             <span id="viewInvDiscount">-$0.00</span>
                         </div>
-                        <div style="display: flex; justify-content: space-between; padding: 10px 0; margin-top: 6px; border-top: 2px solid rgba(255,255,255,0.2); font-size: 18px; font-weight: 800; color: #f8fafc;">
+                        <div style="display: flex; justify-content: space-between; padding: 10px 0; margin-top: 6px; border-top: 2px solid rgba(255,255,255,0.2); font-size: 20px; font-weight: 800; color: #f8fafc;">
                             <span>Total Due ($ USD):</span>
                             <span id="viewInvTotal" style="color: #34d399;">$0.00</span>
                         </div>
@@ -3143,7 +5086,7 @@
                 </div>
 
                 <!-- Payment Remittance Notice -->
-                <div style="margin-top: 30px; padding: 14px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; border-left: 4px solid #2563eb; font-size: 12px; color: #93c5fd;">
+                <div style="margin-top: 30px; padding: 14px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; border-left: 4px solid #2563eb; font-size: 14px; color: #93c5fd;">
                     <strong>US Remittance Instructions:</strong> Payments can be remitted electronically via ACH Direct Debit (ABA #021000021), FedNow Real-Time Transfer, or online via Credit Card at <code style="color: #fff;">http://127.0.0.1:8000/admin</code>.
                 </div>
             </div>
@@ -3166,12 +5109,12 @@
                     <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 16px; border-radius: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
                         <div>
                             <small style="color: #34d399; font-weight: 700;">INVOICE TO PAY</small>
-                            <div id="payInvNumberDisplay" style="font-weight: 700; font-size: 18px; color: #f8fafc; font-family: monospace;">INV-2026-001</div>
+                            <div id="payInvNumberDisplay" style="font-weight: 700; font-size: 20px; color: #f8fafc; font-family: monospace;">INV-2026-001</div>
                             <small id="payInvCustomerDisplay" style="color: #94a3b8;">Jonathan Harris</small>
                         </div>
                         <div style="text-align: right;">
                             <small style="color: #34d399; font-weight: 700;">AMOUNT DUE</small>
-                            <div id="payInvAmountDisplay" style="font-size: 22px; font-weight: 800; color: #34d399;">$2,430.00</div>
+                            <div id="payInvAmountDisplay" style="font-size: 24px; font-weight: 800; color: #34d399;">$2,430.00</div>
                         </div>
                     </div>
 
@@ -3413,6 +5356,114 @@
             });
         }
 
+function savePropertyCms(e) {
+            e.preventDefault();
+            const btn1 = document.getElementById('savePropertyCmsBtn');
+            const btn2 = document.getElementById('savePropertyCmsBtnBottom');
+            
+            if (btn1) { btn1.innerHTML = 'Saving...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Saving...'; btn2.disabled = true; }
+
+            const form = document.getElementById('propertyCmsForm');
+            const formData = new FormData(form);
+
+            fetch('{{ route("admin.personal-coverage.update") }}', {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: Property Insurance page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Property Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Property Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Property Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Property Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveLiabilityCms(e) {
+            e.preventDefault();
+            const btn1 = document.getElementById('saveLiabilityCmsBtn');
+            const btn2 = document.getElementById('saveLiabilityCmsBtnBottom');
+            
+            if (btn1) { btn1.innerHTML = 'Saving...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Saving...'; btn2.disabled = true; }
+
+            const form = document.getElementById('liabilityCmsForm');
+            const formData = new FormData(form);
+
+            fetch('{{ route("admin.personal-coverage.update") }}', {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: Liability Insurance page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Liability Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Liability Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Liability Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Liability Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveGroupBenefitsCms(e) {
+            e.preventDefault();
+            const btn1 = document.getElementById('saveGroupBenefitsCmsBtn');
+            const btn2 = document.getElementById('saveGroupBenefitsCmsBtnBottom');
+            
+            if (btn1) { btn1.innerHTML = 'Saving...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Saving...'; btn2.disabled = true; }
+
+            const form = document.getElementById('groupBenefitsCmsForm');
+            const formData = new FormData(form);
+
+            fetch('{{ route("admin.personal-coverage.update") }}', {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: Workers Compensation page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Group Benefits Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Group Benefits Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Group Benefits Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Group Benefits Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
         function saveSpecialtyCms(e) {
             e.preventDefault();
             const form = document.getElementById('specialtyCmsForm');
@@ -3444,6 +5495,426 @@
             .catch(err => {
                 if (btn1) { btn1.innerHTML = 'Publish Specialty Changes Live'; btn1.disabled = false; }
                 if (btn2) { btn2.innerHTML = 'Publish Specialty Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveCustomQuoteCms(e) {
+            e.preventDefault();
+            const form = document.getElementById('customQuoteCmsForm');
+            const formData = new FormData(form);
+
+            const btn1 = document.getElementById('saveCustomQuoteCmsBtn');
+            const btn2 = document.getElementById('saveCustomQuoteCmsBtnBottom');
+            if (btn1) { btn1.innerHTML = 'Publishing...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Publishing...'; btn2.disabled = true; }
+
+            fetch("{{ route('admin.custom-quote.update') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: Specialty Coverage page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Specialty Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Specialty Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Specialty Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Specialty Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveCompareCms(e) {
+            e.preventDefault();
+            const form = document.getElementById('compareCmsForm');
+            const formData = new FormData(form);
+
+            const btn1 = document.getElementById('saveCompareCmsBtn');
+            const btn2 = document.getElementById('saveCompareCmsBtnBottom');
+            if (btn1) { btn1.innerHTML = 'Publishing...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Publishing...'; btn2.disabled = true; }
+
+            fetch("{{ route('admin.compare.update') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: Specialty Coverage page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Specialty Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Specialty Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Specialty Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Specialty Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveStoryCms(e) {
+            e.preventDefault();
+            const form = document.getElementById('storyCmsForm');
+            const formData = new FormData(form);
+
+            const btn1 = document.getElementById('saveStoryCmsBtn');
+            const btn2 = document.getElementById('saveStoryCmsBtnBottom');
+            if (btn1) { btn1.innerHTML = 'Publishing...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Publishing...'; btn2.disabled = true; }
+
+            fetch("{{ route('admin.story.update') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: Specialty Coverage page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Specialty Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Specialty Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Specialty Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Specialty Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveTeamCms(e) {
+            e.preventDefault();
+            const form = document.getElementById('teamCmsForm');
+            const formData = new FormData(form);
+
+            const btn1 = document.getElementById('saveTeamCmsBtn');
+            const btn2 = document.getElementById('saveTeamCmsBtnBottom');
+            if (btn1) { btn1.innerHTML = 'Publishing...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Publishing...'; btn2.disabled = true; }
+
+            fetch("{{ route('admin.team.update') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: Specialty Coverage page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Specialty Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Specialty Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Specialty Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Specialty Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveCareersCms(e) {
+            e.preventDefault();
+            const form = document.getElementById('careersCmsForm');
+            const formData = new FormData(form);
+
+            const btn1 = document.getElementById('saveCareersCmsBtn');
+            const btn2 = document.getElementById('saveCareersCmsBtnBottom');
+            if (btn1) { btn1.innerHTML = 'Publishing...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Publishing...'; btn2.disabled = true; }
+
+            fetch("{{ route('admin.careers.update') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: Specialty Coverage page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Specialty Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Specialty Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Specialty Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Specialty Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveCommunityCms(e) {
+            e.preventDefault();
+            const form = document.getElementById('communityCmsForm');
+            const formData = new FormData(form);
+
+            const btn1 = document.getElementById('saveCommunityCmsBtn');
+            const btn2 = document.getElementById('saveCommunityCmsBtnBottom');
+            if (btn1) { btn1.innerHTML = 'Publishing...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Publishing...'; btn2.disabled = true; }
+
+            fetch("{{ route('admin.community.update') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: Specialty Coverage page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Specialty Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Specialty Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Specialty Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Specialty Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveArticlesCms(e) {
+            e.preventDefault();
+            const form = document.getElementById('articlesCmsForm');
+            const formData = new FormData(form);
+
+            const btn1 = document.getElementById('saveArticlesCmsBtn');
+            const btn2 = document.getElementById('saveArticlesCmsBtnBottom');
+            if (btn1) { btn1.innerHTML = 'Publishing...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Publishing...'; btn2.disabled = true; }
+
+            fetch("{{ route('admin.articles.update') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: Specialty Coverage page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Specialty Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Specialty Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Specialty Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Specialty Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveFaqsCms(e) {
+            e.preventDefault();
+            const form = document.getElementById('faqsCmsForm');
+            const formData = new FormData(form);
+
+            const btn1 = document.getElementById('saveFaqsCmsBtn');
+            const btn2 = document.getElementById('saveFaqsCmsBtnBottom');
+            if (btn1) { btn1.innerHTML = 'Publishing...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Publishing...'; btn2.disabled = true; }
+
+            fetch("{{ route('admin.faqs.update') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: Specialty Coverage page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Specialty Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Specialty Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Specialty Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Specialty Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveGuidesCms(e) {
+            e.preventDefault();
+            const form = document.getElementById('guidesCmsForm');
+            const formData = new FormData(form);
+
+            const btn1 = document.getElementById('saveGuidesCmsBtn');
+            const btn2 = document.getElementById('saveGuidesCmsBtnBottom');
+            if (btn1) { btn1.innerHTML = 'Publishing...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Publishing...'; btn2.disabled = true; }
+
+            fetch("{{ route('admin.guides.update') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: Specialty Coverage page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Specialty Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Specialty Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Specialty Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Specialty Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveCoverageCms(e) {
+            e.preventDefault();
+            const form = document.getElementById('coverageCmsForm');
+            const formData = new FormData(form);
+
+            const btn1 = document.getElementById('saveCoverageCmsBtn');
+            const btn2 = document.getElementById('saveCoverageCmsBtnBottom');
+            if (btn1) { btn1.innerHTML = 'Publishing...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Publishing...'; btn2.disabled = true; }
+
+            fetch("{{ route('admin.coverage.update') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: All Coverage page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Coverage Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Coverage Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Coverage Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Coverage Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveCoverageCms(e) {
+            e.preventDefault();
+            const form = document.getElementById('coverageCmsForm');
+            const formData = new FormData(form);
+
+            const btn1 = document.getElementById('saveCoverageCmsBtn');
+            const btn2 = document.getElementById('saveCoverageCmsBtnBottom');
+            if (btn1) { btn1.innerHTML = 'Publishing...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Publishing...'; btn2.disabled = true; }
+
+            fetch("{{ route('admin.coverage.update') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: All Coverage page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Coverage Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Coverage Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Coverage Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Coverage Changes Live &rarr;'; btn2.disabled = false; }
+                alert('Error updating page: ' + err.message);
+            });
+        }
+
+function saveCoverageCms(e) {
+            e.preventDefault();
+            const form = document.getElementById('coverageCmsForm');
+            const formData = new FormData(form);
+
+            const btn1 = document.getElementById('saveCoverageCmsBtn');
+            const btn2 = document.getElementById('saveCoverageCmsBtnBottom');
+            if (btn1) { btn1.innerHTML = 'Publishing...'; btn1.disabled = true; }
+            if (btn2) { btn2.innerHTML = 'Publishing...'; btn2.disabled = true; }
+
+            fetch("{{ route('admin.coverage.update') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (btn1) { btn1.innerHTML = '✓ Published Live!'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = '✓ Published Live!'; btn2.disabled = false; }
+                alert('Success: All Coverage page content has been updated and published live!');
+                setTimeout(() => {
+                    if (btn1) btn1.innerHTML = 'Publish Coverage Changes Live';
+                    if (btn2) btn2.innerHTML = 'Publish Coverage Changes Live &rarr;';
+                }, 2500);
+            })
+            .catch(err => {
+                if (btn1) { btn1.innerHTML = 'Publish Coverage Changes Live'; btn1.disabled = false; }
+                if (btn2) { btn2.innerHTML = 'Publish Coverage Changes Live &rarr;'; btn2.disabled = false; }
                 alert('Error updating page: ' + err.message);
             });
         }
@@ -3589,7 +6060,7 @@
                     $150.00
                 </td>
                 <td style="padding: 6px; text-align: center;">
-                    <button type="button" onclick="removeInvoiceLineRow(this)" style="background: none; border: none; color: #fda4af; cursor: pointer; font-size: 16px;">&times;</button>
+                    <button type="button" onclick="removeInvoiceLineRow(this)" style="background: none; border: none; color: #fda4af; cursor: pointer; font-size: 18px;">&times;</button>
                 </td>
             `;
             tbody.appendChild(tr);
@@ -3814,9 +6285,77 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        // Users & Admins Directory Filtering
+        function filterUsersByRole(btn, role) {
+            document.querySelectorAll('.filter-tabs-group [data-user-filter]').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const rows = document.querySelectorAll('#usersDirectoryTableBody .user-row');
+            const searchInput = document.getElementById('usersTableSearch');
+            const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            
+            rows.forEach(row => {
+                const rowRole = row.getAttribute('data-role');
+                const roleMatches = (role === 'all' || rowRole === role);
+                const nameMatches = !query || 
+                    (row.getAttribute('data-name') && row.getAttribute('data-name').includes(query)) || 
+                    (row.getAttribute('data-email') && row.getAttribute('data-email').includes(query)) || 
+                    (row.getAttribute('data-phone') && row.getAttribute('data-phone').includes(query));
+                
+                row.style.display = (roleMatches && nameMatches) ? '' : 'none';
+            });
+        }
+
+        function filterUsersTable() {
+            const activeBtn = document.querySelector('.filter-tabs-group [data-user-filter].active');
+            const role = activeBtn ? activeBtn.getAttribute('data-user-filter') : 'all';
+            const searchInput = document.getElementById('usersTableSearch');
+            const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            
+            const rows = document.querySelectorAll('#usersDirectoryTableBody .user-row');
+            rows.forEach(row => {
+                const rowRole = row.getAttribute('data-role');
+                const roleMatches = (role === 'all' || rowRole === role);
+                const nameMatches = !query || 
+                    (row.getAttribute('data-name') && row.getAttribute('data-name').includes(query)) || 
+                    (row.getAttribute('data-email') && row.getAttribute('data-email').includes(query)) || 
+                    (row.getAttribute('data-phone') && row.getAttribute('data-phone').includes(query));
+                
+                row.style.display = (roleMatches && nameMatches) ? '' : 'none';
+            });
+        }
+
+        function exportUsersToCSV() {
+            const rows = document.querySelectorAll('#usersDirectoryTableBody tr.user-row');
+            let csv = 'ID,Name,Email,Phone,Role,Created\n';
+            rows.forEach(r => {
+                const id = r.querySelector('td:nth-child(1)')?.innerText.trim().replace('#', '') || '';
+                const name = r.getAttribute('data-name') || '';
+                const email = r.getAttribute('data-email') || '';
+                const phone = r.getAttribute('data-phone') || '';
+                const role = r.getAttribute('data-role') || '';
+                const created = r.querySelector('td:nth-child(7)')?.innerText.trim() || '';
+                csv += `"${id}","${name}","${email}","${phone}","${role}","${created}"\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'surebound_database_users.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+            function submitClaimsCms() {
+            document.getElementById('claimsCmsForm').submit();
+        }
     </script>
 
     <!-- Admin Portal Script -->
-    <script src="{{ asset('js/admin.js') }}"></script>
+    <script src="{{ asset('js/admin.js') }}">        function submitClaimsCms() {
+            document.getElementById('claimsCmsForm').submit();
+        }
+    </script>
 </body>
 </html>

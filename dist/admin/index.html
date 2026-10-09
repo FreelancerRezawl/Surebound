@@ -9,10 +9,10 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/icon.png">
     
-    <!-- Google Fonts: Plus Jakarta Sans & Lora -->
+    <!-- Google Fonts: Inter (Brand Guidelines 2026) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     
     <!-- Admin Portal Stylesheet -->
     <link rel="stylesheet" href="/css/admin.css">
@@ -73,6 +73,14 @@
                 </a>
 
                 <div class="nav-section-title">Administration</div>
+
+                <a class="sidebar-link" data-tab="users">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/>
+                    </svg>
+                    <span>All Users &amp; Admins</span>
+                    <span class="nav-badge" style="background: rgba(37, 99, 235, 0.2); color: #93c5fd;">6</span>
+                </a>
 
                 <a class="sidebar-link" data-tab="agents">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -689,11 +697,11 @@
 
                     <div class="agents-grid">
                                                                         <div class="agent-card">
-                            <div class="agent-photo" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
-                                SA
+                            <div class="agent-photo" style="background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);">
+                                MD
                             </div>
-                            <div class="agent-card-name">Sarah Jenkins</div>
-                            <div class="agent-card-role">Principal Underwriter</div>
+                            <div class="agent-card-name">Md Rezawl</div>
+                            <div class="agent-card-role">Chief Underwriter &amp; Super Admin</div>
                             <div class="agent-stats">
                                 <div class="agent-stat-item">
                                     <span class="agent-stat-value">9</span>
@@ -704,15 +712,15 @@
                                     <span class="agent-stat-label">Written Volume</span>
                                 </div>
                             </div>
-                            <a href="mailto:admin@surebound.com" class="agent-contact-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                            <a href="mailto:help.rezawl71@gmail.com" class="agent-contact-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px;">
                                 <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
                                 </svg>
-                                <span>admin@surebound.com</span>
+                                <span>help.rezawl71@gmail.com</span>
                             </a>
                         </div>
                                                 <div class="agent-card">
-                            <div class="agent-photo" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                            <div class="agent-photo" style="background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);">
                                 DA
                             </div>
                             <div class="agent-card-name">David Miller</div>
@@ -735,11 +743,11 @@
                             </a>
                         </div>
                                                 <div class="agent-card">
-                            <div class="agent-photo" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);">
-                                MD
+                            <div class="agent-photo" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                                SA
                             </div>
-                            <div class="agent-card-name">Md Rezawl</div>
-                            <div class="agent-card-role">Chief Underwriter &amp; Super Admin</div>
+                            <div class="agent-card-name">Sarah Jenkins</div>
+                            <div class="agent-card-role">Principal Underwriter</div>
                             <div class="agent-stats">
                                 <div class="agent-stat-item">
                                     <span class="agent-stat-value">9</span>
@@ -750,14 +758,580 @@
                                     <span class="agent-stat-label">Written Volume</span>
                                 </div>
                             </div>
-                            <a href="mailto:help.rezawl71@gmail.com" class="agent-contact-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                            <a href="mailto:admin@surebound.com" class="agent-contact-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px;">
                                 <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
                                 </svg>
-                                <span>help.rezawl71@gmail.com</span>
+                                <span>admin@surebound.com</span>
                             </a>
                         </div>
                                             </div>
+                </div>
+
+                <!-- ========================================================
+                     TAB: ALL USERS & ADMINS (DATABASE DIRECTORY)
+                     ======================================================== -->
+                <div class="tab-pane" id="tab-users">
+                    <div class="view-header">
+                        <div class="view-title-group">
+                            <h1>All Users &amp; Administrators</h1>
+                            <p>Complete directory of policyholders, commercial clients, brokers, and administrators stored in MySQL database.</p>
+                        </div>
+                        <div class="view-actions">
+                            <button class="btn-secondary" onclick="exportUsersToCSV()">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                                </svg>
+                                <span>Export Directory</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- KPI Metrics Grid -->
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-label">Total Accounts</span>
+                                <div class="metric-icon-wrap blue">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">6</div>
+                            <div class="metric-bottom">
+                                <span class="metric-trend up">All Registered</span>
+                                <span class="metric-context">in MySQL database</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-label">Policyholders</span>
+                                <div class="metric-icon-wrap emerald">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">3</div>
+                            <div class="metric-bottom">
+                                <span class="metric-trend up" style="background: #ecfdf5; color: #059669;">Client Portal</span>
+                                <span class="metric-context">active customers</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-label">Licensed Agents</span>
+                                <div class="metric-icon-wrap amber">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">1</div>
+                            <div class="metric-bottom">
+                                <span class="metric-trend up" style="background: #eff6ff; color: #2563eb;">Brokers</span>
+                                <span class="metric-context">quote &amp; claim handlers</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-label">Super Admins</span>
+                                <div class="metric-icon-wrap purple">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="metric-value">2</div>
+                            <div class="metric-bottom">
+                                <span class="metric-trend up" style="background: #faf5ff; color: #9333ea;">Full Access</span>
+                                <span class="metric-context">executive managers</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Directory Table Card -->
+                    <div class="card">
+                        <div class="table-filter-bar">
+                            <div class="filter-tabs">
+                                <button type="button" class="filter-tab-btn active" data-user-filter="all" onclick="filterUsersByRole(this, 'all')">
+                                    All Accounts (6)
+                                </button>
+                                <button type="button" class="filter-tab-btn" data-user-filter="user" onclick="filterUsersByRole(this, 'user')">
+                                    Customers (3)
+                                </button>
+                                <button type="button" class="filter-tab-btn" data-user-filter="agent" onclick="filterUsersByRole(this, 'agent')">
+                                    Agents (1)
+                                </button>
+                                <button type="button" class="filter-tab-btn" data-user-filter="admin" onclick="filterUsersByRole(this, 'admin')">
+                                    Admins (2)
+                                </button>
+                            </div>
+
+                            <div class="table-search-box">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+                                </svg>
+                                <input type="text" class="table-search-input" id="usersTableSearch" oninput="filterUsersTable()" placeholder="Filter by name, email, or phone...">
+                            </div>
+                        </div>
+
+                        <!-- Data Table -->
+                        <div class="table-container">
+                            <table class="data-table" id="usersDirectoryTable">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 110px;">User ID</th>
+                                        <th>Account Profile</th>
+                                        <th>Email Address</th>
+                                        <th>Phone</th>
+                                        <th>System Role</th>
+                                        <th>Portal Access</th>
+                                        <th>Registered</th>
+                                        <th style="text-align: right; width: 190px;">Role &amp; Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersDirectoryTableBody">
+                                                                                                            <tr class="user-row" data-role="user" data-name="michael chen" data-email="michael.chen@apexlogistics.com" data-phone="(509) 555-3412">
+                                        <td>
+                                            <span style="font-family: monospace; font-weight: 700; color: var(--text-secondary); white-space: nowrap;">
+                                                #USR-0006
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="user-cell">
+                                                <div class="user-cell-avatar" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                                                    MI
+                                                </div>
+                                                <div>
+                                                    <div class="user-cell-name" style="display: flex; align-items: center; gap: 6px;">
+                                                        <span>Michael Chen</span>
+                                                                                                            </div>
+                                                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1px;">
+                                                        Commercial Client
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                <a href="mailto:michael.chen@apexlogistics.com" style="color: var(--text-primary); text-decoration: none; font-weight: 500; font-size: 0.8125rem;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='var(--text-primary)'">
+                                                    michael.chen@apexlogistics.com
+                                                </a>
+                                                <button type="button" onclick="navigator.clipboard.writeText('michael.chen@apexlogistics.com'); alert('Email copied: michael.chen@apexlogistics.com');" title="Copy email address" style="background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 2px; display: inline-flex; align-items: center;">
+                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.8125rem; color: var(--text-secondary);">
+                                            (509) 555-3412
+                                        </td>
+                                        <td>
+                                            <span class="status-pill role-user">
+                                                                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                                                    Customer / User
+                                                                                            </span>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                                                                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; flex-shrink: 0;"></span>
+                                                    <span style="font-weight: 600; color: #047857; font-size: 0.75rem;">Customer Portal</span>
+                                                                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.8125rem; color: var(--text-secondary);">
+                                            Oct 07, 2026
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <div class="table-actions" style="justify-content: flex-end;">
+                                                <!-- Change Role Dropdown Form -->
+                                                <form action="/admin/users/6/role" method="POST" style="margin: 0;">
+                                                    <input type="hidden" name="_token" value="" autocomplete="off">                                                    <input type="hidden" name="_method" value="PATCH">                                                    <select name="role" class="user-role-select" onchange="if(confirm('Change role for Michael Chen to ' + this.value.toUpperCase() + '?')) { this.form.submit(); } else { this.value='user'; }">
+                                                        <option value="user" selected>User (Customer)</option>
+                                                        <option value="agent" >Agent (Broker)</option>
+                                                        <option value="admin" >Admin (Executive)</option>
+                                                    </select>
+                                                </form>
+
+                                                                                                    <form action="/admin/users/6" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete account for Michael Chen?');" style="margin: 0;">
+                                                        <input type="hidden" name="_token" value="" autocomplete="off">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="user-delete-btn" title="Delete account">
+                                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                                                            </div>
+                                        </td>
+                                    </tr>
+                                                                                                            <tr class="user-row" data-role="user" data-name="eleanor vance" data-email="eleanor.vance@gmail.com" data-phone="(206) 555-8901">
+                                        <td>
+                                            <span style="font-family: monospace; font-weight: 700; color: var(--text-secondary); white-space: nowrap;">
+                                                #USR-0005
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="user-cell">
+                                                <div class="user-cell-avatar" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                                                    EL
+                                                </div>
+                                                <div>
+                                                    <div class="user-cell-name" style="display: flex; align-items: center; gap: 6px;">
+                                                        <span>Eleanor Vance</span>
+                                                                                                            </div>
+                                                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1px;">
+                                                        Policyholder
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                <a href="mailto:eleanor.vance@gmail.com" style="color: var(--text-primary); text-decoration: none; font-weight: 500; font-size: 0.8125rem;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='var(--text-primary)'">
+                                                    eleanor.vance@gmail.com
+                                                </a>
+                                                <button type="button" onclick="navigator.clipboard.writeText('eleanor.vance@gmail.com'); alert('Email copied: eleanor.vance@gmail.com');" title="Copy email address" style="background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 2px; display: inline-flex; align-items: center;">
+                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.8125rem; color: var(--text-secondary);">
+                                            (206) 555-8901
+                                        </td>
+                                        <td>
+                                            <span class="status-pill role-user">
+                                                                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                                                    Customer / User
+                                                                                            </span>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                                                                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; flex-shrink: 0;"></span>
+                                                    <span style="font-weight: 600; color: #047857; font-size: 0.75rem;">Customer Portal</span>
+                                                                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.8125rem; color: var(--text-secondary);">
+                                            Oct 07, 2026
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <div class="table-actions" style="justify-content: flex-end;">
+                                                <!-- Change Role Dropdown Form -->
+                                                <form action="/admin/users/5/role" method="POST" style="margin: 0;">
+                                                    <input type="hidden" name="_token" value="" autocomplete="off">                                                    <input type="hidden" name="_method" value="PATCH">                                                    <select name="role" class="user-role-select" onchange="if(confirm('Change role for Eleanor Vance to ' + this.value.toUpperCase() + '?')) { this.form.submit(); } else { this.value='user'; }">
+                                                        <option value="user" selected>User (Customer)</option>
+                                                        <option value="agent" >Agent (Broker)</option>
+                                                        <option value="admin" >Admin (Executive)</option>
+                                                    </select>
+                                                </form>
+
+                                                                                                    <form action="/admin/users/5" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete account for Eleanor Vance?');" style="margin: 0;">
+                                                        <input type="hidden" name="_token" value="" autocomplete="off">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="user-delete-btn" title="Delete account">
+                                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                                                            </div>
+                                        </td>
+                                    </tr>
+                                                                                                            <tr class="user-row" data-role="user" data-name="alex reza" data-email="alex@gmail.com" data-phone="+8801771600778">
+                                        <td>
+                                            <span style="font-family: monospace; font-weight: 700; color: var(--text-secondary); white-space: nowrap;">
+                                                #USR-0004
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="user-cell">
+                                                <div class="user-cell-avatar" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                                                    AL
+                                                </div>
+                                                <div>
+                                                    <div class="user-cell-name" style="display: flex; align-items: center; gap: 6px;">
+                                                        <span>Alex Reza</span>
+                                                                                                            </div>
+                                                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1px;">
+                                                        Commercial Client
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                <a href="mailto:alex@gmail.com" style="color: var(--text-primary); text-decoration: none; font-weight: 500; font-size: 0.8125rem;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='var(--text-primary)'">
+                                                    alex@gmail.com
+                                                </a>
+                                                <button type="button" onclick="navigator.clipboard.writeText('alex@gmail.com'); alert('Email copied: alex@gmail.com');" title="Copy email address" style="background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 2px; display: inline-flex; align-items: center;">
+                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.8125rem; color: var(--text-secondary);">
+                                            +8801771600778
+                                        </td>
+                                        <td>
+                                            <span class="status-pill role-user">
+                                                                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                                                    Customer / User
+                                                                                            </span>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                                                                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; flex-shrink: 0;"></span>
+                                                    <span style="font-weight: 600; color: #047857; font-size: 0.75rem;">Customer Portal</span>
+                                                                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.8125rem; color: var(--text-secondary);">
+                                            Oct 07, 2026
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <div class="table-actions" style="justify-content: flex-end;">
+                                                <!-- Change Role Dropdown Form -->
+                                                <form action="/admin/users/4/role" method="POST" style="margin: 0;">
+                                                    <input type="hidden" name="_token" value="" autocomplete="off">                                                    <input type="hidden" name="_method" value="PATCH">                                                    <select name="role" class="user-role-select" onchange="if(confirm('Change role for Alex Reza to ' + this.value.toUpperCase() + '?')) { this.form.submit(); } else { this.value='user'; }">
+                                                        <option value="user" selected>User (Customer)</option>
+                                                        <option value="agent" >Agent (Broker)</option>
+                                                        <option value="admin" >Admin (Executive)</option>
+                                                    </select>
+                                                </form>
+
+                                                                                                    <form action="/admin/users/4" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete account for Alex Reza?');" style="margin: 0;">
+                                                        <input type="hidden" name="_token" value="" autocomplete="off">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="user-delete-btn" title="Delete account">
+                                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                                                            </div>
+                                        </td>
+                                    </tr>
+                                                                                                            <tr class="user-row" data-role="admin" data-name="md rezawl" data-email="help.rezawl71@gmail.com" data-phone="(206) 555-0142">
+                                        <td>
+                                            <span style="font-family: monospace; font-weight: 700; color: var(--text-secondary); white-space: nowrap;">
+                                                #USR-0003
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="user-cell">
+                                                <div class="user-cell-avatar" style="background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);">
+                                                    MD
+                                                </div>
+                                                <div>
+                                                    <div class="user-cell-name" style="display: flex; align-items: center; gap: 6px;">
+                                                        <span>Md Rezawl</span>
+                                                                                                            </div>
+                                                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1px;">
+                                                        Chief Underwriter &amp; Super Admin
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                <a href="mailto:help.rezawl71@gmail.com" style="color: var(--text-primary); text-decoration: none; font-weight: 500; font-size: 0.8125rem;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='var(--text-primary)'">
+                                                    help.rezawl71@gmail.com
+                                                </a>
+                                                <button type="button" onclick="navigator.clipboard.writeText('help.rezawl71@gmail.com'); alert('Email copied: help.rezawl71@gmail.com');" title="Copy email address" style="background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 2px; display: inline-flex; align-items: center;">
+                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.8125rem; color: var(--text-secondary);">
+                                            (206) 555-0142
+                                        </td>
+                                        <td>
+                                            <span class="status-pill role-admin">
+                                                                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+                                                    Super Admin
+                                                                                            </span>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                                                                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #9333ea; flex-shrink: 0;"></span>
+                                                    <span style="font-weight: 600; color: #7e22ce; font-size: 0.75rem;">Executive Admin</span>
+                                                                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.8125rem; color: var(--text-secondary);">
+                                            Oct 04, 2026
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <div class="table-actions" style="justify-content: flex-end;">
+                                                <!-- Change Role Dropdown Form -->
+                                                <form action="/admin/users/3/role" method="POST" style="margin: 0;">
+                                                    <input type="hidden" name="_token" value="" autocomplete="off">                                                    <input type="hidden" name="_method" value="PATCH">                                                    <select name="role" class="user-role-select" onchange="if(confirm('Change role for Md Rezawl to ' + this.value.toUpperCase() + '?')) { this.form.submit(); } else { this.value='admin'; }">
+                                                        <option value="user" >User (Customer)</option>
+                                                        <option value="agent" >Agent (Broker)</option>
+                                                        <option value="admin" selected>Admin (Executive)</option>
+                                                    </select>
+                                                </form>
+
+                                                                                                    <form action="/admin/users/3" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete account for Md Rezawl?');" style="margin: 0;">
+                                                        <input type="hidden" name="_token" value="" autocomplete="off">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="user-delete-btn" title="Delete account">
+                                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                                                            </div>
+                                        </td>
+                                    </tr>
+                                                                                                            <tr class="user-row" data-role="agent" data-name="david miller" data-email="dmiller@surebound.com" data-phone="(509) 555-0724">
+                                        <td>
+                                            <span style="font-family: monospace; font-weight: 700; color: var(--text-secondary); white-space: nowrap;">
+                                                #USR-0002
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="user-cell">
+                                                <div class="user-cell-avatar" style="background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);">
+                                                    DA
+                                                </div>
+                                                <div>
+                                                    <div class="user-cell-name" style="display: flex; align-items: center; gap: 6px;">
+                                                        <span>David Miller</span>
+                                                                                                            </div>
+                                                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1px;">
+                                                        Commercial Lines Broker
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                <a href="mailto:dmiller@surebound.com" style="color: var(--text-primary); text-decoration: none; font-weight: 500; font-size: 0.8125rem;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='var(--text-primary)'">
+                                                    dmiller@surebound.com
+                                                </a>
+                                                <button type="button" onclick="navigator.clipboard.writeText('dmiller@surebound.com'); alert('Email copied: dmiller@surebound.com');" title="Copy email address" style="background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 2px; display: inline-flex; align-items: center;">
+                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.8125rem; color: var(--text-secondary);">
+                                            (509) 555-0724
+                                        </td>
+                                        <td>
+                                            <span class="status-pill role-agent">
+                                                                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493"/></svg>
+                                                    Licensed Agent
+                                                                                            </span>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                                                                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #2563eb; flex-shrink: 0;"></span>
+                                                    <span style="font-weight: 600; color: #1d4ed8; font-size: 0.75rem;">Admin &amp; Claims</span>
+                                                                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.8125rem; color: var(--text-secondary);">
+                                            Oct 04, 2026
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <div class="table-actions" style="justify-content: flex-end;">
+                                                <!-- Change Role Dropdown Form -->
+                                                <form action="/admin/users/2/role" method="POST" style="margin: 0;">
+                                                    <input type="hidden" name="_token" value="" autocomplete="off">                                                    <input type="hidden" name="_method" value="PATCH">                                                    <select name="role" class="user-role-select" onchange="if(confirm('Change role for David Miller to ' + this.value.toUpperCase() + '?')) { this.form.submit(); } else { this.value='agent'; }">
+                                                        <option value="user" >User (Customer)</option>
+                                                        <option value="agent" selected>Agent (Broker)</option>
+                                                        <option value="admin" >Admin (Executive)</option>
+                                                    </select>
+                                                </form>
+
+                                                                                                    <form action="/admin/users/2" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete account for David Miller?');" style="margin: 0;">
+                                                        <input type="hidden" name="_token" value="" autocomplete="off">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="user-delete-btn" title="Delete account">
+                                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                                                            </div>
+                                        </td>
+                                    </tr>
+                                                                                                            <tr class="user-row" data-role="admin" data-name="sarah jenkins" data-email="admin@surebound.com" data-phone="(206) 555-0142">
+                                        <td>
+                                            <span style="font-family: monospace; font-weight: 700; color: var(--text-secondary); white-space: nowrap;">
+                                                #USR-0001
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="user-cell">
+                                                <div class="user-cell-avatar" style="background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);">
+                                                    SA
+                                                </div>
+                                                <div>
+                                                    <div class="user-cell-name" style="display: flex; align-items: center; gap: 6px;">
+                                                        <span>Sarah Jenkins</span>
+                                                                                                            </div>
+                                                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1px;">
+                                                        Principal Underwriter
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                <a href="mailto:admin@surebound.com" style="color: var(--text-primary); text-decoration: none; font-weight: 500; font-size: 0.8125rem;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='var(--text-primary)'">
+                                                    admin@surebound.com
+                                                </a>
+                                                <button type="button" onclick="navigator.clipboard.writeText('admin@surebound.com'); alert('Email copied: admin@surebound.com');" title="Copy email address" style="background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 2px; display: inline-flex; align-items: center;">
+                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.8125rem; color: var(--text-secondary);">
+                                            (206) 555-0142
+                                        </td>
+                                        <td>
+                                            <span class="status-pill role-admin">
+                                                                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+                                                    Super Admin
+                                                                                            </span>
+                                        </td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                                                                                                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #9333ea; flex-shrink: 0;"></span>
+                                                    <span style="font-weight: 600; color: #7e22ce; font-size: 0.75rem;">Executive Admin</span>
+                                                                                            </div>
+                                        </td>
+                                        <td style="white-space: nowrap; font-size: 0.8125rem; color: var(--text-secondary);">
+                                            Oct 04, 2026
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <div class="table-actions" style="justify-content: flex-end;">
+                                                <!-- Change Role Dropdown Form -->
+                                                <form action="/admin/users/1/role" method="POST" style="margin: 0;">
+                                                    <input type="hidden" name="_token" value="" autocomplete="off">                                                    <input type="hidden" name="_method" value="PATCH">                                                    <select name="role" class="user-role-select" onchange="if(confirm('Change role for Sarah Jenkins to ' + this.value.toUpperCase() + '?')) { this.form.submit(); } else { this.value='admin'; }">
+                                                        <option value="user" >User (Customer)</option>
+                                                        <option value="agent" >Agent (Broker)</option>
+                                                        <option value="admin" selected>Admin (Executive)</option>
+                                                    </select>
+                                                </form>
+
+                                                                                                    <form action="/admin/users/1" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete account for Sarah Jenkins?');" style="margin: 0;">
+                                                        <input type="hidden" name="_token" value="" autocomplete="off">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="user-delete-btn" title="Delete account">
+                                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="13" height="13">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                                                            </div>
+                                        </td>
+                                    </tr>
+                                                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- ========================================================
@@ -2995,15 +3569,15 @@
                                         </div>
                                         <div>
                                             <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Stripe Publishable Key</label>
-                                            <input type="text" name="stripe_pub_key" class="table-search-input" style="width: 100%; height: 40px;" value="pk_test_sample_pub_key">
+                                            <input type="text" name="stripe_pub_key" class="table-search-input" style="width: 100%; height: 40px;" value="pk_test_surebound_pub_key_sample">
                                         </div>
                                         <div style="grid-column: span 2;">
                                             <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Stripe Secret Key</label>
-                                            <input type="password" name="stripe_secret_key" class="table-search-input" style="width: 100%; height: 40px;" value="sk_test_sample_sec_key">
+                                            <input type="password" name="stripe_secret_key" class="table-search-input" style="width: 100%; height: 40px;" value="sk_test_surebound_sec_key_sample">
                                         </div>
                                         <div style="grid-column: span 2;">
                                             <label class="form-label" style="font-weight: 600; font-size: 0.8125rem; margin-bottom: 6px; display: block; color: var(--text-secondary);">Stripe Webhook Signing Secret (whsec_...)</label>
-                                            <input type="password" name="stripe_webhook_secret" class="table-search-input" style="width: 100%; height: 40px;" value="whsec_stripe_live_8910481920">
+                                            <input type="password" name="stripe_webhook_secret" class="table-search-input" style="width: 100%; height: 40px;" value="whsec_stripe_sample_key">
                                         </div>
                                         <div style="display: flex; align-items: center; gap: 8px;">
                                             <input type="checkbox" id="stripe_apple_pay" name="stripe_apple_pay" value="1" checked style="width: 16px; height: 16px; accent-color: var(--sb-blue-600);">
@@ -3204,12 +3778,12 @@
 
                         <div class="form-group">
                             <label class="form-label">Issue Date *</label>
-                            <input type="date" name="issue_date" class="form-input" required value="2026-10-06">
+                            <input type="date" name="issue_date" class="form-input" required value="2026-10-07">
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Payment Due Date *</label>
-                            <input type="date" name="due_date" class="form-input" required value="2026-11-05">
+                            <input type="date" name="due_date" class="form-input" required value="2026-11-06">
                         </div>
                     </div>
 
@@ -3534,7 +4108,7 @@
         window.__SUREBOUND_DB_QUOTES__ = [{"id":9,"quote_ref":"Q-37669","name":"alex","email":"abc@gmail.com","phone":null,"type":"home","type_label":"Homeowners","coverage":"$500,000 Standard Tier","premium":"$1440 \/ yr","location":"ZIP: 9000","zip_code":"9000","status":"new","notes":"Generated via homepage instant quote widget.","created_at":"2026-10-06T21:01:39.000000Z","updated_at":"2026-10-06T21:01:39.000000Z"},{"id":8,"quote_ref":"Q-29062","name":"Robert Downey","email":"robert@ironman.com","phone":null,"type":"auto","type_label":"Auto Insurance","coverage":"$500,000 Standard Tier","premium":"$2075 \/ yr","location":"ZIP: 98101","zip_code":"98101","status":"new","notes":"Generated via homepage instant quote widget.","created_at":"2026-10-04T18:49:40.000000Z","updated_at":"2026-10-04T18:49:40.000000Z"},{"id":7,"quote_ref":"Q-10486","name":"Cascade Roasters Co.","email":"admin@cascaderoasters.com","phone":"(206) 555-0915","type":"business","type_label":"Business BOP","coverage":"$1,500,000","premium":"$4,600 \/ yr","location":"Seattle, WA","zip_code":"98103","status":"reviewing","notes":"Coffee roasting facility and retail cafe storefront.","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T18:44:38.000000Z"},{"id":6,"quote_ref":"Q-10487","name":"Jessica Alba","email":"jessica.a@example.com","phone":"(253) 555-0633","type":"home","type_label":"Home \u0026 Flood","coverage":"$820,000 Dwelling","premium":"$3,400 \/ yr","location":"Tacoma, WA","zip_code":"98402","status":"new","notes":"Coastal property requires private flood endorsement. Fast quotation needed.","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T18:44:38.000000Z"},{"id":5,"quote_ref":"Q-10488","name":"David Miller","email":"dmiller@example.com","phone":"(509) 555-0724","type":"auto","type_label":"Auto Comprehensive","coverage":"$100,000 \/ $300,000","premium":"$920 \/ yr","location":"Spokane, WA","zip_code":"99201","status":"declined","notes":"Multiple moving violations in past 18 months, outside target risk tier.","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T18:44:38.000000Z"},{"id":4,"quote_ref":"Q-10489","name":"Apex Logistics LLC","email":"fleet@apexlogistics.io","phone":"(425) 555-0399","type":"business","type_label":"Commercial Liability","coverage":"$2,000,000 Aggregate","premium":"$5,800 \/ yr","location":"Bellevue, WA","zip_code":"98004","status":"converted","notes":"Fleet of 8 cargo vans and warehouse liability. Policy bound and active.","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T18:44:38.000000Z"},{"id":3,"quote_ref":"Q-10490","name":"Emma Watson","email":"emma.w@example.com","phone":"(415) 555-0211","type":"life","type_label":"Term Life","coverage":"$1,000,000 (20-Yr)","premium":"$840 \/ yr","location":"San Francisco, CA","zip_code":"94102","status":"reviewing","notes":"Non-smoker, 34 years old. Requesting preferred plus rating underwriting review.","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T18:44:38.000000Z"},{"id":2,"quote_ref":"Q-10491","name":"Michael Chang","email":"m.chang@example.com","phone":"(503) 555-0189","type":"home","type_label":"Homeowners","coverage":"$650,000 Dwelling","premium":"$2,180 \/ yr","location":"Portland, OR","zip_code":"97201","status":"new","notes":"Single family residence, built 2018. New roof in 2022. Bundling with auto potential.","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T18:44:38.000000Z"},{"id":1,"quote_ref":"Q-10492","name":"Sarah Jenkins","email":"sarah.j@example.com","phone":"(206) 555-0142","type":"auto","type_label":"Auto Insurance","coverage":"$250,000 \/ $500,000","premium":"$1,450 \/ yr","location":"Seattle, WA","zip_code":"98101","status":"quoted","notes":"2024 Honda CR-V Hybrid. Clean driving record. Looking for comprehensive and collision coverage.","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T18:44:38.000000Z"}];
         window.__SUREBOUND_DB_POLICIES__ = [{"id":10,"policy_number":"SB-POL-46830","holder_name":"Olympic Harbor Marina","type":"business","type_label":"Marine \u0026 Property BOP","coverage_limit":"$5,000,000","annual_premium":"$32,000 \/ yr","effective_date":"2026-10-02","renewal_date":"2027-10-02","status":"active","created_at":"2026-10-04T20:03:16.000000Z","updated_at":"2026-10-04T20:03:16.000000Z"},{"id":9,"policy_number":"SB-POL-55912","holder_name":"Cascades Timber Co.","type":"business","type_label":"Commercial Property \u0026 BOP","coverage_limit":"$4,000,000","annual_premium":"$28,500 \/ yr","effective_date":"2026-09-22","renewal_date":"2027-09-22","status":"active","created_at":"2026-10-04T20:03:16.000000Z","updated_at":"2026-10-04T20:03:16.000000Z"},{"id":8,"policy_number":"SB-POL-73910","holder_name":"Pacific Auto Express","type":"auto","type_label":"Commercial Auto","coverage_limit":"$500,000 \/ $1,000,000","annual_premium":"$14,600 \/ yr","effective_date":"2026-08-28","renewal_date":"2027-08-28","status":"active","created_at":"2026-10-04T20:03:16.000000Z","updated_at":"2026-10-04T20:03:16.000000Z"},{"id":7,"policy_number":"SB-POL-82194","holder_name":"Eleanor Vance","type":"home","type_label":"Luxury Estate Umbrella","coverage_limit":"$1,200,000","annual_premium":"$4,850 \/ yr","effective_date":"2026-08-14","renewal_date":"2027-08-14","status":"active","created_at":"2026-10-04T20:03:16.000000Z","updated_at":"2026-10-04T20:03:16.000000Z"},{"id":6,"policy_number":"SB-POL-91024","holder_name":"Apex Cargo Logistics","type":"business","type_label":"Commercial Fleet \u0026 BOP","coverage_limit":"$3,000,000","annual_premium":"$18,400 \/ yr","effective_date":"2026-07-10","renewal_date":"2027-07-10","status":"active","created_at":"2026-10-04T20:03:16.000000Z","updated_at":"2026-10-04T20:03:16.000000Z"},{"id":5,"policy_number":"SB-POL-51928","holder_name":"Linda Croft","type":"auto","type_label":"Standard Auto","coverage_limit":"$75,000 \/ $150,000","annual_premium":"$850 \/ yr","effective_date":"2026-10-04","renewal_date":"2027-10-04","status":"pending","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T20:03:16.000000Z"},{"id":4,"policy_number":"SB-POL-62019","holder_name":"TechWave Studios","type":"business","type_label":"Commercial Package \u0026 Cyber","coverage_limit":"$2,500,000","annual_premium":"$16,200 \/ yr","effective_date":"2026-09-05","renewal_date":"2027-09-05","status":"active","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T20:03:16.000000Z"},{"id":3,"policy_number":"SB-POL-73104","holder_name":"Marcus Sterling","type":"life","type_label":"Term Life 20-Yr","coverage_limit":"$1,000,000","annual_premium":"$960 \/ yr","effective_date":"2026-06-25","renewal_date":"2027-06-25","status":"active","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T20:03:16.000000Z"},{"id":2,"policy_number":"SB-POL-84920","holder_name":"Samantha Ray","type":"auto","type_label":"Auto Total Shield","coverage_limit":"$150,000 \/ $300,000","annual_premium":"$1,180 \/ yr","effective_date":"2026-06-15","renewal_date":"2027-06-15","status":"active","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T20:03:16.000000Z"},{"id":1,"policy_number":"SB-POL-98412","holder_name":"Jonathan Harris","type":"home","type_label":"Homeowners Deluxe","coverage_limit":"$750,000","annual_premium":"$2,250 \/ yr","effective_date":"2026-05-12","renewal_date":"2027-05-12","status":"active","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T20:03:16.000000Z"}];
         window.__SUREBOUND_DB_CLAIMS__ = [{"id":3,"claim_number":"CLM-2026-052","policy_number":"SB-POL-62019","claimant_name":"TechWave Studios","incident_description":"Server room water pipe leakage \u0026 equipment repair","estimated_loss":"$14,200","assigned_adjuster":"Alex Vance","priority":"High","status":"paid","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T18:44:38.000000Z"},{"id":2,"claim_number":"CLM-2026-064","policy_number":"SB-POL-84920","claimant_name":"Samantha Ray","incident_description":"Low-speed parking lot scrape \u0026 bumper crack","estimated_loss":"$1,250","assigned_adjuster":"Sarah Jenkins","priority":"Normal","status":"approved","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T18:44:38.000000Z"},{"id":1,"claim_number":"CLM-2026-081","policy_number":"SB-POL-98412","claimant_name":"Jonathan Harris","incident_description":"Severe hailstorm roof damage \u0026 exterior guttering","estimated_loss":"$8,400","assigned_adjuster":"David Miller","priority":"High","status":"reviewing","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-04T18:44:38.000000Z"}];
-        window.__SUREBOUND_DB_AGENTS__ = [{"id":1,"name":"Sarah Jenkins","email":"admin@surebound.com","email_verified_at":null,"role":"admin","title":"Principal Underwriter","phone":"(206) 555-0142","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-06T21:03:34.000000Z"},{"id":2,"name":"David Miller","email":"dmiller@surebound.com","email_verified_at":null,"role":"agent","title":"Commercial Lines Broker","phone":"(509) 555-0724","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-06T21:03:34.000000Z"},{"id":3,"name":"Md Rezawl","email":"help.rezawl71@gmail.com","email_verified_at":null,"role":"admin","title":"Chief Underwriter \u0026 Super Admin","phone":"(206) 555-0142","created_at":"2026-10-04T19:44:21.000000Z","updated_at":"2026-10-06T21:03:33.000000Z"}];
+        window.__SUREBOUND_DB_AGENTS__ = {"3":{"id":3,"name":"Md Rezawl","email":"help.rezawl71@gmail.com","email_verified_at":null,"role":"admin","title":"Chief Underwriter \u0026 Super Admin","phone":"(206) 555-0142","created_at":"2026-10-04T19:44:21.000000Z","updated_at":"2026-10-07T19:31:44.000000Z"},"4":{"id":2,"name":"David Miller","email":"dmiller@surebound.com","email_verified_at":null,"role":"agent","title":"Commercial Lines Broker","phone":"(509) 555-0724","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-07T19:31:45.000000Z"},"5":{"id":1,"name":"Sarah Jenkins","email":"admin@surebound.com","email_verified_at":null,"role":"admin","title":"Principal Underwriter","phone":"(206) 555-0142","created_at":"2026-10-04T18:44:38.000000Z","updated_at":"2026-10-07T19:31:44.000000Z"}};
         window.__CSRF_TOKEN__ = "";
 
         function saveHomeCms(e) {
@@ -4045,6 +4619,68 @@
                 }
                 reader.readAsDataURL(input.files[0]);
             }
+        }
+
+        // Users & Admins Directory Filtering
+        function filterUsersByRole(btn, role) {
+            document.querySelectorAll('.filter-tabs-group [data-user-filter]').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const rows = document.querySelectorAll('#usersDirectoryTableBody .user-row');
+            const searchInput = document.getElementById('usersTableSearch');
+            const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            
+            rows.forEach(row => {
+                const rowRole = row.getAttribute('data-role');
+                const roleMatches = (role === 'all' || rowRole === role);
+                const nameMatches = !query || 
+                    (row.getAttribute('data-name') && row.getAttribute('data-name').includes(query)) || 
+                    (row.getAttribute('data-email') && row.getAttribute('data-email').includes(query)) || 
+                    (row.getAttribute('data-phone') && row.getAttribute('data-phone').includes(query));
+                
+                row.style.display = (roleMatches && nameMatches) ? '' : 'none';
+            });
+        }
+
+        function filterUsersTable() {
+            const activeBtn = document.querySelector('.filter-tabs-group [data-user-filter].active');
+            const role = activeBtn ? activeBtn.getAttribute('data-user-filter') : 'all';
+            const searchInput = document.getElementById('usersTableSearch');
+            const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            
+            const rows = document.querySelectorAll('#usersDirectoryTableBody .user-row');
+            rows.forEach(row => {
+                const rowRole = row.getAttribute('data-role');
+                const roleMatches = (role === 'all' || rowRole === role);
+                const nameMatches = !query || 
+                    (row.getAttribute('data-name') && row.getAttribute('data-name').includes(query)) || 
+                    (row.getAttribute('data-email') && row.getAttribute('data-email').includes(query)) || 
+                    (row.getAttribute('data-phone') && row.getAttribute('data-phone').includes(query));
+                
+                row.style.display = (roleMatches && nameMatches) ? '' : 'none';
+            });
+        }
+
+        function exportUsersToCSV() {
+            const rows = document.querySelectorAll('#usersDirectoryTableBody tr.user-row');
+            let csv = 'ID,Name,Email,Phone,Role,Created\n';
+            rows.forEach(r => {
+                const id = r.querySelector('td:nth-child(1)')?.innerText.trim().replace('#', '') || '';
+                const name = r.getAttribute('data-name') || '';
+                const email = r.getAttribute('data-email') || '';
+                const phone = r.getAttribute('data-phone') || '';
+                const role = r.getAttribute('data-role') || '';
+                const created = r.querySelector('td:nth-child(7)')?.innerText.trim() || '';
+                csv += `"${id}","${name}","${email}","${phone}","${role}","${created}"\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'surebound_database_users.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         }
     </script>
 

@@ -14,7 +14,8 @@ class PageContent extends Model
     public static function getForPage(string $page, array $defaults = []): array
     {
         $stored = static::where('page', $page)->pluck('value', 'key')->all();
-        return array_merge($defaults, array_filter($stored, fn($v) => !is_null($v)));
+
+        return array_merge($defaults, array_filter($stored, fn ($v) => ! is_null($v)));
     }
 
     /**
@@ -23,7 +24,9 @@ class PageContent extends Model
     public static function setForPage(string $page, array $data): void
     {
         foreach ($data as $key => $value) {
-            if ($key === '_token' || $key === '_method') continue;
+            if ($key === '_token' || $key === '_method') {
+                continue;
+            }
             static::updateOrCreate(
                 ['page' => $page, 'key' => $key],
                 ['value' => $value]
