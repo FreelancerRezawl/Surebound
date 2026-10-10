@@ -25,7 +25,7 @@
                 <p class="hero-eyebrow">Reliable Insurance. Lasting Peace of Mind.</p>
                 <h1 class="hero-title">Protection Built<br>Around You</h1>
                 <p class="hero-subtitle">
-                    Tailored insurance solutions for your home, family, business and future — with dependable support whenever you need us.
+                    Tailored insurance solutions <br>  for your home, family, business <br>  and future — with dependable support <br>  whenever you need us.
                 </p>
                 <div class="hero-buttons">
                     <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn-primary-hero">
@@ -164,6 +164,16 @@
                     </div>
                     <span class="coverage-card-arrow">&rarr;</span>
                 </div>
+            </div>
+            
+            <!-- Carousel Dots for Mobile -->
+            <div class="coverage-pagination-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
         </div>
     </section>
@@ -457,4 +467,144 @@
         </div>
     </section>
 
+    <!-- Auto Slide Script for Articles (Mobile) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const articlesGrid = document.querySelector('.articles-grid');
+            const dots = document.querySelectorAll('.articles-pagination-dots .dot');
+            
+            if (articlesGrid && dots.length > 0) {
+                let currentIndex = 0;
+                const totalCards = dots.length;
+                let isUserInteracting = false;
+                let autoSlideInterval;
+                
+                const updateDots = (index) => {
+                    dots.forEach(d => d.classList.remove('active'));
+                    if (dots[index]) {
+                        dots[index].classList.add('active');
+                    }
+                };
+
+                const slideTo = (index) => {
+                    if (!articlesGrid) return;
+                    const cardWidth = articlesGrid.offsetWidth;
+                    articlesGrid.scrollTo({
+                        left: index * cardWidth,
+                        behavior: 'smooth'
+                    });
+                    updateDots(index);
+                };
+
+                const startAutoSlide = () => {
+                    clearInterval(autoSlideInterval);
+                    autoSlideInterval = setInterval(() => {
+                        // Only auto-slide on mobile where slider is active
+                        if (!isUserInteracting && window.innerWidth <= 768) {
+                            currentIndex = (currentIndex + 1) % totalCards;
+                            slideTo(currentIndex);
+                        }
+                    }, 3000); // 3 seconds
+                };
+
+                const stopAutoSlide = () => {
+                    clearInterval(autoSlideInterval);
+                };
+
+                // Sync dots on manual scroll
+                articlesGrid.addEventListener('scroll', () => {
+                    if (window.innerWidth <= 768) {
+                        const scrollLeft = articlesGrid.scrollLeft;
+                        const cardWidth = articlesGrid.offsetWidth;
+                        const newIndex = Math.round(scrollLeft / cardWidth);
+                        if (newIndex !== currentIndex && newIndex < totalCards) {
+                            currentIndex = newIndex;
+                            updateDots(currentIndex);
+                        }
+                    }
+                }, { passive: true });
+
+                // Pause on interaction
+                articlesGrid.addEventListener('touchstart', () => { isUserInteracting = true; stopAutoSlide(); }, {passive: true});
+                articlesGrid.addEventListener('touchend', () => { 
+                    isUserInteracting = false; 
+                    setTimeout(startAutoSlide, 3000); // Wait a bit before restarting
+                }, {passive: true});
+                
+                // Start initially
+                startAutoSlide();
+            }
+
+            // Coverage Cards Auto-scroll logic
+            const coverageGrid = document.querySelector('.coverage-cards-grid');
+            const coverageDots = document.querySelectorAll('.coverage-pagination-dots .dot');
+            
+            if (coverageGrid && coverageDots.length > 0) {
+                let covIndex = 0;
+                const totalCovCards = coverageDots.length; // 6 cards
+                let covAutoSlideInterval;
+                let covInteracting = false;
+
+                const updateCovDots = (index) => {
+                    coverageDots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                };
+
+                const slideCovTo = (index) => {
+                    const firstCard = coverageGrid.querySelector('.coverage-card');
+                    if(firstCard) {
+                        const cardWidth = firstCard.offsetWidth + 16; // width + gap
+                        coverageGrid.scrollTo({
+                            left: index * cardWidth,
+                            behavior: 'smooth'
+                        });
+                        updateCovDots(index);
+                    }
+                };
+
+                const startCovAutoSlide = () => {
+                    clearInterval(covAutoSlideInterval);
+                    covAutoSlideInterval = setInterval(() => {
+                        if (!covInteracting && window.innerWidth <= 768) {
+                            // On 50% width, max scroll index is totalCards - 2
+                            if (covIndex >= totalCovCards - 2) {
+                                covIndex = 0;
+                            } else {
+                                covIndex++;
+                            }
+                            slideCovTo(covIndex);
+                        }
+                    }, 3000);
+                };
+
+                const stopCovAutoSlide = () => {
+                    clearInterval(covAutoSlideInterval);
+                };
+
+                coverageGrid.addEventListener('scroll', () => {
+                    if (window.innerWidth <= 768) {
+                        const firstCard = coverageGrid.querySelector('.coverage-card');
+                        if (firstCard) {
+                            const scrollLeft = coverageGrid.scrollLeft;
+                            const cardWidth = firstCard.offsetWidth + 16;
+                            const newIndex = Math.round(scrollLeft / cardWidth);
+                            if (newIndex !== covIndex && newIndex < totalCovCards) {
+                                covIndex = newIndex;
+                                updateCovDots(covIndex);
+                            }
+                        }
+                    }
+                }, { passive: true });
+
+                coverageGrid.addEventListener('touchstart', () => { covInteracting = true; stopCovAutoSlide(); }, {passive: true});
+                coverageGrid.addEventListener('touchend', () => { 
+                    covInteracting = false; 
+                    setTimeout(startCovAutoSlide, 3000); 
+                }, {passive: true});
+                
+                startCovAutoSlide();
+            }
+        });
+    </script>
 @endsection

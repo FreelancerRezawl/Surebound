@@ -25,7 +25,7 @@
                 <p class="hero-eyebrow">{!! $content['hero_eyebrow'] ?? 'HOME & PROPERTY INSURANCE' !!}</p>
                 <h1 class="hero-title">{!! $content['hero_title'] ?? 'Protection Built Around<br>Your Safe Haven' !!}</h1>
                 <p class="hero-subtitle">
-                    {{ $content['hero_subtitle'] ?? 'Comprehensive homeowners insurance engineered to safeguard your structure, personal belongings, and loved ones — with dependable support whenever you need us.' }}
+                    {!! $content['hero_subtitle'] ?? 'Comprehensive homeowners insurance <br> engineered to safeguard your structure, <br> personal belongings, and loved ones — <br> with dependable support whenever you need us.' !!}
                 </p>
                 <div class="hero-buttons">
                     <a href="javascript:void(0)" onclick="openQuoteModal('Home Insurance')" class="btn-primary-hero">
@@ -158,6 +158,16 @@
                     </div>
                     <span class="coverage-card-arrow">&rarr;</span>
                 </div>
+            </div>
+            
+            <!-- Carousel Dots for Mobile -->
+            <div class="coverage-pagination-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
         </div>
     </section>
@@ -417,5 +427,65 @@
                 item.classList.add('active');
             }
         }
+
+        // Mobile slider logic for coverage-cards-grid
+        document.addEventListener('DOMContentLoaded', function() {
+            const grid = document.querySelector('.coverage-cards-grid');
+            const dots = document.querySelectorAll('.coverage-pagination-dots .dot');
+            if(!grid || dots.length === 0) return;
+
+            let isPaused = false;
+            let currentIndex = 0;
+            const totalItems = dots.length;
+
+            function updateDots(index) {
+                dots.forEach(d => d.classList.remove('active'));
+                if(dots[index]) {
+                    dots[index].classList.add('active');
+                }
+            }
+
+            function scrollToIndex(index) {
+                const firstCard = grid.querySelector('.coverage-card');
+                if (firstCard) {
+                    const cardWidth = firstCard.offsetWidth + 16; // width + gap
+                    grid.scrollTo({
+                        left: index * cardWidth,
+                        behavior: 'smooth'
+                    });
+                    updateDots(index);
+                }
+            }
+
+            grid.addEventListener('scroll', () => {
+                if(isPaused) return;
+                const firstCard = grid.querySelector('.coverage-card');
+                if (firstCard) {
+                    const cardWidth = firstCard.offsetWidth + 16;
+                    const scrollLeft = grid.scrollLeft;
+                    const index = Math.round(scrollLeft / cardWidth);
+                    if (index !== currentIndex && index <= totalItems - 2) {
+                        currentIndex = index;
+                        updateDots(currentIndex);
+                    }
+                }
+            });
+
+            grid.addEventListener('touchstart', () => { isPaused = true; }, {passive: true});
+            grid.addEventListener('touchend', () => {
+                setTimeout(() => { isPaused = false; }, 3000);
+            });
+
+            setInterval(() => {
+                if(!isPaused && window.innerWidth <= 768) {
+                    if (currentIndex >= totalItems - 2) {
+                        currentIndex = 0;
+                    } else {
+                        currentIndex++;
+                    }
+                    scrollToIndex(currentIndex);
+                }
+            }, 3000);
+        });
     </script>
 @endsection
